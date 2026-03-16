@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:help.figma.com)",
+      "WebFetch(domain:developers.figma.com)",
+      "WebSearch",
+      "mcp__figma__get_design_context"
+    ]
+  }
+}

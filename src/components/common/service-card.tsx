@@ -9,6 +9,8 @@ interface ServiceCardProps {
   description: string;
   image: string;
   className?: string;
+  active?: boolean;
+  onClick?: () => void;
 }
 
 export function ServiceCard({
@@ -16,11 +18,16 @@ export function ServiceCard({
   description,
   image,
   className,
+  active,
+  onClick,
 }: ServiceCardProps) {
   return (
     <div
+      onClick={onClick}
       className={cn(
-        "group relative aspect-[3/4] overflow-hidden rounded-2xl",
+        "group relative shrink-0 overflow-hidden rounded-2xl cursor-pointer transition-all duration-500",
+        active ? "w-70 md:w-85" : "w-45 md:w-55",
+        "h-105 md:h-125",
         className
       )}
     >

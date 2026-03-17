@@ -1,6 +1,12 @@
 import { Navbar } from "@/components/layout/navbar";
+import { Footer } from "@/components/layout/footer";
 import { HeroSection } from "@/components/sections/hero-section";
 import { ServicesSection } from "@/components/sections/services-section";
+import { AboutSection } from "@/components/sections/about-section";
+import { PortfolioSection } from "@/components/sections/portfolio-section";
+import { TeamSection } from "@/components/sections/team-section";
+import { TestimonialsSection } from "@/components/sections/testimonials-section";
+import { NewsSection } from "@/components/sections/news-section";
 
 export default function Home() {
   return (
@@ -9,7 +15,13 @@ export default function Home() {
       <main>
         <HeroSection />
         <ServicesSection />
+        <AboutSection />
+        <PortfolioSection />
+        <TeamSection />
+        <TestimonialsSection />
+        <NewsSection />
       </main>
+      <Footer />
     </>
   );
 }

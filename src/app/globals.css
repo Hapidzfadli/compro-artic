@@ -368,11 +368,11 @@
 /* === GRADIENT UTILITIES === */
 @layer utilities {
   .bg-gradient-primary {
-    background: linear-gradient(135deg, #53F2AA 0%, #21CC7D 100%);
+    background: linear-gradient(108deg, #2020D3 28%, #53F2AA 100%);
   }
 
   .bg-gradient-secondary {
-    background: linear-gradient(90.48deg, #53F2AA 0.42%, #A3FFD5 90.88%);
+    background: linear-gradient(98deg, #53F2AA 0%, #A3FFD5 100%);
   }
 
   .bg-gradient-hero {
@@ -392,5 +392,14 @@
   /* Title Gradient (for text) */
   .bg-gradient-title {
     background: linear-gradient(90deg, #53F2AA 0%, #43FFF9 100%);
+  }
+
+  /* Hide scrollbar utility */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }

@@ -13,27 +13,27 @@ const NAV_ITEMS = [
 ];
 
 const MENU_SERVICES = [
-  { id: "artic-research", title: "Artic Research", description: "Help you see what your audience really thinks, feels, and needs", image: "/assets/ui/wrapper/bg/IMG(6).png", href: "/services/artic-research" },
-  { id: "artic-data", title: "Artic Data", description: "Turn complex numbers into clear visuals and insights you can use right away", image: "/assets/ui/wrapper/bg/IMG(5).png", href: "/services/artic-data" },
-  { id: "artic-consulting", title: "Artic Consulting", description: "Shape smart strategies that actually get results for you", image: "/assets/ui/wrapper/bg/IMG(4).png", href: "/services/artic-consulting" },
-  { id: "artic-academy", title: "Artic Academy", description: "Help your team learn, think, and lead with data, practical and inspiring", image: "/assets/ui/wrapper/bg/IMG(2).png", href: "/services/artic-academy" },
-  { id: "artic-policy-lab", title: "Artic Policy Lab", description: "Experiment with new ideas & help you build policies that make a real difference", image: "/assets/ui/wrapper/bg/IMG(1).png", href: "/services/artic-policy-lab" },
-  { id: "artic-insight-hub", title: "Artic Insight Hub", description: "Open access to data, stories, and visuals that help everyone", image: "/assets/ui/wrapper/bg/IMG.png", href: "/services/artic-insight-hub" },
+  { id: "artic-research", title: "Artic Research", description: "Help you see what your audience really thinks, feels, and needs", image: "/images/wrapper-nocolor/businesswoman-networking-using-digital-devices-1.png", href: "/services/artic-research" },
+  { id: "artic-data", title: "Artic Data", description: "Turn complex numbers into clear visuals and insights you can use right away", image: "/images/wrapper-nocolor/digital-tablet-online-learning-1.png", href: "/services/artic-data" },
+  { id: "artic-consulting", title: "Artic Consulting", description: "Shape smart strategies that actually get results for you", image: "/images/wrapper-nocolor/examining-business-documents-1.png", href: "/services/artic-consulting" },
+  { id: "artic-academy", title: "Artic Academy", description: "Help your team learn, think, and lead with data, practical and inspiring", image: "/images/wrapper-nocolor/chasing-down-their-deadline-rear-view-shot-team-programmers-coding-through-night-1.png", href: "/services/artic-academy" },
+  { id: "artic-policy-lab", title: "Artic Policy Lab", description: "Experiment with new ideas & help you build policies that make a real difference", image: "/images/wrapper-nocolor/businessman-pressing-smiley-face-emoticon-virtual-touch-screen-user-give-rating-service-experience-online-application-customer-review-satisfaction-feedback-survey-concept-1.png", href: "/services/artic-policy-lab" },
+  { id: "artic-insight-hub", title: "Artic Insight Hub", description: "Open access to data, stories, and visuals that help everyone", image: "/images/wrapper-nocolor/business-concept-with-graphic-holography-11.png", href: "/services/artic-insight-hub" },
 ];
 
 function ServiceCard({ service, onClose }: { service: (typeof MENU_SERVICES)[0]; onClose: () => void }) {
   return (
-    <Link href={service.href} onClick={onClose} className="group flex flex-col gap-4 w-[259px] shrink-0">
-      <div className="flex justify-between items-center w-[240px]">
-        <span className="text-artic-grey-300 group-hover:text-artic-teal-light text-subheadline-sm whitespace-nowrap transition-colors duration-200">
+    <Link href={service.href} onClick={onClose} className="group flex flex-col gap-3 w-[180px] shrink-0">
+      <div className="flex justify-between items-center w-full">
+        <span className="text-artic-grey-300 group-hover:text-artic-teal-light text-base font-medium whitespace-nowrap transition-colors duration-200">
           {service.title}
         </span>
-        <span className="text-artic-grey-300 group-hover:text-artic-teal-light text-lg opacity-0 group-hover:opacity-100 transition-all duration-200">
+        <span className="text-artic-grey-300 group-hover:text-artic-teal-light text-sm opacity-0 group-hover:opacity-100 transition-all duration-200">
           →
         </span>
       </div>
-      <p className="text-artic-grey-300 text-body-xs">{service.description}</p>
-      <div className="h-[199px] rounded-[15px] overflow-hidden bg-artic-grey-400 relative shrink-0">
+      <p className="text-artic-grey-300 text-xs leading-relaxed">{service.description}</p>
+      <div className="h-[130px] rounded-[10px] overflow-hidden bg-artic-grey-400 relative shrink-0">
         <Image src={service.image} alt={service.title} fill className="object-cover transition-transform duration-300 group-hover:scale-105" />
       </div>
     </Link>
@@ -65,11 +65,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     <div
       onTransitionEnd={() => { if (!isOpen) setMounted(false); }}
       className={cn(
-        "fixed inset-0 z-[100] bg-artic-ebony overflow-y-auto transition-all duration-[250ms]",
-        isOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
+        "fixed inset-0 z-[100] will-change-transform transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+        isOpen ? "translate-y-0 pointer-events-auto" : "-translate-y-full pointer-events-none"
       )}
     >
-      <div className="px-27.5 py-6 min-h-screen">
+      <div className="bg-artic-ebony overflow-y-auto min-h-screen px-27.5 py-6">
         <div className="flex justify-between items-center">
           <Link href="/" onClick={onClose}>
             <Image src="/assets/Logo White.svg" alt="Artic Analytica" width={148} height={50} priority className="w-37 h-auto" />
@@ -91,10 +91,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 return (
                   <button
                     key={item.key}
-                    onClick={() => {
-                      setActiveNav(item.key);
-                      if (item.href && item.key !== "service") onClose();
-                    }}
+                    onClick={() => setActiveNav(item.key)}
                     className={cn(
                       "w-full flex items-center justify-between px-6 py-4 rounded-[10px] border-none cursor-pointer text-body-md text-left transition-all duration-200",
                       isActive ? "bg-artic-grey-400 text-artic-teal-light" : "bg-transparent text-artic-grey-200"

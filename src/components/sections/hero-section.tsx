@@ -79,13 +79,16 @@ export function HeroSection() {
             href="http://wa.me/082085641027912"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-16 w-66.75 items-center justify-center gap-2.5 rounded-[5px] bg-artic-persian text-button-md text-artic-white transition-all hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(32,32,211,0.4)]"
+            className="group relative inline-flex h-16 w-66.75 items-center justify-center gap-2.5 overflow-hidden rounded-[5px] bg-artic-persian text-button-md text-artic-white transition-[background] duration-300 hover:bg-linear-to-r hover:from-artic-persian hover:to-artic-teal-light"
           >
-            Free Consultation
+            <span className="relative size-2 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span className="absolute inset-0 rounded-full bg-artic-teal-light -translate-x-10 group-hover:translate-x-0 transition-transform duration-500 ease-out" />
+            </span>
+            <span className="transition-transform duration-500 ease-out group-hover:translate-x-2">Free Consultation</span>
           </Link>
           <Link
             href="/works"
-            className="inline-flex h-16 w-64.75 items-center justify-center rounded-[5px] bg-gradient-secondary text-button-md text-artic-ebony transition-all hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(83,242,170,0.4)]"
+            className="inline-flex h-16 w-64.75 items-center justify-center rounded-[5px] bg-gradient-secondary text-button-md text-artic-ebony transition-opacity duration-300 hover:opacity-80"
           >
             See Our Works →
           </Link>

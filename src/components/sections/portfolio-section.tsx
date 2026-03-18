@@ -3,110 +3,153 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { SectionLabel } from "@/components/common/section-label";
 import { cn } from "@/lib/utils";
+import { PrimaryButton } from "@/components/common/primary-button";
 
-const FILTERS = ["Semua", "Survei", "Polling", "Data Analytics", "Konsultasi", "Riset"];
+const FILTERS = [
+  "All Work",
+  "Artic Data",
+  "Artic Consulting",
+  "Artic Policy Lab",
+  "Artic Research",
+  "Artic Insight Hub",
+  "Artic Academy",
+  "Artic Publishing",
+];
 
 const PORTFOLIO = [
   {
     id: 1,
-    title: "Survei Kepuasan Pelanggan Bank Nasional",
-    category: "Survei",
-    image: "/assets/ui/wrapper/Wrapper(1).png",
-    year: "2024",
+    title: "Sinau Print Digital System (2024)",
+    category: "Artic Data",
+    image: "/images/slider-img/slide-3.png",
+    colorImage: "/images/slider-img/slide-3-color.png",
+    studyHref: "#",
+    pdfHref: "#",
   },
   {
     id: 2,
-    title: "Polling Opini Publik Pemilu 2024",
-    category: "Polling",
-    image: "/assets/ui/wrapper/Wrapper(2).png",
-    year: "2024",
+    title: "Youth Development Insight – Dispora Kota Semarang (2024)",
+    category: "Artic Research",
+    image: "/images/slider-img/slide-2.png",
+    colorImage: "/images/slider-img/slide-2-color.png",
+    studyHref: "#",
+    pdfHref: "#",
   },
   {
     id: 3,
-    title: "Analisis Data Pasar E-Commerce Indonesia",
-    category: "Data Analytics",
-    image: "/assets/ui/wrapper/Wrapper(3).png",
-    year: "2023",
+    title: "Citizen Satisfaction Survey – BRIDA Kota Semarang (2025)",
+    category: "Artic Research",
+    image: "/images/slider-img/slide-1.png",
+    colorImage: "/images/slider-img/slide-1-color.png",
+    studyHref: "#",
+    pdfHref: "https://drive.google.com/file/d/13AHf3GiV71cDoLZ3vK2M0fzngQfwKgl4/view?usp=sharing",
   },
 ];
 
 export function PortfolioSection() {
-  const [activeFilter, setActiveFilter] = useState("Semua");
+  const [activeFilter, setActiveFilter] = useState("All Work");
 
   const filtered =
-    activeFilter === "Semua"
+    activeFilter === "All Work"
       ? PORTFOLIO
       : PORTFOLIO.filter((p) => p.category === activeFilter);
 
   return (
-    <section className="bg-white py-24 md:py-32">
+    <section className="bg-white py-14 md:py-20">
       <Container>
-        {/* Header */}
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <SectionLabel className="text-artic-teal-dark">
-              Portfolio
-            </SectionLabel>
-            <h2 className="mt-4 max-w-2xl text-mobile-title-h2 text-artic-ebony md:text-headline-h3">
-              Merancang Solusi,{" "}
-              <span className="text-artic-persian">Membentuk Masa Depan</span>
-            </h2>
+        {/* Row 1: label + title */}
+        <div className="flex flex-col gap-6">
+          <SectionLabel className="text-artic-grey-400">OUR WORKS</SectionLabel>
+          <h2 className="text-headline-h4 text-artic-ebony">
+            Building Smart Solutions for the Future
+          </h2>
+        </div>
+
+        {/* Row 2: filters + see all button */}
+        <div className="mt-8 flex items-center justify-between gap-4">
+          <div className="flex flex-wrap items-center gap-1">
+            {FILTERS.map((filter) => (
+              <button
+                key={filter}
+                onClick={() => setActiveFilter(filter)}
+                className={cn(
+                  "rounded-[8px] px-3 py-2.5 text-[13px] font-semibold leading-none transition-all duration-200",
+                  activeFilter === filter
+                    ? "bg-gradient-secondary text-artic-ebony"
+                    : "text-artic-grey-200 hover:bg-artic-surface hover:text-artic-grey-400"
+                )}
+              >
+                {filter}
+              </button>
+            ))}
           </div>
 
-          <Link
-            href="/works"
-            className="inline-flex items-center gap-2 text-button-sm text-artic-persian transition-opacity hover:opacity-70"
-          >
-            Lihat Semua <ArrowRight className="h-4 w-4" />
-          </Link>
+          <PrimaryButton href="/works" className="h-10 w-40 rounded-xl text-[13px]">
+            See All Work →
+          </PrimaryButton>
         </div>
 
-        {/* Filters */}
-        <div className="mt-10 flex flex-wrap gap-2">
-          {FILTERS.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={cn(
-                "h-16 rounded-[5px] px-6 text-button-sm transition-all duration-200",
-                activeFilter === filter
-                  ? "bg-artic-persian text-white"
-                  : "border border-artic-grey-100 bg-white text-artic-grey-400 hover:border-artic-persian hover:text-artic-persian"
-              )}
-            >
-              {filter}
-            </button>
-          ))}
-        </div>
-
-        {/* Cards Grid */}
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Cards */}
+        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((item) => (
-            <Link
-              key={item.id}
-              href="/works"
-              className="group relative aspect-[4/3] overflow-hidden rounded-2xl"
-            >
+            <div key={item.id} className="group relative h-[370px] overflow-hidden rounded-[15px]">
+              {/* BW image — fades out on hover */}
               <Image
                 src={item.image}
                 alt={item.title}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                className="object-cover object-top transition-opacity duration-500 group-hover:opacity-0"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-artic-ebony/80 via-artic-ebony/20 to-transparent" />
-              <div className="absolute inset-0 flex flex-col justify-end p-6">
-                <span className="text-label-xs text-artic-teal-light">
-                  {item.category} · {item.year}
-                </span>
-                <h3 className="mt-2 text-subheadline-sm text-artic-white transition-transform duration-300 group-hover:-translate-y-1">
+              {/* Color image — always scale-105, fades in on hover */}
+              <Image
+                src={item.colorImage}
+                alt={item.title}
+                fill
+                className="object-cover object-top scale-105 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              />
+
+              {/* Dark overlay on hover */}
+              <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/30" />
+
+              {/* Teal-blue gradient at bottom — always visible */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(to top, rgba(19,19,127,0.88) 0%, rgba(83,242,170,0.18) 45%, transparent 70%)",
+                }}
+              />
+
+              {/* Content */}
+              <div className="absolute inset-x-0 bottom-0 p-8">
+                <h3 className="text-[22px] font-normal leading-[1.3] tracking-[-0.03em] text-white">
                   {item.title}
                 </h3>
+
+                {/* Buttons — slide up on hover */}
+                <div className="mt-4 flex translate-y-4 items-center gap-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                  <Link
+                    href={item.studyHref}
+                    onClick={(e) => e.stopPropagation()}
+                    className="flex h-[44px] w-[160px] items-center justify-center rounded-[10px] bg-gradient-secondary text-[14px] font-bold text-artic-ebony transition-opacity duration-300 hover:opacity-80"
+                  >
+                    See Study Case →
+                  </Link>
+                  <Link
+                    href={item.pdfHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="flex h-[44px] w-[140px] items-center justify-center rounded-[10px] border border-artic-grey-100 text-[14px] font-semibold text-artic-grey-100 transition-all duration-300 hover:bg-white/20"
+                  >
+                    Download PDF
+                  </Link>
+                </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </Container>

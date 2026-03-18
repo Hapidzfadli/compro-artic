@@ -7,6 +7,8 @@ import { PortfolioSection } from "@/components/sections/portfolio-section";
 import { TeamSection } from "@/components/sections/team-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { NewsSection } from "@/components/sections/news-section";
+import { HighlightSection } from "@/components/sections/highlight-section";
+import { HowWeWorkSection } from "@/components/sections/how-we-work-section";
 
 export default function Home() {
   return (
@@ -15,8 +17,9 @@ export default function Home() {
       <main>
         <HeroSection />
         <ServicesSection />
-        <AboutSection />
+        <HighlightSection />
         <PortfolioSection />
+        <HowWeWorkSection />
         <TeamSection />
         <TestimonialsSection />
         <NewsSection />

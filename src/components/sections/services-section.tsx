@@ -50,17 +50,18 @@ const SERVICES = [
   },
 ];
 
-// w-67.5 = 270px, gap-3.75 = 15px, px-27.5 = 110px, w-181 = 724px
-const INACTIVE_W = 270;
-const ACTIVE_W = 724;
-const CARD_GAP = 15;
-const PAD_LEFT = 110;
+// w-52.5 = 210px, gap-3 = 12px, px-20 = 80px, w-137.5 = 550px, h-100 = 400px
+const INACTIVE_W = 210;
+const ACTIVE_W = 550;
+const CARD_GAP = 12;
+const PAD_LEFT = 80;
 const STEP = INACTIVE_W + CARD_GAP;
 
 // Buttons centered at the junction between active card and first inactive card
-const BTN_W = 72 * 2 + 6; // 150px (two 72px buttons + 6px gap)
-const BTN_LEFT = PAD_LEFT + ACTIVE_W - BTN_W / 2; // 759px
-const BTN_TOP = (530 - 72) / 2; // 229px — vertical center of card
+const BTN_SIZE = 56;
+const BTN_W = BTN_SIZE * 2 + 6; // 118px
+const BTN_LEFT = PAD_LEFT + ACTIVE_W - BTN_W / 2; // 571px
+const BTN_TOP = (400 - BTN_SIZE) / 2; // 172px — vertical center of card
 
 export function ServicesSection() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -83,7 +84,7 @@ export function ServicesSection() {
   };
 
   return (
-    <section ref={sectionRef} className="bg-artic-surface py-20 md:py-32 overflow-hidden">
+    <section ref={sectionRef} className="bg-artic-surface pt-14 pb-8 md:pt-20 md:pb-10 overflow-hidden">
       <Container>
         <div className="text-center">
           <SectionLabel className="text-artic-teal-dark">Our Service</SectionLabel>
@@ -97,7 +98,7 @@ export function ServicesSection() {
       <div className="relative mt-10 md:mt-14">
         {/* Track: use transform instead of scroll so width-transition and movement stay in sync */}
         <div
-          className="flex gap-3.75 px-27.5 transition-transform duration-500 ease-in-out"
+          className="flex gap-3 px-20 transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(${-activeIndex * STEP}px)` }}
         >
           {SERVICES.map((service, i) => (
@@ -120,7 +121,7 @@ export function ServicesSection() {
           <button
             onClick={() => goTo(activeIndex - 1)}
             disabled={activeIndex === 0}
-            className="flex size-18 items-center justify-center rounded-[10px] bg-artic-persian text-white transition-opacity duration-200 disabled:opacity-30"
+            className="flex size-14 items-center justify-center rounded-xl bg-artic-persian text-white transition-opacity duration-200 disabled:opacity-30"
             aria-label="Previous"
           >
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -130,7 +131,7 @@ export function ServicesSection() {
           <button
             onClick={() => goTo(activeIndex + 1)}
             disabled={activeIndex === SERVICES.length - 1}
-            className="flex size-18 items-center justify-center rounded-[10px] bg-artic-teal-100 text-artic-ebony transition-opacity duration-200 disabled:opacity-30"
+            className="flex size-14 items-center justify-center rounded-xl bg-artic-teal-100 text-artic-ebony transition-opacity duration-200 disabled:opacity-30"
             aria-label="Next"
           >
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

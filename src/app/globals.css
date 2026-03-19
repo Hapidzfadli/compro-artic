@@ -79,6 +79,11 @@
   --radius-4xl: calc(var(--radius) + 16px);
 }
 
+/* Disable Next.js Image built-in fade-in animation */
+img[data-nimg] {
+  animation: none !important;
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);

@@ -1,98 +1,164 @@
-import { Container } from "@/components/layout/container";
-import { SectionLabel } from "@/components/common/section-label";
-import { BrandButton } from "@/components/common/brand-button";
+import Image from "next/image";
 import Link from "next/link";
-
-const STATS = [
-  { value: "500+", label: "Proyek Selesai" },
-  { value: "10+", label: "Tahun Pengalaman" },
-  { value: "200+", label: "Klien Puas" },
-];
+import { PrimaryButton } from "@/components/common/primary-button";
 
 export function AboutSection() {
   return (
-    <section className="relative overflow-hidden bg-artic-ebony py-24 md:py-32">
-      {/* Background image */}
+    <section
+      className="relative pt-16 pb-16 md:pt-16 md:pb-24"
+      style={{ background: "#13137F" }}
+    >
+      {/* Background holographic image */}
       <div
-        className="absolute inset-0 opacity-20"
+        className="pointer-events-none absolute mix-blend-screen opacity-20"
         style={{
-          backgroundImage:
-            "url('/assets/ui/wrapper/Wrapper.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          top: -130,
+          left: 0,
+          right: 0,
+          height: 700,
+          zIndex: 8,
+          backgroundImage: "url('/images/about-us/background.jpg')",
+          backgroundSize: "100% auto",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "top center",
+          maskImage: "linear-gradient(to right, transparent 0%, black 20%), linear-gradient(to bottom, black 0%, black 70%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 20%), linear-gradient(to bottom, black 0%, black 70%, transparent 100%)",
         }}
       />
-      {/* Gradient overlay */}
-      <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-artic-ebony to-transparent" />
 
-      <Container className="relative z-10">
-        {/* Top: two column */}
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
-          {/* Left */}
-          <div>
-            <SectionLabel>Tentang Artic</SectionLabel>
-            <h2 className="mt-4 text-mobile-title-h2 text-artic-white md:text-headline-h3">
-              Mengukur Opini,{" "}
-              <span
-                style={{
-                  background: "linear-gradient(90deg, #53F2AA 0%, #43FFF9 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                Membentuk Masa Depan
-              </span>
-            </h2>
+      {/* Decorative ellipse glows */}
+      <div
+        className="pointer-events-none absolute mix-blend-plus-lighter"
+        style={{
+          top: "53%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: 3896,
+          height: 960,
+          background: "radial-gradient(ellipse, #2020D3 0%, transparent 70%)",
+          filter: "blur(60px)",
+          opacity: 0.4,
+        }}
+      />
+      <div
+        className="pointer-events-none absolute mix-blend-plus-lighter"
+        style={{
+          top: "29%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: 3480,
+          height: 800,
+          background: "radial-gradient(ellipse, #53F2AA 0%, transparent 60%)",
+          filter: "blur(80px)",
+          opacity: 0.08,
+        }}
+      />
+
+      {/* Two columns */}
+      <div className="relative z-10 flex flex-col gap-10 px-6 md:flex-row md:items-start md:gap-20 md:px-16 lg:px-40">
+        {/* Left column */}
+        <div className="w-full md:w-[42%] md:shrink-0">
+          <div className="flex items-center gap-2">
+            <div className="size-2 rounded-full bg-artic-teal-dark" />
+            <span className="text-[11px] font-extrabold uppercase leading-[1.2] tracking-[0.96px] text-white">
+              ABOUT ARTIC ANALYTICA
+            </span>
           </div>
+          <h2 className="mt-6 text-[28px] font-medium leading-[1.1] tracking-[-0.56px] text-white md:text-[36px] md:tracking-[-0.72px] lg:text-[44px] lg:tracking-[-0.88px]">
+            Where Insight Becomes Impact,{" "}
+            <span className="text-artic-teal-light">
+              Turning Research Into Real-World Change
+            </span>
+          </h2>
+        </div>
 
-          {/* Right */}
-          <div className="flex flex-col justify-center gap-8">
-            <p className="text-body-sm text-artic-white/70 md:text-body-md">
-              Kami bervisi untuk menjadi pemimpin yang diakui secara global
-              dalam industri survei dan polling, memberikan wawasan yang mendalam
-              dan akurat tentang opini masyarakat serta kepuasan bisnis atau
-              target market Anda. Data yang menjadi landasan bagi pengambilan
-              keputusan yang cerdas dan efektif di berbagai sektor.
+        {/* Right column */}
+        <div className="flex flex-1 flex-col gap-6 md:pt-10">
+          <div className="flex flex-col gap-3 text-[12px] font-medium leading-[1.6] tracking-[-0.3px] text-white md:text-[13px] lg:text-[14px]">
+            <p>
+              Artic Analytica was built on a simple belief: decisions become
+              stronger when they are grounded in evidence and shaped with
+              empathy.
             </p>
-            <div className="flex flex-wrap gap-3">
-              <Link href="/contact">
-                <BrandButton variant="primary" size="lg">
-                  Konsultasi Gratis
-                </BrandButton>
-              </Link>
-              <Link href="/about">
-                <BrandButton variant="secondary" size="lg">
-                  Pelajari Lebih Lanjut
-                </BrandButton>
-              </Link>
-            </div>
+            <p>
+              We bring together research, data, strategy, and design into a
+              single practice — helping institutions understand people, improve
+              systems, and solve problems with clarity.
+            </p>
+            <p>
+              Our work sits at the intersection of science and humanity, where
+              insights move beyond reports and become actions that truly matter.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3">
+            <PrimaryButton
+              href="/about"
+              className="h-10 rounded-[8px] px-6 text-[13px] md:h-11 md:text-[14px]"
+            >
+              About Artic →
+            </PrimaryButton>
+            <Link
+              href="https://drive.google.com/file/d/13AHf3GiV71cDoLZ3vK2M0fzngQfwKgl4/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-10 items-center justify-center rounded-[8px] border border-[#DCDCDC] px-5 text-[13px] font-semibold text-[#DCDCDC] transition-opacity hover:opacity-80 md:h-11 md:text-[14px]"
+            >
+              Download Compro PDF
+            </Link>
           </div>
         </div>
+      </div>
 
-        {/* Stats */}
-        <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-3">
-          {STATS.map((stat) => (
-            <div
-              key={stat.label}
-              className="rounded-[5px] border border-artic-white/10 bg-artic-white/5 px-8 py-6 backdrop-blur-sm"
-            >
-              <p
-                className="text-headline-h4"
-                style={{
-                  background: "linear-gradient(90deg, #53F2AA 0%, #43FFF9 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                {stat.value}
-              </p>
-              <p className="mt-1 text-body-sm text-artic-white/60">{stat.label}</p>
-            </div>
-          ))}
+      {/* Video section */}
+      <div className="relative z-10 mt-20 px-6 md:mt-28 md:px-16 lg:px-40">
+        <div className="mb-4 flex items-center gap-2">
+          <div className="size-2 rounded-full bg-artic-teal-dark" />
+          <span className="text-[11px] font-extrabold uppercase leading-[1.2] tracking-[0.96px] text-white">
+            WATCH COMPANY PROFILE
+          </span>
         </div>
-      </Container>
+
+        {/* ellipse glow — di luar video, melingkari dari belakang */}
+        <div
+          className="pointer-events-none absolute mix-blend-plus-lighter"
+          style={{
+            top: "70%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "140%",
+            height: "120%",
+            background: "#66FFFF",
+            borderRadius: 9999,
+            filter: "blur(80px)",
+            opacity: 0.65,
+          }}
+        />
+
+        <div className="relative">
+          <div className="group relative z-10 h-60 w-full overflow-hidden rounded-2xl md:h-90 lg:h-120">
+            <Image
+              src="/images/about-us/thumbnail.jpg"
+              alt="Company profile video thumbnail"
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-black/20 transition-colors duration-300 group-hover:bg-black/50" />
+            <button className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <span className="relative flex size-[72px] items-center justify-center md:size-24.5">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-white/20 duration-1000" />
+                <Image
+                  src="/images/about-us/play.svg"
+                  alt="Play video"
+                  width={72}
+                  height={72}
+                  className="relative transition-transform duration-300 group-hover:scale-110 md:size-24.5"
+                />
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

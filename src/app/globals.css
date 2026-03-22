@@ -153,6 +153,11 @@ img[data-nimg] {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -399,6 +404,16 @@ img[data-nimg] {
     background: linear-gradient(90deg, #53F2AA 0%, #43FFF9 100%);
   }
 
+  /* Card hover shadow */
+  .hover-shadow-card:hover {
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  }
+
+  /* Infinite marquee */
+  .animate-marquee {
+    animation: marquee 18s linear infinite;
+  }
+
   /* Hide scrollbar utility */
   .no-scrollbar {
     scrollbar-width: none;
@@ -407,4 +422,6 @@ img[data-nimg] {
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
+
 }

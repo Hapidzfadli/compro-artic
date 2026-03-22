@@ -1,142 +1,359 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Container } from "@/components/layout/container";
-import { BrandButton } from "@/components/common/brand-button";
-import { SectionLabel } from "@/components/common/section-label";
+import { PrimaryButton } from "@/components/common/primary-button";
+import {
+  Instagram,
+  Youtube,
+  Linkedin,
+  Twitter,
+  Facebook,
+  Phone,
+  Mail,
+} from "lucide-react";
 
-const FOOTER_LINKS = {
-  "Layanan Kami": [
-    { label: "Artic Research", href: "/services/research" },
-    { label: "Artic Data", href: "/services/data" },
-    { label: "Artic Consulting", href: "/services/consulting" },
-    { label: "Artic Publishing", href: "/services/publishing" },
-    { label: "Artic Academy", href: "/services/academy" },
-  ],
-  Perusahaan: [
-    { label: "Tentang Kami", href: "/about" },
-    { label: "Tim Kami", href: "/about#team" },
-    { label: "Karir", href: "/careers" },
-    { label: "Kontak", href: "/contact" },
-  ],
-  Insight: [
-    { label: "Artikel", href: "/insights/artikel" },
-    { label: "Berita", href: "/insights/berita" },
-  ],
-  Lainnya: [
-    { label: "Kebijakan Privasi", href: "/privacy" },
-    { label: "Syarat & Ketentuan", href: "/terms" },
-    { label: "FAQ", href: "/faq" },
-  ],
-};
+const SERVICE_LINKS = [
+  { label: "Artic Research", href: "/services/research" },
+  { label: "Artic Data", href: "/services/data" },
+  { label: "Artic Consulting", href: "/services/consulting" },
+  { label: "Artic Policy Lab", href: "/services/policy" },
+  { label: "Artic Academy", href: "/services/academy" },
+  { label: "Artic Insight Hub", href: "/services/insight" },
+];
 
-const SOCIAL_LINKS = [
-  { label: "Instagram", href: "https://instagram.com", icon: "IG" },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: "IN" },
-  { label: "Twitter/X", href: "https://twitter.com", icon: "X" },
+const COMPANY_LINKS = [
+  { label: "Our Works", href: "/works" },
+  { label: "About Artic", href: "/about" },
+  { label: "Who We Are", href: "/about#team" },
+  { label: "Artic Update", href: "/insights" },
+  { label: "Contact Us", href: "/contact" },
+];
+
+const RESOURCE_LINKS = [
+  {
+    label: "Company Profile",
+    href: "https://drive.google.com/file/d/13AHf3GiV71cDoLZ3vK2M0fzngQfwKgl4/view?usp=sharing",
+  },
+  {
+    label: "Research Proposal",
+    href: "https://api.whatsapp.com/send/?phone=081128892244&text&type=phone_number&app_absent=0",
+  },
+  {
+    label: "Free Consultation",
+    href: "https://api.whatsapp.com/send/?phone=081128892244&text&type=phone_number&app_absent=0",
+  },
+];
+
+const SOCIALS = [
+  { label: "Instagram", href: "https://instagram.com/articanalytica", Icon: Instagram },
+  { label: "YouTube", href: "https://youtube.com", Icon: Youtube },
+  { label: "LinkedIn", href: "https://linkedin.com/company/articanalytica", Icon: Linkedin },
+  { label: "Twitter/X", href: "https://twitter.com/articanalytica", Icon: Twitter },
+  { label: "Facebook", href: "https://facebook.com/articanalytica", Icon: Facebook },
 ];
 
 export function Footer() {
+  const [ctaHovered, setCtaHovered] = useState(false);
+  const handleEnter = () => setCtaHovered(true);
+  const handleLeave = () => setCtaHovered(false);
+
   return (
-    <footer className="relative overflow-hidden bg-artic-ebony">
-      {/* CTA Block */}
-      <div className="relative border-b border-artic-white/10 py-20">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-hero opacity-60" />
-        <Container className="relative z-10 text-center">
-          <SectionLabel>Mulai Sekarang</SectionLabel>
-          <h2 className="mt-4 text-mobile-title-h2 text-artic-white md:text-headline-h3">
-            Siap Mengambil Keputusan{" "}
-            <span
-              style={{
-                background: "linear-gradient(90deg, #53F2AA 0%, #43FFF9 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              Lebih Cerdas?
-            </span>
+    <footer
+      className="relative overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(180deg, #171717 0%, #171717 15%, #131360 40%, #13137F 55%, #161694 75%, #13137F 100%)",
+      }}
+    >
+      {/* === CTA SECTION === */}
+      <div className="relative overflow-hidden py-28 md:py-36 lg:py-48">
+        {/* Rectangle wave texture */}
+        <div
+          className="pointer-events-none absolute inset-0 mix-blend-screen transition-all duration-700 ease-out"
+          style={{
+            backgroundImage: "url('/images/footer/rectangle.png')",
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            opacity: ctaHovered ? 0.25 : 0.15,
+            transform: ctaHovered ? "scale(1.3)" : "scale(1)",
+          }}
+        />
+        {/* Vector wave */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 mix-blend-plus-lighter">
+          <Image
+            src="/images/footer/vector.svg"
+            alt=""
+            width={1920}
+            height={400}
+            className="w-full"
+          />
+        </div>
+
+        {/* Floating photo — kiri atas tulisan */}
+        <div
+          className="pointer-events-none absolute z-[5] hidden overflow-hidden rounded-2xl shadow-2xl md:block"
+          style={{
+            width: 200,
+            height: 160,
+            left: "25%",
+            top: "22%",
+            transform: ctaHovered ? "scale(1)" : "scale(0)",
+            opacity: ctaHovered ? 1 : 0,
+            transition: "transform 800ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 500ms ease-out",
+          }}
+        >
+          <Image
+            src="/images/insight/thumbnail-1.png"
+            alt=""
+            fill
+            className="object-cover"
+          />
+        </div>
+        {/* Floating photo — kanan bawah tulisan */}
+        <div
+          className="pointer-events-none absolute z-[5] hidden overflow-hidden rounded-2xl shadow-2xl md:block"
+          style={{
+            width: 160,
+            height: 120,
+            right: "25%",
+            top: "44%",
+            transform: ctaHovered ? "scale(1)" : "scale(0)",
+            opacity: ctaHovered ? 1 : 0,
+            transition: "transform 800ms cubic-bezier(0.34, 1.56, 0.64, 1) 100ms, opacity 500ms ease-out 100ms",
+          }}
+        >
+          <Image
+            src="/images/insight/thumbnail-2.png"
+            alt=""
+            fill
+            className="object-cover"
+          />
+        </div>
+
+        {/* Content */}
+        <div
+          className="group/cta relative z-10 px-6 text-center md:px-16"
+          onMouseEnter={handleEnter}
+          onMouseLeave={handleLeave}
+        >
+          {/* Heading — text stroke + shrink on hover + echo during motion */}
+          <h2
+            className="mx-auto max-w-[800px] text-[32px] font-medium leading-[1.1] tracking-[-0.64px] text-white md:text-[56px] md:tracking-[-1.12px] lg:text-[80px] lg:tracking-[-1.6px]"
+            style={{
+              transform: ctaHovered ? "scale(0.75)" : "scale(1)",
+              textShadow: ctaHovered ? "0px 3px 5px rgba(0, 0, 0, 0.3)" : "none",
+              transition: "transform 700ms ease-out, text-shadow 700ms ease-out",
+            }}
+          >
+            Let&apos;s Make Smart<br />Moves Together
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-body-sm text-artic-white/70 md:text-body-md">
-            Hubungi kami sekarang dan dapatkan konsultasi gratis bersama tim ahli Artic Analytics.
-          </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <Link href="/contact">
-              <BrandButton variant="primary" size="lg">Konsultasi Gratis</BrandButton>
-            </Link>
-            <Link href="/works">
-              <BrandButton variant="secondary" size="lg">Lihat Portfolio</BrandButton>
+
+          {/* Buttons — slide down from behind heading */}
+          <div
+            className="mt-8 flex flex-wrap items-center justify-center gap-3"
+            style={{
+              transform: ctaHovered ? "translateY(0px)" : "translateY(-40px)",
+              opacity: ctaHovered ? 1 : 0,
+              pointerEvents: ctaHovered ? "auto" : "none",
+              transition: "transform 700ms ease-out, opacity 700ms ease-out",
+            }}
+          >
+            <PrimaryButton
+              href="https://api.whatsapp.com/send/?phone=081128892244&text&type=phone_number&app_absent=0"
+              className="h-9 rounded-[8px] px-6 text-[12px] md:h-10 md:px-8 md:text-[13px]"
+            >
+              Free Consultation
+            </PrimaryButton>
+            <Link
+              href="https://drive.google.com/file/d/13AHf3GiV71cDoLZ3vK2M0fzngQfwKgl4/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-9 items-center justify-center rounded-[8px] border border-[#DCDCDC] px-6 text-[12px] font-semibold text-[#DCDCDC] transition-opacity hover:opacity-80 md:h-10 md:px-8 md:text-[13px]"
+            >
+              Download Company Profile
             </Link>
           </div>
-        </Container>
+        </div>
       </div>
 
-      {/* Footer Links */}
-      <Container className="py-16">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.5fr_repeat(4,1fr)]">
+      {/* === FOOTER LINKS === */}
+      <div className="relative z-10 px-6 pb-10 pt-16 md:px-16 lg:px-[110px]">
+        {/* Background vector logo watermark */}
+        <div
+          className="pointer-events-none absolute bottom--10 left-0 right-0 z-11 h-full opacity-100"
+          style={{
+            backgroundImage: "url('/images/footer/vector-logo.png')",
+            backgroundSize: "100%",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center bottom",
+          }}
+        />
+        {/* Row 1: Brand + Service + Company + Address */}
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.8fr_1fr_1fr_1.4fr]">
           {/* Brand */}
-          <div className="flex flex-col gap-4">
-            <Image
-              src="/assets/Logo White.svg"
-              alt="Artic Analytics"
-              width={140}
-              height={36}
-            />
-            <p className="text-body-sm text-artic-white/60">
-              Mengukur Opini,{" "}
-              <span className="text-artic-teal-light">Membentuk Masa Depan</span>
-            </p>
-            <p className="mt-2 text-body-xs text-artic-white/40">
-              Jl. Sudirman No. 123, Jakarta Pusat, DKI Jakarta 10220
-            </p>
-            <div className="flex flex-col gap-1 text-body-xs text-artic-white/40">
-              <span>info@articanalytica.com</span>
-              <span>+62 21 1234 5678</span>
+          <div className="flex flex-col gap-6">
+            <div className="flex items-center gap-2">
+              <div className="size-2 rounded-full bg-artic-teal-dark" />
+              <span className="text-[11px] font-extrabold uppercase tracking-[0.96px] text-white lg:text-[13px]">
+                ARTIC ANALYTICA
+              </span>
             </div>
+            <p className="text-[24px] font-medium leading-[1.1] tracking-[-0.48px] text-artic-teal-light md:text-[32px] md:tracking-[-0.64px] lg:text-[40px] lg:tracking-[-0.8px]">
+              Turning Change Into Insightful Direction
+            </p>
           </div>
 
-          {/* Nav Links */}
-          {Object.entries(FOOTER_LINKS).map(([section, links]) => (
-            <div key={section} className="flex flex-col gap-4">
-              <p className="text-label-sm text-artic-white">{section}</p>
-              <ul className="flex flex-col gap-3">
-                {links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-body-sm text-artic-white/60 transition-colors hover:text-artic-teal-light"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* OUR SERVICE */}
+          <div className="flex flex-col gap-6">
+            <p className="text-[12px] font-normal uppercase tracking-[1.08px] text-artic-teal-light lg:text-[13px]">
+              OUR SERVICE
+            </p>
+            <ul className="flex flex-col gap-2">
+              {SERVICE_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-[12px] font-medium tracking-[-0.36px] text-[#DCDCDC] transition-colors hover:text-artic-teal-light lg:text-[13px]"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* COMPANY */}
+          <div className="flex flex-col gap-6">
+            <p className="text-[12px] font-normal uppercase tracking-[1.08px] text-artic-teal-light lg:text-[13px]">
+              COMPANY
+            </p>
+            <ul className="flex flex-col gap-2">
+              {COMPANY_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-[12px] font-medium tracking-[-0.36px] text-[#DCDCDC] transition-colors hover:text-artic-teal-light lg:text-[13px]"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* ADDRESS */}
+          <div className="flex flex-col gap-6">
+            <p className="text-[12px] font-normal uppercase tracking-[1.08px] text-artic-teal-light lg:text-[13px]">
+              ADDRESS
+            </p>
+            <Link
+              href="https://www.google.com/maps/place/MG+Setos"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col gap-3"
+            >
+              <p className="text-[12px] font-medium leading-[1.5] tracking-[-0.36px] text-[#DCDCDC] lg:text-[13px]">
+                MG Setos, Jl. Inspeksi, 3rd Floor Kembangsari Subdistrict,
+                Semarang Tengah District, Semarang City, Central Java 50133,
+                Indonesia
+              </p>
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.84px] text-artic-teal-light transition-opacity hover:opacity-80 lg:text-[11px]">
+                SEE MAPS →
+              </span>
+            </Link>
+          </div>
         </div>
-      </Container>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-artic-white/10">
-        <Container className="flex flex-col items-center justify-between gap-4 py-6 sm:flex-row">
-          <p className="text-body-xs text-artic-white/40">
-            © 2025 PT Sinergi Muda Arsa. All rights reserved.
-          </p>
-          <div className="flex items-center gap-2">
-            <span className="text-body-xs text-artic-white/40">Ikuti Artic:</span>
-            {SOCIAL_LINKS.map((social) => (
-              <Link
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-artic-white/20 text-label-xs text-artic-white/60 transition-all hover:border-artic-teal-light hover:text-artic-teal-light"
-                aria-label={social.label}
-              >
-                {social.icon}
-              </Link>
-            ))}
+        {/* Row 2: Resources + Contact */}
+        <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.8fr_1fr_1fr_1.4fr]">
+          {/* Empty space (below brand) */}
+          <div className="hidden lg:block" />
+
+          {/* RESOURCES */}
+          <div className="flex flex-col gap-6">
+            <p className="text-[12px] font-normal uppercase tracking-[1.08px] text-artic-teal-light lg:text-[13px]">
+              RESOURCES
+            </p>
+            <ul className="flex flex-col gap-2">
+              {RESOURCE_LINKS.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[12px] font-medium tracking-[-0.36px] text-[#DCDCDC] transition-colors hover:text-artic-teal-light lg:text-[13px]"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-        </Container>
+
+          {/* CONTACT */}
+          <div className="flex flex-col gap-6">
+            <p className="text-[12px] font-normal uppercase tracking-[1.08px] text-artic-teal-light lg:text-[13px]">
+              CONTACT
+            </p>
+            <ul className="flex flex-col gap-2">
+              <li>
+                <Link
+                  href="https://api.whatsapp.com/send/?phone=081128892244&text&type=phone_number&app_absent=0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-[12px] font-medium tracking-[-0.36px] text-[#DCDCDC] transition-colors hover:text-artic-teal-light lg:text-[13px]"
+                >
+                  <Phone className="size-4 shrink-0" />
+                  +62 811-2889-2244
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="mailto:articanalytica@gmail.com"
+                  className="flex items-center gap-2 text-[12px] font-medium tracking-[-0.36px] text-[#DCDCDC] transition-colors hover:text-artic-teal-light lg:text-[13px]"
+                >
+                  <Mail className="size-4 shrink-0" />
+                  articanalytica@gmail.com
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Empty space (below address) */}
+          <div className="hidden lg:block" />
+        </div>
+
+        {/* Divider */}
+        <div className="mt-12 h-px w-full bg-artic-teal-light/20" />
+
+        {/* Bottom bar */}
+        <div className="mt-6 flex flex-col items-center justify-between gap-4 md:flex-row">
+          <div className="flex items-center gap-4">
+            <span className="text-[12px] font-medium text-white lg:text-[13px]">
+              Follow Artic
+            </span>
+            <div className="flex items-center">
+              {SOCIALS.map(({ label, href, Icon }) => (
+                <Link
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="flex items-center justify-center rounded-[10px] p-3 text-[#DCDCDC] transition-colors hover:text-artic-teal-light"
+                >
+                  <Icon className="size-4" />
+                </Link>
+              ))}
+            </div>
+          </div>
+          <p className="text-[12px] font-medium text-white lg:text-[13px]">
+            © 2025 PT ARTIC DATA ANALITIKA
+          </p>
+        </div>
       </div>
     </footer>
   );

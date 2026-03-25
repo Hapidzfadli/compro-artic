@@ -24,7 +24,14 @@ export function ServiceCard({ title, description, image, href, active, onClick }
         active ? "w-137.5" : "w-52.5"
       )}
     >
-      <Image src={image} alt={title} fill className="object-cover" />
+      <Image
+        src={image}
+        alt={title}
+        fill
+        className="object-cover"
+        sizes={active ? "(max-width: 768px) 100vw, 550px" : "210px"}
+        quality={90}
+      />
 
       {active && (
         <>
@@ -42,7 +49,7 @@ export function ServiceCard({ title, description, image, href, active, onClick }
           <Link
             href={href}
             onClick={(e) => e.stopPropagation()}
-            className="absolute left-10 bottom-3 inline-flex h-13 w-55 items-center justify-center gap-2.5 rounded-[5px] bg-artic-persian text-[15px] font-semibold text-white transition-all duration-300 delay-75 opacity-0 translate-y-5 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto"
+            className="absolute left-10 bottom-7 inline-flex h-10 w-48 items-center justify-center gap-2.5 rounded-[5px] bg-artic-persian text-[13px] font-semibold text-white transition-all duration-300 delay-75 opacity-0 translate-y-5 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto"
           >
             Learn More →
           </Link>

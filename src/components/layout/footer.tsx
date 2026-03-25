@@ -54,7 +54,7 @@ const SOCIALS = [
   { label: "Facebook", href: "https://facebook.com/articanalytica", Icon: Facebook },
 ];
 
-export function Footer() {
+export function Footer({ hideCta = false }: { hideCta?: boolean }) {
   const [ctaHovered, setCtaHovered] = useState(false);
   const handleEnter = () => setCtaHovered(true);
   const handleLeave = () => setCtaHovered(false);
@@ -63,12 +63,13 @@ export function Footer() {
     <footer
       className="relative overflow-hidden"
       style={{
-        background:
-          "linear-gradient(180deg, #171717 0%, #171717 15%, #131360 40%, #13137F 55%, #161694 75%, #13137F 100%)",
+        background: hideCta
+          ? "linear-gradient(180deg, #131360 0%, #13137F 30%, #161694 60%, #13137F 100%)"
+          : "linear-gradient(180deg, #171717 0%, #171717 15%, #131360 40%, #13137F 55%, #161694 75%, #13137F 100%)",
       }}
     >
       {/* === CTA SECTION === */}
-      <div className="relative overflow-hidden py-28 md:py-36 lg:py-48">
+      {!hideCta && (<div className="relative overflow-hidden py-28 md:py-36 lg:py-48">
         {/* Rectangle wave texture */}
         <div
           className="pointer-events-none absolute inset-0 mix-blend-screen transition-all duration-700 ease-out"
@@ -178,6 +179,7 @@ export function Footer() {
           </div>
         </div>
       </div>
+      )}
 
       {/* === FOOTER LINKS === */}
       <div className="relative z-10 px-6 pb-10 pt-16 md:px-16 lg:px-[110px]">

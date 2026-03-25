@@ -50,23 +50,28 @@ const SERVICES = [
   },
 ];
 
-// w-52.5 = 210px, gap-3 = 12px, px-20 = 80px, w-137.5 = 550px, h-100 = 400px
+const N = SERVICES.length;
+const EXTENDED = [...SERVICES, ...SERVICES, ...SERVICES]; // 3 copies for infinite illusion
+
 const INACTIVE_W = 210;
 const ACTIVE_W = 550;
 const CARD_GAP = 12;
 const PAD_LEFT = 80;
 const STEP = INACTIVE_W + CARD_GAP;
 
-// Buttons centered at the junction between active card and first inactive card
 const BTN_SIZE = 56;
-const BTN_W = BTN_SIZE * 2 + 6; // 118px
-const BTN_LEFT = PAD_LEFT + ACTIVE_W - BTN_W / 2; // 571px
-const BTN_TOP = (400 - BTN_SIZE) / 2; // 172px — vertical center of card
+const BTN_W = BTN_SIZE * 2 + 6;
+const BTN_LEFT = PAD_LEFT + ACTIVE_W - BTN_W / 2;
+const BTN_TOP = (400 - BTN_SIZE) / 2;
+
+const TRANSITION = "transform 600ms cubic-bezier(0.16, 1, 0.3, 1)";
 
 export function ServicesSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(N); // start at middle copy
+  const [animated, setAnimated] = useState(true);
   const [sectionInView, setSectionInView] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const jumping = useRef(false);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -79,8 +84,34 @@ export function ServicesSection() {
     return () => observer.disconnect();
   }, []);
 
+  // After animated slide reaches a clone edge, silently jump to real position
+  useEffect(() => {
+    if (!animated || jumping.current) return;
+    if (activeIndex < N || activeIndex >= N * 2) {
+      jumping.current = true;
+      const timer = setTimeout(() => {
+        setAnimated(false);
+        setActiveIndex((prev) => {
+          if (prev < N) return prev + N;
+          if (prev >= N * 2) return prev - N;
+          return prev;
+        });
+        // Re-enable transition after a tick
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            setAnimated(true);
+            jumping.current = false;
+          });
+        });
+      }, 620); // slightly after transition ends
+      return () => clearTimeout(timer);
+    }
+  }, [activeIndex, animated]);
+
   const goTo = (index: number) => {
-    setActiveIndex(Math.max(0, Math.min(index, SERVICES.length - 1)));
+    if (jumping.current) return;
+    setAnimated(true);
+    setActiveIndex(index);
   };
 
   return (
@@ -96,32 +127,32 @@ export function ServicesSection() {
       </Container>
 
       <div className="relative mt-10 md:mt-14">
-        {/* Track: use transform instead of scroll so width-transition and movement stay in sync */}
         <div
-          className="flex gap-3 px-20 transition-transform duration-500 ease-in-out"
-          style={{ transform: `translateX(${-activeIndex * STEP}px)` }}
+          className="flex gap-3 px-20"
+          style={{
+            transform: `translateX(${-activeIndex * STEP}px)`,
+            transition: animated ? TRANSITION : "none",
+          }}
         >
-          {SERVICES.map((service, i) => (
+          {EXTENDED.map((service, i) => (
             <ServiceCard
-              key={service.id}
+              key={`${service.id}-${Math.floor(i / N)}`}
               title={service.title}
               description={service.description}
               image={service.image}
               href={service.href}
               active={i === activeIndex}
               inView={sectionInView}
-              delay={i * 80}
+              delay={(i % N) * 80}
               onClick={() => goTo(i)}
             />
           ))}
         </div>
 
-        {/* Buttons always sit at the right edge of the active card — fixed position */}
         <div className="absolute flex items-center gap-1.5" style={{ left: BTN_LEFT, top: BTN_TOP }}>
           <button
             onClick={() => goTo(activeIndex - 1)}
-            disabled={activeIndex === 0}
-            className="flex size-14 items-center justify-center rounded-xl bg-artic-persian text-white transition-opacity duration-200 disabled:opacity-30"
+            className="flex size-14 items-center justify-center rounded-xl bg-artic-persian text-white transition-opacity duration-200"
             aria-label="Previous"
           >
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -130,8 +161,7 @@ export function ServicesSection() {
           </button>
           <button
             onClick={() => goTo(activeIndex + 1)}
-            disabled={activeIndex === SERVICES.length - 1}
-            className="flex size-14 items-center justify-center rounded-xl bg-artic-teal-100 text-artic-ebony transition-opacity duration-200 disabled:opacity-30"
+            className="flex size-14 items-center justify-center rounded-xl bg-artic-teal-100 text-artic-ebony transition-opacity duration-200"
             aria-label="Next"
           >
             <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

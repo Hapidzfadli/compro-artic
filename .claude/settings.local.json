@@ -5,7 +5,8 @@
       "WebFetch(domain:developers.figma.com)",
       "WebSearch",
       "mcp__figma__get_design_context",
-      "mcp__figma__get_metadata"
+      "mcp__figma__get_metadata",
+      "Bash(curl -L \"https://www.figma.com/api/mcp/asset/f33fe80f-f284-4a63-8a17-8388bfb09a96\" -o \"d:/kerja/compro/public/images/works-hero.jpg\")"
     ]
   }
 }

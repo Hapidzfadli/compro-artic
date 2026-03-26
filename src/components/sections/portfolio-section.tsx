@@ -24,8 +24,7 @@ const PORTFOLIO = [
     id: 1,
     title: "Sinau Print Digital System (2024)",
     category: "Artic Data",
-    image: "/images/slider-img/slide-3.png",
-    colorImage: "/images/slider-img/slide-3-color.png",
+    image: "/images/slider-img/slide-3-color.png",
     studyHref: "#",
     pdfHref: "#",
   },
@@ -33,8 +32,7 @@ const PORTFOLIO = [
     id: 2,
     title: "Youth Development Insight – Dispora Kota Semarang (2024)",
     category: "Artic Research",
-    image: "/images/slider-img/slide-2.png",
-    colorImage: "/images/slider-img/slide-2-color.png",
+    image: "/images/slider-img/slide-2-color.png",
     studyHref: "#",
     pdfHref: "#",
   },
@@ -42,8 +40,7 @@ const PORTFOLIO = [
     id: 3,
     title: "Citizen Satisfaction Survey – BRIDA Kota Semarang (2025)",
     category: "Artic Research",
-    image: "/images/slider-img/slide-1.png",
-    colorImage: "/images/slider-img/slide-1-color.png",
+    image: "/images/slider-img/slide-1-color.png",
     studyHref: "#",
     pdfHref: "https://drive.google.com/file/d/13AHf3GiV71cDoLZ3vK2M0fzngQfwKgl4/view?usp=sharing",
   },
@@ -96,57 +93,46 @@ export function PortfolioSection() {
         <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((item) => (
             <div key={item.id} className="group relative h-[370px] overflow-hidden rounded-[15px]">
-              {/* BW image — fades out on hover */}
               <Image
                 src={item.image}
                 alt={item.title}
                 fill
-                className="object-cover object-top transition-opacity duration-500 group-hover:opacity-0"
-              />
-              {/* Color image — always scale-105, fades in on hover */}
-              <Image
-                src={item.colorImage}
-                alt={item.title}
-                fill
-                className="object-cover object-top scale-105 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                className="object-cover object-top scale-105 transition-all duration-500 grayscale group-hover:grayscale-0 group-hover:scale-100"
               />
 
-              {/* Dark overlay on hover */}
-              <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/30" />
-
-              {/* Teal-blue gradient at bottom — always visible */}
+              {/* Blue gradient — always visible, more intense on hover */}
               <div
-                className="absolute inset-0"
+                className="absolute inset-x-0 bottom-0 h-[55%] opacity-80 transition-opacity duration-500 group-hover:opacity-100"
                 style={{
                   background:
-                    "linear-gradient(to top, rgba(19,19,127,0.88) 0%, rgba(83,242,170,0.18) 45%, transparent 70%)",
+                    "linear-gradient(to bottom, transparent 0%, rgba(19,19,127,0.85) 50%, rgba(19,19,127,1) 100%)",
                 }}
               />
 
               {/* Content */}
               <div className="absolute inset-x-0 bottom-0 p-8">
-                <h3 className="text-[22px] font-normal leading-[1.3] tracking-[-0.03em] text-white">
-                  {item.title}
-                </h3>
-
-                {/* Buttons — slide up on hover */}
-                <div className="mt-4 flex translate-y-4 items-center gap-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                  <Link
-                    href={item.studyHref}
-                    onClick={(e) => e.stopPropagation()}
-                    className="flex h-[44px] w-[160px] items-center justify-center rounded-[10px] bg-gradient-secondary text-[14px] font-bold text-artic-ebony transition-opacity duration-300 hover:opacity-80"
-                  >
-                    See Study Case →
-                  </Link>
-                  <Link
-                    href={item.pdfHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="flex h-[44px] w-[140px] items-center justify-center rounded-[10px] border border-artic-grey-100 text-[14px] font-semibold text-artic-grey-100 transition-all duration-300 hover:bg-white/20"
-                  >
-                    Download PDF
-                  </Link>
+                <div className="translate-y-[60px] transition-transform duration-300 ease-out group-hover:translate-y-0">
+                  <h3 className="text-[22px] font-normal leading-[1.3] tracking-[-0.03em] text-white">
+                    {item.title}
+                  </h3>
+                  <div className="mt-4 flex items-center gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <Link
+                      href={item.studyHref}
+                      onClick={(e) => e.stopPropagation()}
+                      className="flex h-[44px] w-[160px] items-center justify-center rounded-[10px] bg-gradient-secondary text-[14px] font-bold text-artic-ebony transition-opacity duration-300 hover:opacity-80"
+                    >
+                      See Study Case →
+                    </Link>
+                    <Link
+                      href={item.pdfHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="flex h-[44px] w-[140px] items-center justify-center rounded-[10px] border border-artic-grey-100 text-[14px] font-semibold text-artic-grey-100 transition-all duration-300 hover:bg-white/20"
+                    >
+                      Download PDF
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

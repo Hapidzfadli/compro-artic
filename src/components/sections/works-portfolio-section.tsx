@@ -32,7 +32,7 @@ const PORTFOLIO = [
     category: "Artic Data",
     year: 2024,
     image: "/images/slider-img/slide-3-color.png",
-    studyHref: "#",
+    studyHref: "/works/1",
     pdfHref: "#",
   },
   {
@@ -41,7 +41,7 @@ const PORTFOLIO = [
     category: "Artic Research",
     year: 2024,
     image: "/images/slider-img/slide-2-color.png",
-    studyHref: "#",
+    studyHref: "/works/2",
     pdfHref: "#",
   },
   {
@@ -50,7 +50,7 @@ const PORTFOLIO = [
     category: "Artic Research",
     year: 2025,
     image: "/images/slider-img/slide-1-color.png",
-    studyHref: "#",
+    studyHref: "/works/3",
     pdfHref: "https://drive.google.com/file/d/13AHf3GiV71cDoLZ3vK2M0fzngQfwKgl4/view?usp=sharing",
   },
 ];

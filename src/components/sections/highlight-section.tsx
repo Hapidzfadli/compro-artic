@@ -11,7 +11,7 @@ const SLIDES = [
     image: "/images/slider-img/slide-1.png",
     title: "Citizen Satisfaction Survey – Badan Riset & Inovasi Daerah Kota Semarang (2025)",
     description: "We helped the city listen to its citizens and improve local services through data-driven insights",
-    studyHref: "#",
+    studyHref: "/works/3",
     pdfHref: "https://drive.google.com/file/d/13AHf3GiV71cDoLZ3vK2M0fzngQfwKgl4/view?usp=sharing",
   },
   {
@@ -19,7 +19,7 @@ const SLIDES = [
     image: "/images/slider-img/slide-2.png",
     title: "Youth Development Insight – Dispora Semarang (2024)",
     description: "A study that turned youth voices into real action plans for better city programs",
-    studyHref: "#",
+    studyHref: "/works/2",
     pdfHref: "#",
   },
   {
@@ -27,7 +27,7 @@ const SLIDES = [
     image: "/images/slider-img/slide-3.png",
     title: "Sinau Print Digital System (2024)",
     description: "We built a digital system that makes printing faster, smarter, and more connected",
-    studyHref: "#",
+    studyHref: "/works/1",
     pdfHref: "#",
   },
 ];

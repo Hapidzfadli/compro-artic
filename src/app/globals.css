@@ -153,6 +153,13 @@ img[data-nimg] {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@keyframes scrollWheel {
+  0%   { transform: translateY(0); opacity: 1; }
+  60%  { transform: translateY(6px); opacity: 0; }
+  61%  { transform: translateY(0); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }

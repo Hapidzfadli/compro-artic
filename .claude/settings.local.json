@@ -6,7 +6,22 @@
       "WebSearch",
       "mcp__figma__get_design_context",
       "mcp__figma__get_metadata",
-      "Bash(curl -L \"https://www.figma.com/api/mcp/asset/f33fe80f-f284-4a63-8a17-8388bfb09a96\" -o \"d:/kerja/compro/public/images/works-hero.jpg\")"
+      "Bash(curl -L \"https://www.figma.com/api/mcp/asset/f33fe80f-f284-4a63-8a17-8388bfb09a96\" -o \"d:/kerja/compro/public/images/works-hero.jpg\")",
+      "Bash(curl -L -o \"hero.jpg\" \"https://www.figma.com/api/mcp/asset/d6929ce4-01b0-45ec-b3d3-d1c321121c3c\" --silent --show-error)",
+      "Bash(curl -L -o \"featured.jpg\" \"https://www.figma.com/api/mcp/asset/a7184518-f852-4f35-b30b-58ead60e9428\" --silent --show-error)",
+      "Bash(curl -L -o \"approach-1.jpg\" \"https://www.figma.com/api/mcp/asset/3fe5eb61-4814-47e7-a6aa-fc44f78713c1\" --silent --show-error)",
+      "Bash(curl -L -o \"approach-2.jpg\" \"https://www.figma.com/api/mcp/asset/7a719e3d-219e-4de5-9593-5d276b0950eb\" --silent --show-error)",
+      "Bash(curl -L -o \"approach-3.jpg\" \"https://www.figma.com/api/mcp/asset/09959c6e-a789-4409-b4f3-6d808572b2bc\" --silent --show-error)",
+      "Bash(curl -L -o \"gallery-1.jpg\" \"https://www.figma.com/api/mcp/asset/ee23944e-e2b1-40e7-b766-fe3f1954f465\" --silent --show-error)",
+      "Bash(curl -L -o \"gallery-2.jpg\" \"https://www.figma.com/api/mcp/asset/decdac66-9da7-40af-9105-2e23c60ad05b\" --silent --show-error)",
+      "Bash(curl -L -o \"gallery-3.jpg\" \"https://www.figma.com/api/mcp/asset/c5cdab51-02af-4c50-b06d-1232de68098e\" --silent --show-error)",
+      "Bash(curl -L -o \"gallery-4.jpg\" \"https://www.figma.com/api/mcp/asset/86110240-6ad5-4dc7-8363-9770247625ee\" --silent --show-error)",
+      "Bash(curl -L -o \"testimonial.jpg\" \"https://www.figma.com/api/mcp/asset/da6193c4-9dfa-44a5-b1f7-22a1667ce9e9\" --silent --show-error)",
+      "Bash(curl -L -o \"image-16.jpg\" \"https://www.figma.com/api/mcp/asset/08b3ea52-4bce-4cf7-838a-d332550483a9\" --silent --show-error)",
+      "Bash(curl -L -o \"overview-image.jpg\" \"https://www.figma.com/api/mcp/asset/89794013-175d-43f4-8f73-26b0eb1a6c7e\" --silent --show-error)"
+    ],
+    "additionalDirectories": [
+      "d:\\kerja\\compro\\src\\app\\works"
     ]
   }
 }

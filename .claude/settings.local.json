@@ -18,7 +18,9 @@
       "Bash(curl -L -o \"gallery-4.jpg\" \"https://www.figma.com/api/mcp/asset/86110240-6ad5-4dc7-8363-9770247625ee\" --silent --show-error)",
       "Bash(curl -L -o \"testimonial.jpg\" \"https://www.figma.com/api/mcp/asset/da6193c4-9dfa-44a5-b1f7-22a1667ce9e9\" --silent --show-error)",
       "Bash(curl -L -o \"image-16.jpg\" \"https://www.figma.com/api/mcp/asset/08b3ea52-4bce-4cf7-838a-d332550483a9\" --silent --show-error)",
-      "Bash(curl -L -o \"overview-image.jpg\" \"https://www.figma.com/api/mcp/asset/89794013-175d-43f4-8f73-26b0eb1a6c7e\" --silent --show-error)"
+      "Bash(curl -L -o \"overview-image.jpg\" \"https://www.figma.com/api/mcp/asset/89794013-175d-43f4-8f73-26b0eb1a6c7e\" --silent --show-error)",
+      "Bash(find /d/kerja/compro -type f \\\\\\(-name *.tsx -o -name *.ts \\\\\\) -path */components/*)",
+      "Bash(grep -E \"\\\\.tsx$\")"
     ],
     "additionalDirectories": [
       "d:\\kerja\\compro\\src\\app\\works"

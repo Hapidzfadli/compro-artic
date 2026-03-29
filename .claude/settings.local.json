@@ -20,7 +20,15 @@
       "Bash(curl -L -o \"image-16.jpg\" \"https://www.figma.com/api/mcp/asset/08b3ea52-4bce-4cf7-838a-d332550483a9\" --silent --show-error)",
       "Bash(curl -L -o \"overview-image.jpg\" \"https://www.figma.com/api/mcp/asset/89794013-175d-43f4-8f73-26b0eb1a6c7e\" --silent --show-error)",
       "Bash(find /d/kerja/compro -type f \\\\\\(-name *.tsx -o -name *.ts \\\\\\) -path */components/*)",
-      "Bash(grep -E \"\\\\.tsx$\")"
+      "Bash(grep -E \"\\\\.tsx$\")",
+      "Bash(grep -i \"figma\" /d/kerja/compro/*.md)",
+      "Bash(find /d/kerja/compro -type f \\\\\\(-name *.config.ts -o -name *.config.js -o -name .env* -o -name *.json \\\\\\) ! -path */node_modules/* ! -path */.next/*)",
+      "Bash(grep -r \"figma.com/design\\\\|figma.com/board\" /d/kerja/compro --include=\"*\" ! -path \"*/node_modules/*\" ! -path \"*/.next/*\")",
+      "Bash(curl -L \"https://www.figma.com/api/mcp/asset/841ee500-2278-47a8-a7e9-74071478bfb5\" -o \"d:/kerja/compro/public/images/about/video-bg.jpg\")",
+      "Bash(curl -L \"https://www.figma.com/api/mcp/asset/b6f965bb-55f6-4d80-979f-3acb18e61375\" -o \"d:/kerja/compro/public/images/about/accordion.jpg\")",
+      "Bash(curl -L \"https://www.figma.com/api/mcp/asset/f7728cc6-e11d-4c6c-aac6-1cac999de416\" -o \"d:/kerja/compro/public/images/about/video-bg.jpg\")",
+      "Bash(file d:/kerja/compro/public/images/about/icons/*.png)",
+      "Bash(xxd d:/kerja/compro/public/images/about/icons/brain-1.png)"
     ],
     "additionalDirectories": [
       "d:\\kerja\\compro\\src\\app\\works"

@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-type SectionLabelVariant = "teal" | "teal-light" | "white" | "grey" | "grey-light" | "dark";
+export type SectionLabelVariant = "teal" | "teal-light" | "white" | "grey" | "grey-light" | "dark";
 type SectionLabelSize = "default" | "lg";
 
 interface SectionLabelProps {

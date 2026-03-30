@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { PrimaryButton } from "@/components/common/primary-button";
 import { SectionLabel } from "@/components/common/section-label";
+import { VideoCard } from "@/components/common/video-section";
 
 export function AboutSection() {
   return (
@@ -128,29 +128,11 @@ export function AboutSection() {
           }}
         />
 
-        <div className="relative">
-          <div className="group relative z-10 h-60 w-full overflow-hidden rounded-2xl md:h-90 lg:h-120">
-            <Image
-              src="/images/about-us/thumbnail.jpg"
-              alt="Company profile video thumbnail"
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-black/20 transition-colors duration-300 group-hover:bg-black/50" />
-            <button className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <span className="relative flex size-[72px] items-center justify-center md:size-24.5">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-white/20 duration-1000" />
-                <Image
-                  src="/images/about-us/play.svg"
-                  alt="Play video"
-                  width={72}
-                  height={72}
-                  className="relative transition-transform duration-300 group-hover:scale-110 md:size-24.5"
-                />
-              </span>
-            </button>
-          </div>
-        </div>
+        <VideoCard
+          src="/images/about-us/thumbnail.jpg"
+          alt="Company profile video thumbnail"
+          className="relative z-10 h-60 md:h-90 lg:h-120"
+        />
       </div>
     </section>
   );

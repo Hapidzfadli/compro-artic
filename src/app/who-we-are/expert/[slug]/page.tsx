@@ -83,7 +83,7 @@ export default async function ExpertProfilePage({ params }: { params: Promise<{ 
       <ExpertProfileBannerSection expert={expert} />
       <ExpertProfileBioSection expert={expert} />
       <ExpertProfileWorksSection />
-      <Footer />
+      <Footer hideCta = {true} />
     </>
   );
 }

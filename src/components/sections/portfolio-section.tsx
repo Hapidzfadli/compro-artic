@@ -59,7 +59,7 @@ export function PortfolioSection() {
       <Container>
         {/* Row 1: label + title */}
         <div className="flex flex-col gap-6">
-          <SectionLabel className="text-artic-grey-400">OUR WORKS</SectionLabel>
+          <SectionLabel variant="grey">OUR WORKS</SectionLabel>
           <h2 className="text-headline-h4 text-artic-ebony">
             Building Smart Solutions for the Future
           </h2>

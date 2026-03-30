@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SectionLabel } from "@/components/common/section-label";
 
 const LOGOS = [
   { src: "/images/clients/logo-0.svg", alt: "Client 1", w: 188, h: 37 },
@@ -15,11 +16,8 @@ export function OurClientSection() {
     <section className="bg-white pt-6 pb-16 md:pt-8 md:pb-24">
       <div className="mx-auto max-w-[1123px] px-6 md:px-16">
         {/* Label */}
-        <div className="mb-10 flex items-center justify-center gap-2">
-          <div className="size-2 rounded-full bg-artic-teal-dark" />
-          <span className="text-[11px] font-extrabold uppercase tracking-[0.96px] text-artic-grey-400 md:text-[13px] lg:text-[16px]">
-            OUR CLIENT
-          </span>
+        <div className="mb-10 flex justify-center">
+          <SectionLabel variant="grey">OUR CLIENT</SectionLabel>
         </div>
 
         {/* Marquee with fade edges */}

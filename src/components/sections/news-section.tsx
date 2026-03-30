@@ -57,7 +57,7 @@ export function NewsSection() {
         {/* Header */}
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <SectionLabel className="text-artic-teal-dark">Insight</SectionLabel>
+            <SectionLabel variant="teal">Insight</SectionLabel>
             <h2 className="mt-4 text-mobile-title-h2 text-artic-ebony md:text-headline-h3">
               Ikuti Kabar Terbaru{" "}
               <span className="text-artic-persian">Artic</span>

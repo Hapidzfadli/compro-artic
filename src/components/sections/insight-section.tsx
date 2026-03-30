@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PrimaryButton } from "@/components/common/primary-button";
+import { SectionLabel } from "@/components/common/section-label";
 
 const ARTICLES = [
   {
@@ -33,12 +34,7 @@ export function InsightSection() {
         {/* Header row */}
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="flex flex-col gap-5">
-            <div className="flex items-center gap-2">
-              <div className="size-2 rounded-full bg-artic-teal-dark" />
-              <span className="text-[11px] font-extrabold uppercase tracking-[0.96px] text-artic-grey-400 md:text-[12px] lg:text-[13px]">
-                ARTIC UPDATE
-              </span>
-            </div>
+            <SectionLabel variant="grey">ARTIC UPDATE</SectionLabel>
             <h2 className="text-[22px] font-medium leading-[1.1] tracking-[-0.44px] text-artic-ebony md:text-[32px] md:tracking-[-0.64px] lg:text-[44px] lg:tracking-[-0.88px]">
               Stay Updated with Artic
             </h2>

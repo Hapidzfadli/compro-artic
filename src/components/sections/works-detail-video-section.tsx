@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Container } from "@/components/layout/container";
+import { SectionLabel } from "../common/section-label";
 
 interface TeamMember {
   name: string;
@@ -113,10 +114,7 @@ export function WorksDetailVideoSection({
 
             {/* Label */}
             <div className="flex items-center gap-2 mt-10">
-              <span className="size-2 shrink-0 rounded-full bg-artic-teal-dark" />
-              <span className="bg-linear-to-r from-artic-teal-light to-[#43FFF9] bg-clip-text text-[12px] font-extrabold uppercase tracking-[0.96px] text-transparent">
-                The Results
-              </span>
+              <SectionLabel variant="white">The Results</SectionLabel>
             </div>
 
             {/* Quote */}
@@ -184,10 +182,7 @@ export function WorksDetailVideoSection({
 
             {/* "Watch Results Video" label — hover */}
             <div className="absolute left-5 top-5 flex -translate-x-3 items-center gap-2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
-              <div className="size-1.5 rounded-full bg-artic-teal-dark" />
-              <span className="text-[11px] font-extrabold uppercase tracking-[0.96px] text-white">
-                Watch Results Video
-              </span>
+              <SectionLabel variant="white">The Results</SectionLabel>
             </div>
 
             {/* Play button */}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { SectionLabel } from "@/components/common/section-label";
 
 const EXPERTS = [
   {
@@ -69,12 +70,7 @@ export function WhoWeAreExpertSection() {
         {/* Header row */}
         <div className="mb-12 flex items-end justify-between">
           <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-2">
-              <div className="size-2 rounded-full bg-artic-teal-dark" />
-              <span className="text-[13px] font-extrabold uppercase tracking-[0.06em] text-artic-teal-light">
-                OUR EXPERT
-              </span>
-            </div>
+            <SectionLabel variant="teal-light">OUR EXPERT</SectionLabel>
             <h2 className="max-w-2xl text-[28px] font-medium leading-[1.1] tracking-[-0.02em] text-white lg:text-[32px]">
               Credible Researcher Team of Artic
             </h2>

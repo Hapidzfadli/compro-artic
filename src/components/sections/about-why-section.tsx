@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Container } from "@/components/layout/container";
+import { SectionLabel } from "@/components/common/section-label";
 
 const ITEMS = [
   {
@@ -64,12 +65,7 @@ export function AboutWhySection() {
           {/* Right: accordion */}
           <div className="flex flex-col gap-4 lg:w-[45%]">
             {/* Label */}
-            <div className="flex items-center gap-2">
-              <div className="size-2 rounded-full bg-artic-teal-dark" />
-              <span className="text-[13px] font-extrabold uppercase tracking-[0.06em] text-artic-teal-dark">
-                WHAT MAKES US DIFFERENT?
-              </span>
-            </div>
+            <SectionLabel variant="teal">WHAT MAKES US DIFFERENT?</SectionLabel>
 
             {/* Accordion items */}
             <div className="flex flex-col">

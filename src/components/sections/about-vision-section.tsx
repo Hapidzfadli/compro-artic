@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/container";
+import { SectionLabel } from "@/components/common/section-label";
 
 const MISSIONS = [
   {
@@ -37,12 +38,7 @@ export function AboutVisionSection() {
       <Container>
         {/* Vision block */}
         <div className=" mt-8 mb-20 flex flex-col items-center gap-6 text-center">
-          <div className="flex items-center gap-2">
-            <div className="size-2 rounded-full bg-artic-teal-dark" />
-            <span className="text-[13px] font-extrabold uppercase tracking-[0.06em] text-artic-teal-light">
-              OUR VISION
-            </span>
-          </div>
+          <SectionLabel variant="teal-light">OUR VISION</SectionLabel>
           <h2 className="max-w-4xl text-[20px] font-medium leading-[1.1] tracking-[-0.02em] text-white md:text-[28px] lg:text-[45px]">
             To become a trusted partner in research, data, and strategic insight
             that empowers better policies, stronger institutions, and meaningful
@@ -51,11 +47,8 @@ export function AboutVisionSection() {
         </div>
 
         {/* Mission label */}
-        <div className="mb-8 mt-32 flex items-center gap-2">
-          <div className="size-2 rounded-full bg-artic-teal-dark" />
-          <span className="text-[13px] font-extrabold uppercase tracking-[0.06em] text-artic-teal-light">
-            MISSION
-          </span>
+        <div className="mb-8 mt-32">
+          <SectionLabel variant="teal-light">MISSION</SectionLabel>
         </div>
 
         {/* Mission cards */}

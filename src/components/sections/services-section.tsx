@@ -118,7 +118,7 @@ export function ServicesSection() {
     <section ref={sectionRef} className="bg-artic-surface pt-14 pb-8 md:pt-20 md:pb-10 overflow-hidden">
       <Container>
         <div className="text-center">
-          <SectionLabel className="text-artic-teal-dark">Our Service</SectionLabel>
+          <SectionLabel variant="grey">Our Service</SectionLabel>
           <h2 className="mt-4 text-mobile-title-h2 text-artic-ebony md:text-headline-h3">What We Do</h2>
           <p className="mx-auto mt-4 max-w-2xl text-mobile-body-md text-artic-grey-400 md:text-body-md">
             We make data, research, and strategy work for you. Here&apos;s how we help you understand people, see clearer, and make better decisions.

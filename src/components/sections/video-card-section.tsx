@@ -5,6 +5,7 @@ import { motion, LayoutGroup, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { PrimaryButton } from "@/components/common/primary-button";
+import { SectionLabel } from "@/components/common/section-label";
 
 interface Member {
   name: string;
@@ -106,12 +107,7 @@ export function VideoCardSection() {
 
       <div className="relative z-20 mb-[60px] flex items-end justify-between px-40">
         <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-2">
-            <div className="size-2 rounded-full bg-artic-teal-dark" />
-            <span className="text-[12px] font-extrabold uppercase leading-[1.2] tracking-[0.96px] text-white">
-              ARTIC PEOPLE
-            </span>
-          </div>
+          <SectionLabel variant="white">ARTIC PEOPLE</SectionLabel>
           <h2 className="text-[44px] font-medium leading-[1.1] tracking-[-1px] text-white">
             Profesional Behind
             <br />
@@ -257,9 +253,8 @@ export function VideoCardSection() {
             </AnimatePresence>
           </div>
 
-          <div className="mt-16 flex items-center gap-2">
-            <div className="size-2 rounded-full bg-artic-teal-dark" />
-            <span className="text-[16px] font-extrabold uppercase leading-[1.2] tracking-[0.96px] text-white">TEAM PROFILE</span>
+          <div className="mt-16">
+            <SectionLabel variant="white" size="lg">TEAM PROFILE</SectionLabel>
           </div>
 
           <div className="relative mt-[22px] w-full overflow-hidden" style={{ minHeight: 120 }}>
@@ -290,9 +285,8 @@ export function VideoCardSection() {
             style={{ bottom: -80, right: -100, width: 600, height: 300, background: "#53F2AA", borderRadius: 9999, filter: "blur(80px)", opacity: 0.12 }}
           />
           {/* Watch Profile text — appears from top-left on hover */}
-          <div className="absolute left-5 top-5 flex items-center gap-2 -translate-x-3 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
-            <div className="size-1.5 rounded-full bg-artic-teal-dark" />
-            <span className="text-[11px] font-extrabold uppercase tracking-[0.96px] text-white">Watch Profile</span>
+          <div className="absolute left-5 top-5 -translate-x-3 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+            <SectionLabel variant="white">Watch Profile</SectionLabel>
           </div>
           {/* Play button with pulse animation */}
           <button className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Container } from "@/components/layout/container";
+import { SectionLabel } from "@/components/common/section-label";
 
 const STEPS = [
   {
@@ -53,12 +54,7 @@ export function ArticResearchHowWeWorkSection() {
         {/* Top: label + headline left, body right */}
         <div className="flex flex-col gap-10 px-4 md:px-12 lg:flex-row lg:items-start lg:gap-16 lg:px-28">
           <div className="flex flex-col gap-3 lg:w-[60%]">
-            <div className="flex items-center gap-2">
-              <div className="size-2 rounded-full bg-artic-teal-dark" />
-              <span className="text-[13px] font-extrabold uppercase tracking-[0.06em] text-artic-grey-400">
-                HOW WE WORK
-              </span>
-            </div>
+            <SectionLabel variant="grey">HOW WE WORK</SectionLabel>
             <h2 className="text-[28px] font-medium leading-[1.1] tracking-[-0.02em] text-artic-ebony lg:text-[45px]">
               A Clear Process Built Around Your Needs
             </h2>

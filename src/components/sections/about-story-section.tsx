@@ -1,14 +1,12 @@
 import { Container } from "@/components/layout/container";
+import { SectionLabel } from "@/components/common/section-label";
 
 export function AboutStorySection() {
   return (
     <section className="bg-white pt-20">
       <Container className="px-8 md:px-20 lg:px-44">
-        <div className="mb-6 flex items-center gap-2">
-          <div className="size-2 rounded-full bg-artic-teal-dark" />
-          <span className="text-[13px] font-extrabold uppercase tracking-[0.06em] text-artic-grey-400">
-            OUR STORY
-          </span>
+        <div className="mb-6">
+          <SectionLabel variant="grey">OUR STORY</SectionLabel>
         </div>
 
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-16">

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PrimaryButton } from "@/components/common/primary-button";
+import { SectionLabel } from "@/components/common/section-label";
 
 export function AboutSection() {
   return (
@@ -58,12 +59,7 @@ export function AboutSection() {
       <div className="relative z-10 flex flex-col gap-10 px-6 md:flex-row md:items-start md:gap-20 md:px-16 lg:px-40">
         {/* Left column */}
         <div className="w-full md:w-[42%] md:shrink-0">
-          <div className="flex items-center gap-2">
-            <div className="size-2 rounded-full bg-artic-teal-dark" />
-            <span className="text-[11px] font-extrabold uppercase leading-[1.2] tracking-[0.96px] text-white">
-              ABOUT ARTIC ANALYTICA
-            </span>
-          </div>
+          <SectionLabel variant="white">ABOUT ARTIC ANALYTICA</SectionLabel>
           <h2 className="mt-6 text-[28px] font-medium leading-[1.1] tracking-[-0.56px] text-white md:text-[36px] md:tracking-[-0.72px] lg:text-[44px] lg:tracking-[-0.88px]">
             Where Insight Becomes Impact,{" "}
             <span className="text-artic-teal-light">
@@ -112,11 +108,8 @@ export function AboutSection() {
 
       {/* Video section */}
       <div className="relative z-10 mt-20 px-6 md:mt-28 md:px-16 lg:px-40">
-        <div className="mb-4 flex items-center gap-2">
-          <div className="size-2 rounded-full bg-artic-teal-dark" />
-          <span className="text-[11px] font-extrabold uppercase leading-[1.2] tracking-[0.96px] text-white">
-            WATCH COMPANY PROFILE
-          </span>
+        <div className="mb-4">
+          <SectionLabel variant="white">WATCH COMPANY PROFILE</SectionLabel>
         </div>
 
         {/* ellipse glow — di luar video, melingkari dari belakang */}

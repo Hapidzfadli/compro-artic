@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/container";
+import { SectionLabel } from "../common/section-label";
 
 interface Stat {
   value: string;
@@ -33,10 +34,7 @@ export function WorksDetailResultsSection({ headline, stats }: WorksDetailResult
       <Container>
         {/* Label */}
         <div className="flex items-center gap-2">
-          <span className="size-2 shrink-0 rounded-full bg-artic-teal-dark" />
-          <span className="bg-linear-to-r from-artic-teal-light to-[#43FFF9] bg-clip-text text-[12px] font-extrabold uppercase tracking-[0.96px] text-transparent">
-            The Results
-          </span>
+          <SectionLabel variant="white">The Results</SectionLabel>
         </div>
 
         {/* Headline */}

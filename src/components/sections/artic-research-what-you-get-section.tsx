@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
+import { SectionLabel } from "@/components/common/section-label";
 
 const DELIVERABLES = [
   {
@@ -66,12 +67,7 @@ export function ArticResearchWhatYouGetSection() {
           <div className="flex h-full justify-between gap-8 px-8 pt-38 md:px-20 lg:px-44">
             {/* Left: label + text */}
             <div className="flex flex-col gap-4 pt-20 lg:w-[40%]">
-              <div className="flex items-center gap-2">
-                <div className="size-2 rounded-full bg-artic-teal-dark" />
-                <span className="text-[13px] font-extrabold uppercase tracking-[0.06em] text-artic-grey-400">
-                  WHAT YOU&apos;LL GET
-                </span>
-              </div>
+              <SectionLabel variant="grey">WHAT YOU&apos;LL GET</SectionLabel>
 
               <h3 className="text-[20px] font-medium leading-[1.1] tracking-[-0.02em] text-artic-ebony lg:text-[28px]">
                 {item.headline}

@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/container";
+import { SectionLabel } from "../common/section-label";
 
 interface Challenge {
   title: string;
@@ -16,10 +17,7 @@ export function WorksDetailChallengesSection({ headline, items }: WorksDetailCha
       <Container className="px-8 md:px-20 lg:px-44">
         {/* Label */}
         <div className="flex items-center gap-2">
-          <span className="size-2 shrink-0 rounded-full bg-artic-teal-dark" />
-          <span className="text-[12px] font-extrabold uppercase tracking-[0.96px] text-artic-grey-400">
-            The Challenges
-          </span>
+          <SectionLabel variant="grey">The Challenges</SectionLabel>
         </div>
 
         {/* Headline */}

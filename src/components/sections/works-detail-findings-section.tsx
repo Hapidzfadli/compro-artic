@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { PlusCircle, MinusCircle, Bell, AlertCircle, type LucideIcon } from "lucide-react";
 import { Container } from "@/components/layout/container";
+import { SectionLabel } from "../common/section-label";
 
 const ICON_MAP: Record<string, LucideIcon> = {
   "plus-circle": PlusCircle,
@@ -32,10 +33,7 @@ export function WorksDetailFindingsSection({ headline, body, items }: WorksDetai
           {/* Left */}
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
-              <span className="size-2 shrink-0 rounded-full bg-artic-teal-dark" />
-              <span className="text-[12px] font-extrabold uppercase tracking-[0.96px] text-artic-grey-400">
-                What We Found
-              </span>
+              <SectionLabel variant="grey">What We Found</SectionLabel>
             </div>
             <h2 className="max-w-lg text-[24px] font-medium leading-[1.1] tracking-[-0.03em] text-artic-ebony md:text-[32px] lg:text-[40px]">
               {headline}

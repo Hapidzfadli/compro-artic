@@ -1,3 +1,5 @@
+import { SectionLabel } from "@/components/common/section-label";
+
 type Expert = {
   bio: string[];
   stats: {
@@ -15,12 +17,7 @@ export function ExpertProfileBioSection({ expert }: { expert: Expert }) {
         <div className="flex flex-col gap-12 lg:flex-row lg:items-start">
           {/* Left: bio */}
           <div className="flex-1">
-            <div className="flex items-center gap-2">
-              <div className="size-2 rounded-full bg-artic-teal-dark" />
-              <span className="text-[14px] font-extrabold uppercase tracking-[0.06em] text-artic-grey-400">
-                Expert Profile
-              </span>
-            </div>
+            <SectionLabel variant="grey">Expert Profile</SectionLabel>
             <div className="mt-8 flex flex-col gap-4">
               {expert.bio.map((para, i) => (
                 <p

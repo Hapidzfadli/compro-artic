@@ -13,6 +13,7 @@ import {
   Phone,
   Mail,
 } from "lucide-react";
+import { SectionLabel } from "../common/section-label";
 
 const SERVICE_LINKS = [
   { label: "Artic Research", href: "/services/research" },
@@ -198,10 +199,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean }) {
           {/* Brand */}
           <div className="flex flex-col gap-6">
             <div className="flex items-center gap-2">
-              <div className="size-2 rounded-full bg-artic-teal-dark" />
-              <span className="text-[11px] font-extrabold uppercase tracking-[0.96px] text-white lg:text-[13px]">
-                ARTIC ANALYTICA
-              </span>
+              <SectionLabel variant="white">ARTIC ANALYTICA</SectionLabel>
             </div>
             <p className="text-[24px] font-medium leading-[1.1] tracking-[-0.48px] text-artic-teal-light md:text-[32px] md:tracking-[-0.64px] lg:text-[40px] lg:tracking-[-0.8px]">
               Turning Change Into Insightful Direction

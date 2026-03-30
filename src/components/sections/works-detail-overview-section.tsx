@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/container";
+import { SectionLabel } from "../common/section-label";
 
 interface WorksDetailOverviewProps {
   headline: string;
@@ -22,10 +23,7 @@ export function WorksDetailOverviewSection({ headline, body, featuredImage, meta
           <div className="flex flex-col gap-8">
             {/* Label */}
             <div className="flex items-center gap-2">
-              <span className="size-1.5 shrink-0 rounded-full bg-artic-teal-dark" />
-              <span className="text-[12px] font-extrabold uppercase tracking-[0.84px] text-artic-grey-400">
-                The Situations
-              </span>
+              <SectionLabel variant="grey">The Situations</SectionLabel>
             </div>
 
             {/* Headline */}

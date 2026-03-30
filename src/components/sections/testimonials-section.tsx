@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { SectionLabel } from "@/components/common/section-label";
 
 const TESTIMONIALS = [
   {
@@ -67,11 +68,8 @@ export function TestimonialsSection() {
 
       <div className="relative z-10 mx-auto max-w-[1123px] px-6 md:px-16">
         {/* Label */}
-        <div className="mb-10 flex items-center justify-center gap-2">
-          <div className="size-2 rounded-full bg-artic-teal-dark" />
-          <span className="text-[11px] font-extrabold uppercase tracking-[0.96px] text-[#505050] md:text-[13px] lg:text-[16px]">
-            TESTIMONIALS
-          </span>
+        <div className="mb-10 flex justify-center">
+          <SectionLabel variant="grey">TESTIMONIALS</SectionLabel>
         </div>
 
         {/* Quote */}

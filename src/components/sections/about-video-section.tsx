@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/container";
+import { SectionLabel } from "@/components/common/section-label";
 
 function PlayButton() {
   // Figma: container 98px, Outer+Inside = 52px centered, Icon = inset 23.47%
@@ -98,11 +99,8 @@ export function AboutVideoSection() {
     <section className="bg-white py-16">
       <Container className="px-8 md:px-20 lg:px-44">
         {/* Label */}
-        <div className="mb-4 flex items-center gap-2">
-          <div className="size-2 rounded-full bg-artic-teal-dark" />
-          <span className="text-[13px] font-extrabold uppercase tracking-[0.06em] text-artic-ebony">
-            WATCH COMPANY PROFILE
-          </span>
+        <div className="mb-4">
+          <SectionLabel variant="dark">WATCH COMPANY PROFILE</SectionLabel>
         </div>
 
         {/* Video card */}

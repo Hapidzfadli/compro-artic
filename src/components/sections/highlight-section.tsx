@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { PrimaryButton } from "@/components/common/primary-button";
+import { SectionLabel } from "@/components/common/section-label";
 
 const SLIDES = [
   {
@@ -71,9 +72,8 @@ export function HighlightSection() {
           </div>
 
           {/* HIGHLIGHT label */}
-          <div className="absolute left-[60px] top-[40px] flex items-center gap-2">
-            <span className="size-2 shrink-0 rounded-full bg-artic-teal-dark" />
-            <span className="text-label-sm uppercase tracking-[0.06em] text-white">Highlight</span>
+          <div className="absolute left-[60px] top-[40px]">
+            <SectionLabel variant="white">Highlight</SectionLabel>
           </div>
 
           {/* Content: count + title + description */}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { SectionLabel } from "@/components/common/section-label";
 
 const EXPERTISES = [
   { icon: "/images/who-we-are/icons/policy-5.svg", title: "Public Policy Expert", desc: "Translating complex regulations and policies into clear, actionable frameworks for institutions and communities." },
@@ -30,12 +31,7 @@ export function WhoWeAreExpertiseSection() {
         <div className="mb-10 flex items-start justify-between gap-8">
           {/* Left: label + heading */}
           <div className="flex flex-col gap-4 lg:w-[80%]">
-            <div className="flex items-center gap-2">
-              <div className="size-2 rounded-full bg-artic-teal-dark" />
-              <span className="text-[13px] font-extrabold uppercase tracking-[0.06em] text-artic-grey-300">
-                Our Expertise
-              </span>
-            </div>
+            <SectionLabel variant="grey-light">Our Expertise</SectionLabel>
             <h2 className="text-[28px] font-medium leading-[1.1] tracking-[-0.02em] text-artic-ebony lg:text-[32px]">
               A collective of specialists from different fields, organized, credible, and experienced in turning complexity into clarity
             </h2>

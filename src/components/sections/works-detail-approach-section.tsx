@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/container";
+import { SectionLabel } from "../common/section-label";
 
 interface ApproachItem {
   image: string;
@@ -21,10 +22,7 @@ export function WorksDetailApproachSection({ headline, body, items }: WorksDetai
       <Container>
         {/* Label */}
         <div className="flex items-center gap-2">
-          <span className="size-2 shrink-0 rounded-full bg-artic-teal-dark" />
-          <span className="text-[12px] font-extrabold uppercase tracking-[0.96px] text-white">
-            Our Approach
-          </span>
+          <SectionLabel variant="white">Our Approach</SectionLabel>
         </div>
 
         {/* Gradient headline */}

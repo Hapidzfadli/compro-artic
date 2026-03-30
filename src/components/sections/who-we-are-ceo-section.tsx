@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/container";
+import { SectionLabel } from "@/components/common/section-label";
 
 export function WhoWeAreCeoSection() {
   return (
@@ -9,12 +10,7 @@ export function WhoWeAreCeoSection() {
           {/* Left: bio */}
           <div className="flex flex-col gap-8 lg:w-[48%]">
             {/* Label */}
-            <div className="flex items-center gap-2">
-              <div className="size-2 rounded-full bg-artic-teal-dark" />
-              <span className="text-[13px] font-extrabold uppercase tracking-[0.06em] text-artic-grey-300">
-                CEO
-              </span>
-            </div>
+            <SectionLabel variant="grey-light">CEO</SectionLabel>
 
             {/* Heading */}
             <h2 className="text-[26px] font-medium leading-[1.1] tracking-[-0.02em] text-artic-ebony lg:text-[36px]">

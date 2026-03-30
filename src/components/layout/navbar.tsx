@@ -25,7 +25,7 @@ export function Navbar() {
         style={
           showBg
             ? { background: "rgba(0,0,0,0.25)", backdropFilter: "blur(17.5px)", WebkitBackdropFilter: "blur(17.5px)" }
-            : { background: "rgba(0,0,0,0.25)", backdropFilter: "blur(17.5px)", WebkitBackdropFilter: "blur(17.5px)" }
+            : { background: "transparent" }
         }
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}

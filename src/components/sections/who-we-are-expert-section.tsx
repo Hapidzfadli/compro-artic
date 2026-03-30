@@ -6,30 +6,35 @@ import Link from "next/link";
 
 const EXPERTS = [
   {
+    slug: "khotibul-umam",
     name: "Khotibul Umam., S.S., M.Hum.",
     role: "Lecturer at Undip Semarang",
     quote:
       '"Khotibul Umam is an Indonesian literature expert at Semarang, gaining experience from theater and research of coastal literature around the north beach of Java (Pantura)."',
   },
   {
+    slug: "siti-aminah",
     name: "Dr. Siti Aminah, M.Si.",
     role: "Social Research Expert",
     quote:
       '"With over 15 years in behavioral and social research, Siti brings deep expertise in community-level qualitative studies and participatory action research across Central Java."',
   },
   {
+    slug: "hendra-gunawan",
     name: "Prof. Hendra Gunawan, Ph.D.",
     role: "Data Science & Analytics",
     quote:
       '"Hendra leads quantitative research and data modeling at Artic, combining academic rigor from his time at ITB with practical policy analytics for government clients."',
   },
   {
+    slug: "rizki-amalia",
     name: "Rizki Amalia, M.Pd.",
     role: "Education Research Expert",
     quote:
       '"Rizki focuses on education policy and curriculum research, collaborating with national institutions to improve learning outcomes through evidence-based interventions."',
   },
   {
+    slug: "bayu-prasetyo",
     name: "Dr. Bayu Prasetyo, S.T., M.T.",
     role: "Technology & Innovation Expert",
     quote:
@@ -145,7 +150,7 @@ export function WhoWeAreExpertSection() {
                 <div className="flex flex-col gap-2">
                   {/* Learn More button — full width */}
                   <Link
-                    href="#"
+                    href={`/who-we-are/expert/${expert.slug}`}
                     className="flex w-full items-center justify-center rounded-[6px] bg-artic-persian py-2 text-[11px] font-bold text-artic-surface transition-opacity hover:opacity-80"
                   >
                     Learn More →

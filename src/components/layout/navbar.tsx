@@ -25,7 +25,7 @@ export function Navbar() {
         style={
           showBg
             ? { background: "rgba(0,0,0,0.25)", backdropFilter: "blur(17.5px)", WebkitBackdropFilter: "blur(17.5px)" }
-            : { background: "transparent" }
+            : { background: "rgba(0,0,0,0.25)", backdropFilter: "blur(17.5px)", WebkitBackdropFilter: "blur(17.5px)" }
         }
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -39,7 +39,7 @@ export function Navbar() {
           aria-label="Open menu"
           className="flex items-center justify-center p-2.5 bg-transparent border-none cursor-pointer"
         >
-          <Image src="/images/hamburger.svg" alt="Menu" width={28} height={23} />
+          <Image src="/images/hamburger.svg" alt="Menu" width={18} height={23} />
         </button>
       </nav>
 

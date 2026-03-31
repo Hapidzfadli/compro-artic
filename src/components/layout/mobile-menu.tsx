@@ -10,7 +10,7 @@ const NAV_ITEMS = [
   { label: "Our Service", key: "service" },
   { label: "About Artic", key: "about", href: "/about" },
   { label: "Our Works", key: "works", href: "/works" },
-  { label: "Artic Updates", key: "updates", href: "/updates" },
+  { label: "Artic Updates", key: "updates", href: "/blog" },
 ];
 
 const MENU_SERVICES = [

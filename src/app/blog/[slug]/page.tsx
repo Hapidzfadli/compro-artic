@@ -137,7 +137,7 @@ export default function ArticleDetailPage({ params }: { params: Promise<{ slug: 
         <div className="relative z-10 mx-auto max-w-281 px-6 pb-20 pt-36 md:px-16 md:pb-24 md:pt-65">
           {/* Category pill */}
           <Link
-            href={`/updates/tag/${article.category.toLowerCase().replace(/\s+/g, "-")}`}
+            href={`/blog/tag/${article.category.toLowerCase().replace(/\s+/g, "-")}`}
             className="inline-block rounded-[5px] px-4 py-2 text-[14px] font-extrabold uppercase tracking-[0.84px] transition-opacity hover:opacity-80"
             style={{
               background: "linear-gradient(90deg, #53F2AA 0%, #43FFF9 100%)",
@@ -235,7 +235,7 @@ export default function ArticleDetailPage({ params }: { params: Promise<{ slug: 
             {otherArticles.map((a) => (
               <Link
                 key={a.id}
-                href={`/updates/${a.id}`}
+                href={`/blog/${a.id}`}
                 className="hover-shadow-card group flex flex-col gap-6 overflow-hidden rounded-2xl p-5 transition-shadow duration-300"
                 style={{ backgroundColor: "#F7F7FF" }}
               >

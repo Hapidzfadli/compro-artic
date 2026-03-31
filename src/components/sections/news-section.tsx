@@ -65,7 +65,7 @@ export function NewsSection() {
           </div>
 
           <Link
-            href="/insights"
+            href="/blog"
             className="inline-flex items-center gap-2 text-button-sm text-artic-persian transition-opacity hover:opacity-70"
           >
             Lihat Semua <ArrowRight className="h-4 w-4" />
@@ -95,7 +95,7 @@ export function NewsSection() {
           {filtered.map((item) => (
             <Link
               key={item.id}
-              href={`/insights/${item.slug}`}
+              href={`/blog/${item.slug}`}
               className="group flex flex-col overflow-hidden rounded-2xl border border-artic-grey-100 transition-shadow hover:shadow-lg"
             >
               <div className="relative aspect-video overflow-hidden">

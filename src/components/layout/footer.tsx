@@ -27,8 +27,8 @@ const SERVICE_LINKS = [
 const COMPANY_LINKS = [
   { label: "Our Works", href: "/works" },
   { label: "About Artic", href: "/about" },
-  { label: "Who We Are", href: "/about#team" },
-  { label: "Artic Update", href: "/insights" },
+  { label: "Who We Are", href: "/who-we-are" },
+  { label: "Artic Update", href: "/blog" },
   { label: "Contact Us", href: "/contact" },
 ];
 

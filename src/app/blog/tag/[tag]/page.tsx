@@ -73,7 +73,7 @@ export default function TagPage({ params }: { params: Promise<{ tag: string }> }
         <div className="flex items-center gap-4 text-[13px] font-medium tracking-[-0.36px] text-[#DCDCDC] md:text-[15px]">
           <Link href="/" className="hover:text-artic-teal-light transition-colors">Home</Link>
           <span>›</span>
-          <Link href="/updates" className="hover:text-artic-teal-light transition-colors">Artic Update</Link>
+          <Link href="/blog" className="hover:text-artic-teal-light transition-colors">Artic Update</Link>
           <span>›</span>
           <span className="font-bold text-artic-teal-light underline">{tagDisplay}</span>
         </div>
@@ -112,7 +112,7 @@ export default function TagPage({ params }: { params: Promise<{ tag: string }> }
         {paginated.length === 0 && (
           <div className="flex flex-col items-center py-12 text-center">
             <div className="relative mx-auto h-40 w-52 md:h-52 md:w-68">
-              <Image src="/images/updates/empty-state.svg" alt="No articles" fill className="object-contain" />
+              <Image src="/images/blog/empty-state.svg" alt="No articles" fill className="object-contain" />
             </div>
             <h2 className="mt-6 text-[20px] font-medium leading-[1.1] tracking-[-0.6px] text-artic-ebony md:text-[28px]">
               No articles found for this tag
@@ -120,7 +120,7 @@ export default function TagPage({ params }: { params: Promise<{ tag: string }> }
             <p className="mt-2 text-[13px] font-medium leading-[1.3] tracking-[-0.3px] text-artic-grey-400 md:text-[15px]">
               Try exploring other tags or browse all updates.
             </p>
-            <PrimaryButton href="/updates" className="mt-6 h-10 rounded-[10px] px-7 text-[13px] md:h-11 md:text-[14px]">
+            <PrimaryButton href="/blog" className="mt-6 h-10 rounded-[10px] px-7 text-[13px] md:h-11 md:text-[14px]">
               Back to Updates →
             </PrimaryButton>
           </div>
@@ -132,7 +132,7 @@ export default function TagPage({ params }: { params: Promise<{ tag: string }> }
             {paginated.map((article) => (
               <Link
                 key={article.id}
-                href={`/updates/${article.id}`}
+                href={`/blog/${article.id}`}
                 className="hover-shadow-card group flex flex-col gap-6 overflow-hidden rounded-2xl p-5 transition-shadow duration-300"
                 style={{ backgroundColor: "#F7F7FF" }}
               >

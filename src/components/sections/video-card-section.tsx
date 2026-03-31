@@ -272,7 +272,7 @@ export function VideoCardSection() {
             <p className="invisible w-full text-[18px] font-normal leading-[1.3] text-white">{MEMBERS[profileIndex].quote}</p>
           </div>
 
-          <PrimaryButton href="#" className=" w-fit px-10 py-4 text-[18px]">
+          <PrimaryButton href="/who-we-are" className=" w-fit px-10 py-4 text-[18px]">
             Who We Are →
           </PrimaryButton>
         </div>

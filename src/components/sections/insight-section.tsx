@@ -9,21 +9,21 @@ const ARTICLES = [
     title:
       "Quality Transformation: Artic Achieves ISO 9001 — Setting the Gold Standard in Data Consulting",
     thumbnail: "/images/insight/thumbnail-1.png",
-    href: "#",
+    href: "/blog/1",
   },
   {
     date: "6 April 2025",
     title:
       "More Than Just Charts: Three Data Visualization Mistakes That Lead CEOs to Make Wrong Decisions",
     thumbnail: "/images/insight/thumbnail-2.png",
-    href: "#",
+    href: "/blog/2",
   },
   {
     date: "24 Mei 2025",
     title:
       "How the Semarang Local Government Increased Public Satisfaction by 15% Using Only Perception Data?",
     thumbnail: "/images/insight/thumbnail-3.png",
-    href: "#",
+    href: "/blog/3",
   },
 ];
 
@@ -41,7 +41,7 @@ export function InsightSection() {
           </div>
 
           <PrimaryButton
-            href="/insights"
+            href="/blog"
             className="h-10 w-fit rounded-[10px] px-6 text-[13px] md:h-11 md:text-[14px]"
           >
             See All Updates →

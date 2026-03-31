@@ -16,12 +16,12 @@ import {
 import { SectionLabel } from "../common/section-label";
 
 const SERVICE_LINKS = [
-  { label: "Artic Research", href: "/services/research" },
-  { label: "Artic Data", href: "/services/data" },
-  { label: "Artic Consulting", href: "/services/consulting" },
-  { label: "Artic Policy Lab", href: "/services/policy" },
-  { label: "Artic Academy", href: "/services/academy" },
-  { label: "Artic Insight Hub", href: "/services/insight" },
+  { label: "Artic Research", href: "/artic-research" },
+  { label: "Artic Data", href: "/services/artic-data" },
+  { label: "Artic Consulting", href: "/services/artic-consulting" },
+  { label: "Artic Policy Lab", href: "/services/artic-policy-lab" },
+  { label: "Artic Academy", href: "/services/artic-academy" },
+  { label: "Artic Insight Hub", href: "/services/artic-insight-hub" },
 ];
 
 const COMPANY_LINKS = [

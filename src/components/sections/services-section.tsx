@@ -11,7 +11,7 @@ const SERVICES = [
     title: "Artic Research",
     description: "We help you see what your audience really thinks, feels, and needs, so every decision hits closer to home.",
     image: "/images/wrapper/businesswoman-networking-using-digital-devices-1.png",
-    href: "/services/artic-research",
+    href: "/artic-research",
   },
   {
     id: "artic-data",

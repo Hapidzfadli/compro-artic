@@ -1,12 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { SectionLabel } from "@/components/common/section-label";
 import { cn } from "@/lib/utils";
 import { PrimaryButton } from "@/components/common/primary-button";
+import { PortfolioCard } from "@/components/common/portfolio-card";
 
 const FILTERS = [
   "All Work",
@@ -92,50 +91,14 @@ export function PortfolioSection() {
         {/* Cards */}
         <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((item) => (
-            <div key={item.id} className="group relative h-[370px] overflow-hidden rounded-[15px]">
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                className="object-cover object-top scale-105 transition-all duration-500 grayscale group-hover:grayscale-0 group-hover:scale-100"
-              />
-
-              {/* Blue gradient — always visible, more intense on hover */}
-              <div
-                className="absolute inset-x-0 bottom-0 h-[55%] opacity-80 transition-opacity duration-500 group-hover:opacity-100"
-                style={{
-                  background:
-                    "linear-gradient(to bottom, transparent 0%, rgba(19,19,127,0.85) 50%, rgba(19,19,127,1) 100%)",
-                }}
-              />
-
-              {/* Content */}
-              <div className="absolute inset-x-0 bottom-0 p-8">
-                <div className="translate-y-[60px] transition-transform duration-300 ease-out group-hover:translate-y-0">
-                  <h3 className="text-[22px] font-normal leading-[1.3] tracking-[-0.03em] text-white">
-                    {item.title}
-                  </h3>
-                  <div className="mt-4 flex items-center gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    <Link
-                      href={item.studyHref}
-                      onClick={(e) => e.stopPropagation()}
-                      className="flex h-[44px] w-[160px] items-center justify-center rounded-[10px] bg-gradient-secondary text-[14px] font-bold text-artic-ebony transition-opacity duration-300 hover:opacity-80"
-                    >
-                      See Study Case →
-                    </Link>
-                    <Link
-                      href={item.pdfHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="flex h-[44px] w-[140px] items-center justify-center rounded-[10px] border border-artic-grey-100 text-[14px] font-semibold text-artic-grey-100 transition-all duration-300 hover:bg-white/20"
-                    >
-                      Download PDF
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <PortfolioCard
+              key={item.id}
+              title={item.title}
+              image={item.image}
+              studyHref={item.studyHref}
+              pdfHref={item.pdfHref}
+              showGraphics
+            />
           ))}
         </div>
       </Container>

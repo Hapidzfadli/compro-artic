@@ -14,7 +14,7 @@ const NAV_ITEMS = [
 ];
 
 const MENU_SERVICES = [
-  { id: "artic-research", title: "Artic Research", description: "Help you see what your audience really thinks, feels, and needs", image: "/images/wrapper-nocolor/businesswoman-networking-using-digital-devices-1.png", href: "/services/artic-research" },
+  { id: "artic-research", title: "Artic Research", description: "Help you see what your audience really thinks, feels, and needs", image: "/images/wrapper-nocolor/businesswoman-networking-using-digital-devices-1.png", href: "/artic-research" },
   { id: "artic-data", title: "Artic Data", description: "Turn complex numbers into clear visuals and insights you can use right away", image: "/images/wrapper-nocolor/digital-tablet-online-learning-1.png", href: "/services/artic-data" },
   { id: "artic-consulting", title: "Artic Consulting", description: "Shape smart strategies that actually get results for you", image: "/images/wrapper-nocolor/examining-business-documents-1.png", href: "/services/artic-consulting" },
   { id: "artic-academy", title: "Artic Academy", description: "Help your team learn, think, and lead with data, practical and inspiring", image: "/images/wrapper-nocolor/chasing-down-their-deadline-rear-view-shot-team-programmers-coding-through-night-1.png", href: "/services/artic-academy" },

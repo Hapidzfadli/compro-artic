@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
+import { ArticleCard } from "@/components/common/article-card";
 import { PrimaryButton } from "@/components/common/primary-button";
 import { SectionLabel } from "@/components/common/section-label";
 
@@ -51,32 +50,13 @@ export function InsightSection() {
         {/* Cards grid */}
         <div className="mt-10 grid grid-cols-1 gap-6 md:mt-12 md:grid-cols-3">
           {ARTICLES.map((article, i) => (
-            <Link
+            <ArticleCard
               key={i}
               href={article.href}
-              className="hover-shadow-card group flex flex-col gap-6 overflow-hidden rounded-2xl p-5 transition-shadow duration-300"
-              style={{ backgroundColor: "#F7F7FF" }}
-            >
-              {/* Thumbnail */}
-              <div className="relative aspect-video w-full overflow-hidden rounded-[10px]">
-                <Image
-                  src={article.thumbnail}
-                  alt={article.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-
-              {/* Content */}
-              <div className="flex flex-col gap-3">
-                <span className="text-[13px] font-extrabold uppercase tracking-[0.84px] text-artic-teal-dark">
-                  {article.date}
-                </span>
-                <p className="text-[15px] font-normal leading-[1.3] tracking-[-0.45px] text-artic-grey-400 lg:text-[17px] lg:tracking-[-0.51px]">
-                  {article.title}
-                </p>
-              </div>
-            </Link>
+              date={article.date}
+              title={article.title}
+              thumbnail={article.thumbnail}
+            />
           ))}
         </div>
       </div>

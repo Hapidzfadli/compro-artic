@@ -7,6 +7,7 @@ import { ChevronDown, ChevronRight } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { PrimaryButton } from "@/components/common/primary-button";
+import { ArticleCard } from "@/components/common/article-card";
 
 const ARTICLES = [
   { id: 1, timestamp: new Date("2025-02-17"), date: "17 Februari 2025", title: "Quality Transformation: Artic Achieves ISO 9001 — Setting the Gold Standard in Data Consulting", thumbnail: "/images/insight/thumbnail-1.png", category: "Achievement" },
@@ -130,29 +131,13 @@ export default function TagPage({ params }: { params: Promise<{ tag: string }> }
         {paginated.length > 0 && (
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {paginated.map((article) => (
-              <Link
+              <ArticleCard
                 key={article.id}
                 href={`/blog/${article.id}`}
-                className="hover-shadow-card group flex flex-col gap-6 overflow-hidden rounded-2xl p-5 transition-shadow duration-300"
-                style={{ backgroundColor: "#F7F7FF" }}
-              >
-                <div className="relative aspect-video w-full overflow-hidden rounded-[10px]">
-                  <Image
-                    src={article.thumbnail}
-                    alt={article.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="flex flex-col gap-3">
-                  <span className="text-[13px] font-extrabold uppercase tracking-[0.84px] text-artic-teal-dark">
-                    {article.date}
-                  </span>
-                  <p className="text-[15px] font-normal leading-[1.3] tracking-[-0.45px] text-artic-grey-400 lg:text-[17px] lg:tracking-[-0.51px]">
-                    {article.title}
-                  </p>
-                </div>
-              </Link>
+                date={article.date}
+                title={article.title}
+                thumbnail={article.thumbnail}
+              />
             ))}
           </div>
         )}

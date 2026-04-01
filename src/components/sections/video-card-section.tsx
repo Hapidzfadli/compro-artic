@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, LayoutGroup, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { PrimaryButton } from "@/components/common/primary-button";
 import { SectionLabel } from "@/components/common/section-label";
@@ -53,6 +53,9 @@ const MEMBERS: Member[] = [
   },
 ];
 
+const N = MEMBERS.length;
+const EXTENDED = [...MEMBERS, ...MEMBERS, ...MEMBERS];
+
 const ACTIVE_W = 310;
 const INACTIVE_W = 190;
 const GAP = 24;
@@ -73,19 +76,50 @@ function CardVectors() {
 }
 
 export function VideoCardSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(N); // start at middle copy
+  const [animated, setAnimated] = useState(true);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   const [profileIndex, setProfileIndex] = useState(0);
-
-  const total = MEMBERS.length;
-  const prev = () => setActiveIndex((i) => (i - 1 + total) % total);
-  const next = () => setActiveIndex((i) => (i + 1) % total);
+  const jumping = useRef(false);
 
   useEffect(() => {
-    const timer = setInterval(() => setProfileIndex((i) => (i + 1) % total), 4000);
+    const timer = setInterval(() => setProfileIndex((i) => (i + 1) % N), 4000);
     return () => clearInterval(timer);
-  }, [total]);
+  }, []);
+
+  // After slide reaches clone edge, silently jump back to middle copy
+  useEffect(() => {
+    if (!animated || jumping.current) return;
+    if (activeIndex < N || activeIndex >= N * 2) {
+      jumping.current = true;
+      const timer = setTimeout(() => {
+        setAnimated(false);
+        setActiveIndex((prev) => {
+          if (prev < N) return prev + N;
+          if (prev >= N * 2) return prev - N;
+          return prev;
+        });
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            setAnimated(true);
+            jumping.current = false;
+          });
+        });
+      }, 520);
+      return () => clearTimeout(timer);
+    }
+  }, [activeIndex, animated]);
+
+  const prev = () => {
+    if (jumping.current) return;
+    setAnimated(true);
+    setActiveIndex((i) => i - 1);
+  };
+  const next = () => {
+    if (jumping.current) return;
+    setAnimated(true);
+    setActiveIndex((i) => i + 1);
+  };
 
   const translateX = SLIDER_OFFSET - activeIndex * (INACTIVE_W + GAP);
 
@@ -128,10 +162,10 @@ export function VideoCardSection() {
       <div className="relative mb-[80px] h-97.5 ">
         <LayoutGroup>
         <div
-          className="absolute top-0 flex transition-transform duration-500 ease-in-out"
-          style={{ gap: GAP, transform: `translateX(${translateX}px)` }}
+          className="absolute top-0 flex"
+          style={{ gap: GAP, transform: `translateX(${translateX}px)`, transition: animated ? "transform 500ms ease-in-out" : "none" }}
         >
-          {MEMBERS.map((member, i) => {
+          {EXTENDED.map((member, i) => {
             const isActive = i === activeIndex;
             const isHovered = hoveredIndex === i;
             const isExpanded = isActive || isHovered;
@@ -140,7 +174,7 @@ export function VideoCardSection() {
 
             return (
               <motion.div
-                key={i}
+                key={`${i}-${member.name}`}
                 onClick={() => setActiveIndex(i)}
                 onMouseEnter={() => setHoveredIndex(i)}
                 onMouseLeave={() => setHoveredIndex(null)}
@@ -223,11 +257,11 @@ export function VideoCardSection() {
               style={{ top: 28, left: 14, width: 340, zIndex: 1, filter: "blur(2px)" }}
             >
               <div className="relative size-16 shrink-0 overflow-hidden rounded-full border-4 border-[#f3f3ff]">
-                <Image src={MEMBERS[(profileIndex + 1) % total].cardPhoto} alt="" fill className="object-cover" />
+                <Image src={MEMBERS[(profileIndex + 1) % N].cardPhoto} alt="" fill className="object-cover" />
               </div>
               <div className="flex min-w-0 flex-col gap-0.5">
-                <p className="text-[15px] font-semibold leading-[1.3] tracking-[-0.4px] text-artic-ebony">{MEMBERS[(profileIndex + 1) % total].name}</p>
-                <p className="text-[12px] font-extrabold uppercase tracking-[0.84px] text-artic-teal-dark">{MEMBERS[(profileIndex + 1) % total].role}</p>
+                <p className="text-[15px] font-semibold leading-[1.3] tracking-[-0.4px] text-artic-ebony">{MEMBERS[(profileIndex + 1) % N].name}</p>
+                <p className="text-[12px] font-extrabold uppercase tracking-[0.84px] text-artic-teal-dark">{MEMBERS[(profileIndex + 1) % N].role}</p>
               </div>
             </div>
 

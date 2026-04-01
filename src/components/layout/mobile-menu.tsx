@@ -22,6 +22,21 @@ const MENU_SERVICES = [
   { id: "artic-insight-hub", title: "Artic Insight Hub", description: "Open access to data, stories, and visuals that help everyone", image: "/images/wrapper-nocolor/business-concept-with-graphic-holography-11.png", href: "/services/artic-insight-hub" },
 ];
 
+const MENU_ABOUT = [
+  { id: "about", title: "About Artic", description: "Learn our story, vision, and mission in transforming data into meaningful decisions", image: "/images/wrapper-nocolor/businesswoman-networking-using-digital-devices-1.png", href: "/about" },
+  { id: "who-we-are", title: "Who We Are", description: "Meet the professionals and experts who drive Artic Analytica forward", image: "/images/video-card/image-25.png", href: "/who-we-are" },
+];
+
+const MENU_WORKS = [
+  { id: "all-works", title: "All Works", description: "Explore our complete portfolio of research and consulting projects", image: "/images/slider-img/slide-1-color.png", href: "/works" },
+  { id: "artic-research-works", title: "Artic Research", description: "Data research projects delivered for government and organizations", image: "/images/slider-img/slide-3-color.png", href: "/artic-research" },
+];
+
+const MENU_UPDATES = [
+  { id: "all-updates", title: "All Updates", description: "Stay informed with our latest articles, insights, and news", image: "/images/insight/thumbnail-1.png", href: "/blog" },
+  { id: "latest", title: "Latest Article", description: "Quality Transformation: Artic Achieves ISO 9001 — Setting the Gold Standard", image: "/images/insight/thumbnail-2.png", href: "/blog/1" },
+];
+
 function ServiceCard({ service, onClose }: { service: (typeof MENU_SERVICES)[0]; onClose: () => void }) {
   return (
     <Link href={service.href} onClick={onClose} className="group flex flex-col gap-3 w-48 shrink-0">
@@ -35,7 +50,7 @@ function ServiceCard({ service, onClose }: { service: (typeof MENU_SERVICES)[0];
       </div>
       <p className="text-artic-grey-300 text-[12px] leading-relaxed">{service.description}</p>
       <div className="mt-auto h-28 rounded-[10px] overflow-hidden bg-artic-grey-400 relative shrink-0">
-        <Image src={service.image} alt={service.title} fill className="object-cover transition-transform duration-300 group-hover:scale-105" />
+        <Image src={service.image} alt={service.title} fill className="object-cover grayscale transition-transform duration-300 group-hover:scale-105" />
       </div>
     </Link>
   );
@@ -128,6 +143,21 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     <div className="flex gap-5">
                       {MENU_SERVICES.slice(4).map((s) => <ServiceCard key={s.id} service={s} onClose={onClose} />)}
                     </div>
+                  </div>
+                )}
+                {activeNav === "about" && (
+                  <div className="flex gap-5">
+                    {MENU_ABOUT.map((s) => <ServiceCard key={s.id} service={s} onClose={onClose} />)}
+                  </div>
+                )}
+                {activeNav === "works" && (
+                  <div className="flex gap-5">
+                    {MENU_WORKS.map((s) => <ServiceCard key={s.id} service={s} onClose={onClose} />)}
+                  </div>
+                )}
+                {activeNav === "updates" && (
+                  <div className="flex gap-5">
+                    {MENU_UPDATES.map((s) => <ServiceCard key={s.id} service={s} onClose={onClose} />)}
                   </div>
                 )}
               </motion.div>

@@ -20,8 +20,8 @@ const variantClasses: Record<SectionLabelVariant, string> = {
 };
 
 const sizeClasses: Record<SectionLabelSize, string> = {
-  default: "text-base font-extrabold uppercase leading-5 tracking-wide",
-  lg: "text-lg font-extrabold uppercase leading-5 tracking-wide",
+  default: "text-xs font-extrabold uppercase leading-5 tracking-wide md:text-base",
+  lg: "text-sm font-extrabold uppercase leading-5 tracking-wide md:text-lg",
 };
 
 export function SectionLabel({

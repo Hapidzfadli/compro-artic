@@ -20,8 +20,11 @@ export function ServiceCard({ title, description, image, href, active, onClick }
     <div
       onClick={onClick}
       className={cn(
-        "relative shrink-0 h-100 overflow-hidden rounded-2xl cursor-pointer group transition-all duration-500",
-        active ? "w-137.5" : "w-52.5"
+        // Mobile: fixed 260×224, rounded-[10px]
+        "relative shrink-0 h-[224px] w-[260px] overflow-hidden rounded-[10px] cursor-pointer group transition-all duration-500",
+        // Desktop overrides
+        "md:h-100 md:rounded-2xl",
+        active ? "md:w-137.5" : "md:w-52.5"
       )}
     >
       <Image
@@ -33,32 +36,51 @@ export function ServiceCard({ title, description, image, href, active, onClick }
         quality={90}
       />
 
-      {active && (
-        <>
-          <div className="absolute inset-0 bg-linear-to-b from-[rgba(8,8,23,0)] via-[rgba(8,8,23,0.3)] to-[#080817]" />
+      {/* Gradient overlay — mobile: always, desktop: active only */}
+      <div className={cn(
+        "absolute inset-0 bg-linear-to-b from-[rgba(8,8,23,0)] via-[rgba(8,8,23,0.3)] to-[#080817]",
+        !active && "md:hidden"
+      )} />
 
-          <div className="absolute left-10 bottom-19">
-            <h3 className="text-[36px] font-medium leading-[1.1] tracking-[-0.72px] text-white w-90">
-              {title}
-            </h3>
-            <p className="mt-5 text-[15px] font-medium leading-normal tracking-[-0.3px] text-artic-grey-100 w-85 transition-all duration-300 opacity-0 translate-y-5 group-hover:opacity-100 group-hover:translate-y-0">
-              {description}
-            </p>
-          </div>
+      {/* Title — mobile: always teal 24px, desktop: active only white 36px */}
+      <div className={cn(
+        "absolute left-4 top-[118px] w-[185px]",
+        "md:left-10 md:top-auto md:bottom-19 md:w-auto",
+        !active && "md:hidden"
+      )}>
+        <h3 className="text-[24px] font-medium leading-[1.1] tracking-[-0.72px] text-artic-teal-light md:text-[36px] md:text-white md:w-90">
+          {title}
+        </h3>
+        <p className="hidden mt-5 text-[15px] font-medium leading-normal tracking-[-0.3px] text-artic-grey-100 w-85 transition-all duration-300 opacity-0 translate-y-5 group-hover:opacity-100 group-hover:translate-y-0 md:block">
+          {description}
+        </p>
+      </div>
 
-          <Link
-            href={href}
-            onClick={(e) => e.stopPropagation()}
-            className="absolute left-10 bottom-7 inline-flex h-10 w-48 items-center justify-center gap-2.5 rounded-[5px] bg-artic-persian text-[13px] font-semibold text-white transition-all duration-300 delay-75 opacity-0 translate-y-5 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto"
-          >
-            Learn More →
-          </Link>
+      {/* Learn More button — mobile: always visible white, desktop: active+hover blue */}
+      <Link
+        href={href}
+        onClick={(e) => e.stopPropagation()}
+        className={cn(
+          // Mobile: always visible, white bg, full width
+          "absolute left-4 bottom-4 inline-flex h-10 w-[calc(100%-32px)] items-center justify-center rounded-[6px] bg-white text-[14px] font-bold text-artic-ebony",
+          // Desktop: blue, hover reveal
+          "md:left-10 md:bottom-7 md:w-48 md:rounded-[5px] md:bg-artic-persian md:text-[13px] md:font-semibold md:text-white",
+          "md:transition-all md:duration-300 md:delay-75",
+          "md:opacity-0 md:translate-y-5 md:pointer-events-none",
+          "md:group-hover:opacity-100 md:group-hover:translate-y-0 md:group-hover:pointer-events-auto",
+          !active && "md:hidden"
+        )}
+      >
+        Learn More
+      </Link>
 
-          <div className="absolute bottom-0 left-0 h-1.5 w-full bg-artic-grey-100 overflow-hidden">
-            <div className="h-full w-5 bg-linear-to-r from-artic-teal-light to-[#43FFF9]" />
-          </div>
-        </>
-      )}
+      {/* Progress bar — mobile: always, desktop: active only */}
+      <div className={cn(
+        "absolute bottom-0 left-0 h-1.5 w-full bg-artic-grey-100 overflow-hidden",
+        !active && "md:hidden"
+      )}>
+        <div className="h-full w-[165px] bg-linear-to-r from-artic-teal-light to-[#43FFF9] md:w-5" />
+      </div>
     </div>
   );
 }

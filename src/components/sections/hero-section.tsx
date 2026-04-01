@@ -61,7 +61,7 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-[min(893px,68vw)] pb-16 pt-28 text-center">
+      <div className="relative z-10 mx-auto w-full px-5 pb-16 pt-28 text-center md:max-w-[min(893px,68vw)] md:px-0">
         <span className="text-label-md text-artic-white">Where Data Meets Strategy</span>
 
         <div className="mt-5 overflow-hidden" style={{ height: slideHeight }}>
@@ -82,18 +82,18 @@ export function HeroSection() {
           research, data, and strategy that actually make sense
         </p>
 
-        <div className="mt-10 flex items-center justify-center gap-3">
+        <div className="mt-10 flex flex-col items-stretch justify-center gap-3 md:flex-row md:items-center">
           <PrimaryButton
             href="http://wa.me/082085641027912"
             target="_blank"
             rel="noopener noreferrer"
-            className="h-12 w-50 text-button-sm"
+            className="h-12 w-full text-button-sm md:w-50"
           >
             Free Consultation
           </PrimaryButton>
           <Link
             href="/works"
-            className="inline-flex h-12 w-46 items-center justify-center rounded-[5px] bg-gradient-secondary text-button-sm text-artic-ebony transition-opacity duration-300 hover:opacity-80"
+            className="inline-flex h-12 w-full items-center justify-center rounded-[5px] bg-gradient-secondary text-button-sm text-artic-ebony transition-opacity duration-300 hover:opacity-80 md:w-46"
           >
             See Our Works →
           </Link>

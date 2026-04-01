@@ -59,6 +59,10 @@ const CARD_GAP = 12;
 const PAD_LEFT = 80;
 const STEP = INACTIVE_W + CARD_GAP;
 
+const MOBILE_CARD_W = 260;
+const MOBILE_STEP = MOBILE_CARD_W + CARD_GAP;
+const MOBILE_OFFSET = 20; // px-5 = 20px left padding
+
 const BTN_SIZE = 56;
 const BTN_W = BTN_SIZE * 2 + 6;
 const BTN_LEFT = PAD_LEFT + ACTIVE_W - BTN_W / 2;
@@ -70,6 +74,7 @@ export function ServicesSection() {
   const [activeIndex, setActiveIndex] = useState(N); // start at middle copy
   const [animated, setAnimated] = useState(true);
   const [sectionInView, setSectionInView] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const jumping = useRef(false);
 
@@ -82,6 +87,13 @@ export function ServicesSection() {
     );
     observer.observe(el);
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
 
   // After animated slide reaches a clone edge, silently jump to real position
@@ -120,7 +132,7 @@ export function ServicesSection() {
         <div className="text-center">
           <SectionLabel variant="grey">Our Service</SectionLabel>
           <h2 className="mt-4 text-mobile-title-h2 text-artic-ebony md:text-headline-h3">What We Do</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-mobile-body-md text-artic-grey-400 md:text-body-md">
+          <p className="mx-auto mt-4 max-w-2xl text-[14px] font-normal leading-[1.4] tracking-[-0.28px] text-artic-grey-400 md:text-body-md">
             We make data, research, and strategy work for you. Here&apos;s how we help you understand people, see clearer, and make better decisions.
           </p>
         </div>
@@ -128,9 +140,11 @@ export function ServicesSection() {
 
       <div className="relative mt-10 md:mt-14">
         <div
-          className="flex gap-3 px-20"
+          className="flex gap-3 pl-5 md:pl-20"
           style={{
-            transform: `translateX(${-activeIndex * STEP}px)`,
+            transform: isMobile
+              ? `translateX(${MOBILE_OFFSET - (activeIndex - N) * MOBILE_STEP}px)`
+              : `translateX(${-activeIndex * STEP}px)`,
             transition: animated ? TRANSITION : "none",
           }}
         >
@@ -149,7 +163,8 @@ export function ServicesSection() {
           ))}
         </div>
 
-        <div className="absolute flex items-center gap-1.5" style={{ left: BTN_LEFT, top: BTN_TOP }}>
+        {/* Desktop nav buttons */}
+        <div className="absolute hidden items-center gap-1.5 md:flex" style={{ left: BTN_LEFT, top: BTN_TOP }}>
           <button
             onClick={() => goTo(activeIndex - 1)}
             className="flex size-14 items-center justify-center rounded-xl bg-artic-persian text-white transition-opacity duration-200"
@@ -169,6 +184,42 @@ export function ServicesSection() {
             </svg>
           </button>
         </div>
+      </div>
+
+      {/* Mobile slider controls */}
+      <div className="mt-5 flex items-center justify-between px-5 md:hidden">
+        <button
+          onClick={() => goTo(activeIndex - 1)}
+          className="flex size-10 items-center justify-center rounded-xl bg-artic-surface text-artic-ebony shadow-md"
+          aria-label="Previous"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+
+        <div className="flex items-center gap-1.5">
+          {SERVICES.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goTo(N + i)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                (activeIndex % N) === i ? "w-5 bg-artic-grey-400" : "w-2 bg-artic-grey-100"
+              }`}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={() => goTo(activeIndex + 1)}
+          className="flex size-10 items-center justify-center rounded-xl bg-artic-teal-100 text-artic-ebony shadow-md"
+          aria-label="Next"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
       </div>
     </section>
   );

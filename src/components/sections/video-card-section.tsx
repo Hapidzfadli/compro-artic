@@ -139,7 +139,7 @@ export function VideoCardSection() {
       <div className="pointer-events-none absolute left-0 top-0 z-10 w-55" style={{ height: 700, background: "linear-gradient(270deg, rgba(22,22,22,0) 0%, #161616 100%)" }} />
       <div className="pointer-events-none absolute right-0 top-0 z-10 w-55" style={{ height: 700, background: "linear-gradient(90deg, rgba(22,22,22,0) 0%, #161616 100%)" }} />
 
-      <div className="relative z-20 mb-[60px] flex items-end justify-between px-40">
+      <div className="relative z-20 mb-8 flex items-end justify-between px-5 md:mb-15 md:px-40">
         <div className="flex flex-col gap-4">
           <SectionLabel variant="white">ARTIC PEOPLE</SectionLabel>
           <h2 className="text-[44px] font-medium leading-[1.1] tracking-[-1px] text-white">
@@ -243,8 +243,8 @@ export function VideoCardSection() {
         </LayoutGroup>
       </div>
 
-      <div className="relative z-20 flex items-start gap-16 px-40 mt-40 n ">
-        <div className="flex w-110 shrink-0 flex-col">
+      <div className="relative z-20 flex flex-col gap-8 px-5 mt-10 md:mt-40 md:flex-row md:items-start md:gap-16 md:px-40">
+        <div className="flex w-full flex-col md:w-110 md:shrink-0">
           <div className="relative" style={{ height: 130 }}>
             {/* Accent — kanan atas card */}
             <Image src="/images/video-card/accent.svg" alt="" width={280} height={220} className="pointer-events-none absolute" style={{ top: -100, right: -70 }} />
@@ -311,7 +311,7 @@ export function VideoCardSection() {
           </PrimaryButton>
         </div>
 
-        <div className="group relative w-130 shrink-0 overflow-hidden rounded-[15px]" style={{ height: 400 }}>
+        <div className="group relative h-55 w-full overflow-hidden rounded-[15px] md:h-100 md:w-130 md:shrink-0">
           <Image src="/images/video-card/image-25.png" alt="Video thumbnail" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
           <div className="absolute inset-0 bg-black/30 transition-colors duration-300 group-hover:bg-black/50" />
           <div

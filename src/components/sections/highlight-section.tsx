@@ -43,9 +43,9 @@ export function HighlightSection() {
     <section className="group/highlight bg-artic-surface pt-4 pb-14 md:pt-6 md:pb-20">
       <div className="px-5 transition-all duration-500 ease-in-out group-hover/highlight:px-0">
         {/* Card */}
-        <div className="relative h-155 w-full overflow-hidden rounded-[15px] transition-all duration-500 group-hover/highlight:rounded-none">
+        <div className="relative h-[589px] w-full overflow-hidden rounded-[15px] transition-all duration-500 group-hover/highlight:rounded-none md:h-155">
 
-          {/* Slides track — w-full so translateX(-100%) = exactly one card width */}
+          {/* Slides track */}
           <div
             className="flex h-full w-full transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(${-active * 100}%)` }}
@@ -61,7 +61,7 @@ export function HighlightSection() {
                 />
                 <div className="absolute inset-0 bg-black/40" />
                 <div
-                  className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover/highlight:opacity-100"
+                  className="absolute inset-0 opacity-100 transition-opacity duration-500 md:opacity-0 md:group-hover/highlight:opacity-100"
                   style={{
                     background:
                       "linear-gradient(to bottom, rgba(19,19,127,0) 0%, rgba(19,19,127,0.55) 55%, rgba(19,19,127,0.9) 100%)",
@@ -72,12 +72,68 @@ export function HighlightSection() {
           </div>
 
           {/* HIGHLIGHT label */}
-          <div className="absolute left-[60px] top-[40px]">
+          <div className="absolute left-5 top-6 md:left-15 md:top-10">
             <SectionLabel variant="white">Highlight</SectionLabel>
           </div>
 
-          {/* Content: count + title + description */}
-          <div className="absolute left-[60px] bottom-[110px] flex w-[min(860px,calc(100%-120px))] flex-col gap-5">
+          {/* Mobile: title + desc — anchored from top */}
+          <div className="absolute left-5 right-5 top-64 flex flex-col gap-3.5 md:hidden">
+            <div className="flex items-center gap-1 text-[14px] font-bold leading-[1.5] tracking-[-0.02em]">
+              <span className="text-artic-teal-light">{String(active + 1).padStart(2, "0")}</span>
+              <span className="font-normal text-white">/</span>
+              <span className="text-white">{String(SLIDES.length).padStart(2, "0")}</span>
+            </div>
+            <div className="flex flex-col gap-3.5">
+              <h2 className="text-[20px] font-medium leading-[1.1] tracking-[-0.02em] text-white">
+                {SLIDES[active].title}
+              </h2>
+              <p className="text-[14px] font-normal leading-[1.4] tracking-[-0.28px] text-artic-grey-100">
+                {SLIDES[active].description}
+              </p>
+            </div>
+          </div>
+
+          {/* Mobile: action + nav — anchored from bottom */}
+          <div className="absolute bottom-5 left-5 right-5 flex flex-col gap-2 md:hidden">
+            <div className="flex gap-2">
+              <PrimaryButton href={SLIDES[active].studyHref} className="h-13 flex-1 text-[14px]">
+                See Study Case →
+              </PrimaryButton>
+              <Link
+                href={SLIDES[active].pdfHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-13 flex-1 items-center justify-center rounded-[6px] border border-white text-[14px] font-semibold text-white transition-opacity hover:opacity-80"
+              >
+                Download PDF
+              </Link>
+            </div>
+            <div className="flex justify-end gap-2">
+              <button
+                onClick={prev}
+                disabled={active === 0}
+                className="flex size-12 items-center justify-center rounded-[6px] bg-artic-surface text-artic-ebony transition-opacity disabled:opacity-30"
+                aria-label="Previous"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+              <button
+                onClick={next}
+                disabled={active === SLIDES.length - 1}
+                className="flex size-12 items-center justify-center rounded-[6px] bg-artic-teal-100 text-artic-ebony transition-opacity disabled:opacity-30"
+                aria-label="Next"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          {/* Desktop: title + desc */}
+          <div className="absolute hidden left-15 bottom-27.5 w-[min(860px,calc(100%-120px))] flex-col gap-5 md:flex">
             <div className="flex items-center gap-1 text-[14px] font-bold leading-[1.5] tracking-[-0.02em]">
               <span className="text-artic-teal-light">{String(active + 1).padStart(2, "0")}</span>
               <span className="font-normal text-white">/</span>
@@ -93,30 +149,27 @@ export function HighlightSection() {
             </div>
           </div>
 
-          {/* Action buttons */}
-          <div className="absolute bottom-[40px] left-[60px] flex items-center gap-3">
-            <PrimaryButton
-              href={SLIDES[active].studyHref}
-              className="h-12 w-50 text-[15px]"
-            >
+          {/* Desktop: action buttons bottom-left */}
+          <div className="absolute hidden items-center gap-3 md:flex md:bottom-10 md:left-15">
+            <PrimaryButton href={SLIDES[active].studyHref} className="h-12 w-50 text-[15px]">
               See Study Case →
             </PrimaryButton>
             <Link
               href={SLIDES[active].pdfHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-12 w-37.5 items-center justify-center rounded-[5px] bg-gradient-secondary text-[15px] font-semibold text-artic-ebony transition-opacity duration-300 hover:opacity-80"
+              className="inline-flex h-12 w-37.5 items-center justify-center rounded-[5px] bg-gradient-secondary text-[15px] font-semibold text-artic-ebony transition-opacity hover:opacity-80"
             >
               Download PDF
             </Link>
           </div>
 
-          {/* Nav buttons */}
-          <div className="absolute bottom-[40px] right-[60px] flex items-center gap-1.5">
+          {/* Desktop: nav buttons bottom-right */}
+          <div className="absolute hidden items-center gap-1.5 md:flex md:bottom-10 md:right-15">
             <button
               onClick={prev}
               disabled={active === 0}
-              className="flex size-14 items-center justify-center rounded-[8px] bg-artic-surface text-artic-ebony transition-opacity disabled:opacity-30"
+              className="flex size-14 items-center justify-center rounded-xl bg-artic-surface text-artic-ebony transition-opacity disabled:opacity-30"
               aria-label="Previous"
             >
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -126,7 +179,7 @@ export function HighlightSection() {
             <button
               onClick={next}
               disabled={active === SLIDES.length - 1}
-              className="flex size-14 items-center justify-center rounded-[8px] bg-artic-teal-100 text-artic-ebony transition-opacity disabled:opacity-30"
+              className="flex size-14 items-center justify-center rounded-xl bg-artic-teal-100 text-artic-ebony transition-opacity disabled:opacity-30"
               aria-label="Next"
             >
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

@@ -66,7 +66,7 @@ export function PortfolioSection() {
 
         {/* Row 2: filters + see all button */}
         <div className="mt-8 flex items-center justify-between gap-4">
-          <div className="flex flex-wrap items-center gap-1">
+          <div className="hidden flex-wrap items-center gap-1 md:flex">
             {FILTERS.map((filter) => (
               <button
                 key={filter}

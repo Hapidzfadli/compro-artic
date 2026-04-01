@@ -61,11 +61,6 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="pointer-events-none absolute overflow-hidden" style={{ top: 0, left: 0, width: 1920, height: 1033 }}>
-        <div style={{ position: "absolute", width: 3896, height: 1538, top: 500, left: -988, background: "#53F2AA", borderRadius: 9999, filter: "blur(150px)", mixBlendMode: "plus-lighter" }} />
-        <div style={{ position: "absolute", width: 3480, height: 2430, top: 127, left: -780, opacity: 0.63, background: "radial-gradient(ellipse 49.97% 49.59% at 53.25% -16.03%, #FF00A6 0%, #E30094 5%, #AE0071 16%, #7F0053 26%, #580039 37%, #380024 48%, #1F0014 60%, rgba(13,0,9,0) 72%, rgba(3,0,2,0) 85%, rgba(0,0,0,0) 100%)", filter: "blur(200px)", mixBlendMode: "plus-lighter" }} />
-      </div>
-
       <div className="relative z-10 mx-auto w-full max-w-[min(893px,68vw)] pb-16 pt-28 text-center">
         <span className="text-label-md text-artic-white">Where Data Meets Strategy</span>
 

@@ -26,21 +26,20 @@ const OFFERS = [
 
 export function ArticResearchOffersSection() {
   return (
-    <section className="relative overflow-hidden bg-[#13137f] py-28">
+    <section className="relative overflow-hidden bg-[#13137f] py-14 md:py-28">
       <div className="pointer-events-none absolute bottom-0 left-1/2 h-32 w-[200%] -translate-x-1/2 translate-y-1/2 rounded-[50%] bg-artic-teal-light blur-[80px] mix-blend-plus-lighter" />
-      <Container>
-        <h2 className="mb-12 text-center text-[28px] font-medium leading-[1.1] tracking-[-0.02em] text-white lg:text-[42px]">
+      <Container className="px-5 md:px-8 lg:px-16">
+        <h2 className="mb-[29px] text-center text-[34px] font-medium leading-[1.1] tracking-[-0.03em] text-white md:mb-12 md:text-[42px]">
           What We Offer
         </h2>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-[353px] grid-cols-1 gap-[14px] sm:max-w-none sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {OFFERS.map((offer) => (
             <div
               key={offer.title}
-              className="flex flex-col gap-7 rounded-[15px] bg-white px-4 pb-5 pt-4"
+              className="flex flex-col gap-3 rounded-[8px] bg-white px-[14px] pb-6 pt-[14px] md:gap-7 md:rounded-[15px] md:px-4 md:pb-5 md:pt-4"
             >
-              {/* Image */}
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[10px]">
+              <div className="relative h-[158px] overflow-hidden rounded-[6px] md:aspect-[4/3] md:h-auto md:rounded-[10px]">
                 <Image
                   src={offer.image}
                   alt={offer.title}
@@ -49,12 +48,11 @@ export function ArticResearchOffersSection() {
                 />
               </div>
 
-              {/* Text */}
               <div className="flex flex-col gap-3">
-                <h3 className="text-[18px] font-normal leading-[1.3] tracking-[-0.03em] text-artic-ebony">
+                <h3 className="text-[24px] font-medium leading-[1.1] tracking-[-0.03em] text-artic-ebony md:text-[18px] md:font-normal md:leading-[1.3]">
                   {offer.title}
                 </h3>
-                <p className="text-[12px] font-medium leading-normal tracking-[-0.02em] w-[70%] text-artic-grey-400">
+                <p className="w-[267px] max-w-full text-[14px] font-normal leading-[1.4] tracking-[-0.02em] text-artic-grey-400 md:w-[70%] md:text-[12px] md:font-medium md:leading-normal">
                   {offer.description}
                 </p>
               </div>

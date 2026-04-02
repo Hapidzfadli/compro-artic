@@ -4,8 +4,7 @@ import { WhoWeAreHeroSection } from "@/components/sections/who-we-are-hero-secti
 import { WhoWeAreExpertiseSection } from "@/components/sections/who-we-are-expertise-section";
 import { WhoWeAreCeoSection } from "@/components/sections/who-we-are-ceo-section";
 import { WhoWeAreTeamSection } from "@/components/sections/who-we-are-team-section";
-import { WhoWeAreExpertSection } from "@/components/sections/who-we-are-expert-section";
-import { WhoWeAreCtaSection } from "@/components/sections/who-we-are-cta-section";
+import { WhoWeAreExpertSectionResponsive } from "@/components/sections/who-we-are-expert-section-responsive";
 
 export default function WhoWeArePage() {
   return (
@@ -15,7 +14,7 @@ export default function WhoWeArePage() {
       <WhoWeAreExpertiseSection />
       <WhoWeAreCeoSection />
       <WhoWeAreTeamSection />
-      <WhoWeAreExpertSection />
+      <WhoWeAreExpertSectionResponsive />
       <Footer />
     </>
   );

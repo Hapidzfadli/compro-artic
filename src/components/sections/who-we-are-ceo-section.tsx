@@ -4,21 +4,21 @@ import { SectionLabel } from "@/components/common/section-label";
 
 export function WhoWeAreCeoSection() {
   return (
-    <section className="bg-artic-surface py-24">
-      <Container className="px-8 md:px-20 lg:px-44">
-        <div className="flex flex-col gap-16 lg:flex-row lg:items-center lg:gap-20">
+    <section className="bg-artic-surface py-14 md:py-24">
+      <Container className="px-5 md:px-20 lg:px-44">
+        <div className="flex flex-col gap-10 md:gap-16 lg:flex-row lg:items-center lg:gap-20">
           {/* Left: bio */}
-          <div className="flex flex-col gap-8 lg:w-[48%]">
+          <div className="flex flex-col gap-6 md:gap-8 lg:w-[48%]">
             {/* Label */}
             <SectionLabel variant="grey-light">CEO</SectionLabel>
 
             {/* Heading */}
-            <h2 className="text-[26px] font-medium leading-[1.1] tracking-[-0.02em] text-artic-ebony lg:text-[36px]">
+            <h2 className="text-[34px] font-medium leading-[1.1] tracking-[-1.02px] text-artic-ebony md:text-[26px] md:tracking-[-0.02em] lg:text-[36px]">
               Leading With Clarity, Vision, and Data-Driven Thinking
             </h2>
 
             {/* Body */}
-            <p className="text-[14px] leading-[1.6] tracking-[-0.01em] text-artic-grey-400">
+            <p className="text-[14px] leading-[1.4] tracking-[-0.28px] text-artic-grey-400 md:leading-[1.6] md:tracking-[-0.01em]">
               Rian Destianto leads Artic Analytica with a focus on building a
               modern, insight-driven organization. With experience in research,
               technology, and strategy, he turns complex data into clear
@@ -35,7 +35,7 @@ export function WhoWeAreCeoSection() {
                 {/* Instagram */}
                 <a
                   href="#"
-                  className="flex items-center justify-center rounded-lg bg-white p-4 text-artic-grey-400 transition-opacity hover:opacity-70"
+                  className="flex items-center justify-center rounded-[4px] bg-white p-4 text-artic-grey-400 transition-opacity hover:opacity-70 md:rounded-lg"
                   aria-label="Instagram"
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -45,7 +45,7 @@ export function WhoWeAreCeoSection() {
                 {/* LinkedIn */}
                 <a
                   href="#"
-                  className="flex items-center justify-center rounded-lg bg-white p-4 text-artic-grey-400 transition-opacity hover:opacity-70"
+                  className="flex items-center justify-center rounded-[4px] bg-white p-4 text-artic-grey-400 transition-opacity hover:opacity-70 md:rounded-lg"
                   aria-label="LinkedIn"
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -58,7 +58,7 @@ export function WhoWeAreCeoSection() {
 
           {/* Right: photo */}
           <div className="lg:w-[52%]">
-            <div className="relative h-[320px] overflow-hidden rounded-[15px] lg:h-[420px]">
+            <div className="relative h-[234px] overflow-hidden rounded-[12px] md:h-[320px] md:rounded-[15px] lg:h-[420px]">
               <Image
                 src="/images/who-we-are/ceo-bg.jpg"
                 alt="Rian Destianto — CEO"

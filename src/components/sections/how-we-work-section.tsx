@@ -70,7 +70,7 @@ export function HowWeWorkSection() {
   return (
     <section className="relative bg-artic-ebony">
       {/* Sticky side labels — z-50 above all cards */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 top-0 z-50">
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 top-0 z-50 hidden md:block">
         <div className="sticky top-0 flex h-screen items-center justify-between px-10">
           <span className="text-[22px] font-normal leading-[1.2] tracking-[-0.03em] text-artic-teal-light">
             How We Work?
@@ -85,6 +85,14 @@ export function HowWeWorkSection() {
       </div>
 
       {/* Steps — sticky stacking */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 top-0 z-50 md:hidden">
+        <div className="sticky top-0 h-screen px-5 pt-9">
+          <span className="text-[34px] font-medium leading-[1.1] tracking-[-1.02px] text-artic-teal-light">
+            How We Work?
+          </span>
+        </div>
+      </div>
+
       {STEPS.map((step, i) => (
         <div
           key={step.id}

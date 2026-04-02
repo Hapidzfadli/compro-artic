@@ -87,10 +87,10 @@ export function AboutSection() {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-col items-stretch gap-3 md:flex-row md:flex-wrap md:items-center">
             <PrimaryButton
               href="/about"
-              className="h-10 rounded-[8px] px-6 text-[13px] md:h-11 md:text-[14px]"
+              className="h-[52px] w-full justify-center rounded-[10px] px-6 text-[16px] md:h-11 md:w-auto md:rounded-[8px] md:text-[14px]"
             >
               About Artic →
             </PrimaryButton>
@@ -98,7 +98,7 @@ export function AboutSection() {
               href="https://drive.google.com/file/d/13AHf3GiV71cDoLZ3vK2M0fzngQfwKgl4/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-10 items-center justify-center rounded-[8px] border border-[#DCDCDC] px-5 text-[13px] font-semibold text-[#DCDCDC] transition-opacity hover:opacity-80 md:h-11 md:text-[14px]"
+              className="flex h-[52px] w-full items-center justify-center rounded-[10px] border border-[#DCDCDC] bg-white px-5 text-[16px] font-semibold text-artic-ebony transition-opacity hover:opacity-80 md:h-11 md:w-auto md:rounded-[8px] md:bg-transparent md:text-[14px] md:text-[#DCDCDC]"
             >
               Download Compro PDF
             </Link>

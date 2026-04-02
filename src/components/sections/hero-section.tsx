@@ -49,6 +49,13 @@ export function HeroSection() {
     return () => clearInterval(interval);
   }, []);
 
+  const scrollToNextSection = () => {
+    window.scrollBy({
+      top: window.innerHeight * 0.85,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden bg-artic-persian-700">
       <div className="pointer-events-none absolute inset-0">
@@ -98,6 +105,27 @@ export function HeroSection() {
             See Our Works →
           </Link>
         </div>
+
+        <button
+          type="button"
+          aria-label="Scroll to next section"
+          onClick={scrollToNextSection}
+          className="relative mx-auto mt-16 flex size-[60px] items-center justify-center md:hidden"
+        >
+          <Image
+            src="/images/hero/scroll-ring.svg"
+            alt=""
+            fill
+            className="object-contain"
+          />
+          <Image
+            src="/images/hero/scroll-arrow.svg"
+            alt=""
+            width={14}
+            height={17}
+            className="relative z-10 rotate-180"
+          />
+        </button>
       </div>
     </section>
   );

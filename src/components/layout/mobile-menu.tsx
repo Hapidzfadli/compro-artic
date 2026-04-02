@@ -39,7 +39,7 @@ const MENU_UPDATES = [
 
 function ServiceCard({ service, onClose }: { service: (typeof MENU_SERVICES)[0]; onClose: () => void }) {
   return (
-    <Link href={service.href} onClick={onClose} className="group flex flex-col gap-3 w-48 shrink-0">
+    <Link href={service.href} onClick={onClose} className="group flex w-full flex-col gap-3 md:w-48 md:shrink-0">
       <div className="flex justify-between items-center w-full">
         <span className="text-artic-grey-300 group-hover:text-artic-teal-light text-[14px] font-medium whitespace-nowrap transition-colors duration-200">
           {service.title}
@@ -49,7 +49,7 @@ function ServiceCard({ service, onClose }: { service: (typeof MENU_SERVICES)[0];
         </span>
       </div>
       <p className="text-artic-grey-300 text-[12px] leading-relaxed">{service.description}</p>
-      <div className="mt-auto h-28 rounded-[10px] overflow-hidden bg-artic-grey-400 relative shrink-0">
+      <div className="relative mt-auto h-32 overflow-hidden rounded-[10px] bg-artic-grey-400 md:h-28 md:shrink-0">
         <Image src={service.image} alt={service.title} fill className="object-cover grayscale transition-transform duration-300 group-hover:scale-105" />
       </div>
     </Link>
@@ -66,7 +66,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    document.documentElement.style.overflow = isOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
   }, [isOpen]);
 
   return (
@@ -74,16 +78,16 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       {isOpen && (
       <motion.div
         key="mobile-menu"
-        className="fixed inset-0 z-100 h-screen overflow-hidden"
+        className="fixed inset-0 z-100 h-screen w-screen max-w-[100vw] overflow-x-clip"
         initial={{ y: "-100%", opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: "-100%", opacity: 0 }}
         transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
       >
-      <div className="bg-artic-ebony h-full overflow-y-auto px-16 py-5">
+      <div className="bg-artic-ebony h-full overflow-y-auto overflow-x-clip px-5 py-6 md:px-16 md:py-5">
         <div className="flex justify-between items-center">
           <Link href="/" onClick={onClose}>
-            <Image src="/assets/Logo White.svg" alt="Artic Analytica" width={112} height={38} priority className="w-28 h-auto" />
+            <Image src="/assets/Logo White.svg" alt="Artic Analytica" width={112} height={38} priority className="h-auto w-[90px] md:w-28" />
           </Link>
           <button
             onClick={onClose}
@@ -94,8 +98,8 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </button>
         </div>
 
-        <div className="flex mt-10 items-start">
-          <div className="w-[200px] shrink-0 flex flex-col gap-8">
+        <div className="mt-10 flex flex-col gap-8 md:flex-row md:items-start">
+          <div className="flex w-full shrink-0 flex-col gap-6 md:w-[200px] md:gap-8">
             <div className="flex flex-col">
               {NAV_ITEMS.map((item) => {
                 const isActive = activeNav === item.key;
@@ -118,15 +122,15 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             <Link
               href="/contact"
               onClick={onClose}
-              className="flex items-center justify-center gap-2 px-6 h-10 bg-artic-persian rounded-[10px] text-artic-white text-[13px] font-semibold no-underline transition-colors duration-200 hover:bg-artic-persian-600"
+              className="flex h-10 w-full items-center justify-center gap-2 rounded-[10px] bg-artic-persian px-6 text-[13px] font-semibold text-artic-white no-underline transition-colors duration-200 hover:bg-artic-persian-600"
             >
               Contact Us →
             </Link>
           </div>
 
-          <div className="w-px bg-[#333333] self-stretch shrink-0 mx-10" />
+          <div className="mx-10 hidden w-px shrink-0 self-stretch bg-[#333333] md:block" />
 
-          <div className="flex-1 overflow-x-auto">
+          <div className="w-full overflow-hidden md:flex-1 md:overflow-x-auto">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeNav}
@@ -136,27 +140,27 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
               >
                 {activeNav === "service" && (
-                  <div className="flex flex-col gap-5">
-                    <div className="flex gap-5">
+                  <div className="flex flex-col gap-4 md:gap-5">
+                    <div className="grid grid-cols-1 gap-4 md:flex md:gap-5">
                       {MENU_SERVICES.slice(0, 4).map((s) => <ServiceCard key={s.id} service={s} onClose={onClose} />)}
                     </div>
-                    <div className="flex gap-5">
+                    <div className="grid grid-cols-1 gap-4 md:flex md:gap-5">
                       {MENU_SERVICES.slice(4).map((s) => <ServiceCard key={s.id} service={s} onClose={onClose} />)}
                     </div>
                   </div>
                 )}
                 {activeNav === "about" && (
-                  <div className="flex gap-5">
+                  <div className="grid grid-cols-1 gap-4 md:flex md:gap-5">
                     {MENU_ABOUT.map((s) => <ServiceCard key={s.id} service={s} onClose={onClose} />)}
                   </div>
                 )}
                 {activeNav === "works" && (
-                  <div className="flex gap-5">
+                  <div className="grid grid-cols-1 gap-4 md:flex md:gap-5">
                     {MENU_WORKS.map((s) => <ServiceCard key={s.id} service={s} onClose={onClose} />)}
                   </div>
                 )}
                 {activeNav === "updates" && (
-                  <div className="flex gap-5">
+                  <div className="grid grid-cols-1 gap-4 md:flex md:gap-5">
                     {MENU_UPDATES.map((s) => <ServiceCard key={s.id} service={s} onClose={onClose} />)}
                   </div>
                 )}

@@ -60,6 +60,7 @@ const ACTIVE_W = 310;
 const INACTIVE_W = 190;
 const GAP = 24;
 const SLIDER_OFFSET = 160;
+const MOBILE_GAP = 10;
 
 
 function CardVectors() {
@@ -124,7 +125,7 @@ export function VideoCardSection() {
   const translateX = SLIDER_OFFSET - activeIndex * (INACTIVE_W + GAP);
 
   return (
-    <section className="relative bg-artic-ebony pb-[120px] pt-[100px]">
+    <section className="relative overflow-x-clip bg-artic-ebony pb-[120px] pt-[100px]">
 
 {/* Rectangle wave layers — z:8, di atas accent (z:5), di bawah content (z:10+) */}
       <div
@@ -142,24 +143,78 @@ export function VideoCardSection() {
       <div className="relative z-20 mb-8 flex items-end justify-between px-5 md:mb-15 md:px-40">
         <div className="flex flex-col gap-4">
           <SectionLabel variant="white">ARTIC PEOPLE</SectionLabel>
-          <h2 className="text-[44px] font-medium leading-[1.1] tracking-[-1px] text-white">
-            Profesional Behind
-            <br />
-            <span className="text-artic-teal-light">Artic Analytica</span>
+          <h2 className="max-w-[224px] text-[34px] font-medium leading-[1.1] tracking-[-1px] text-white md:max-w-none md:text-[44px]">
+            Professional Behind
+            <span className="text-artic-teal-light md:block">Artic Analytica</span>
           </h2>
         </div>
 
         <div className="flex items-center gap-[6px]">
-          <button onClick={prev} aria-label="Previous" className="flex size-12 items-center justify-center rounded-xl bg-artic-persian transition-opacity hover:opacity-80">
+          <button onClick={prev} aria-label="Previous" className="flex size-12 items-center justify-center rounded-md  transition-opacity hover:opacity-80 md:rounded-xl bg-artic-persian">
             <Image src="/images/video-card/solar-arrow-up-linear.svg" alt="" width={20} height={20} />
           </button>
-          <button onClick={next} aria-label="Next" className="flex size-12 items-center justify-center rounded-xl bg-artic-teal-light transition-opacity hover:opacity-80">
+          <button onClick={next} aria-label="Next" className="flex size-12 items-center justify-center rounded-md bg-[#95F7CB] transition-opacity hover:opacity-80 md:rounded-xl md:bg-artic-teal-light">
             <Image src="/images/video-card/solar-arrow-up-linear-1.svg" alt="" width={20} height={20} />
           </button>
         </div>
       </div>
 
-      <div className="relative mb-[80px] h-97.5 ">
+      <div className="relative mb-12 h-[245px] px-5 md:mb-[80px] md:h-97.5 md:px-0">
+        <div
+          className="overflow-hidden md:hidden"
+          style={{ ["--mobile-card-width" as string]: "calc((100vw - 50px) / 2)" }}
+        >
+          <div
+            className="flex"
+            style={{
+              gap: MOBILE_GAP,
+              transform: `translateX(calc(${activeIndex} * -1 * (var(--mobile-card-width) + ${MOBILE_GAP}px)))`,
+              transition: animated ? "transform 500ms ease-in-out" : "none",
+            }}
+          >
+            {EXTENDED.map((member, i) => (
+              <div
+                key={`mobile-${i}-${member.name}`}
+                className="group relative h-[245px] shrink-0 overflow-hidden rounded-[6px] border border-artic-teal-light bg-artic-ebony"
+                style={{ width: "var(--mobile-card-width)" }}
+              >
+                <CardVectors />
+
+                <div className="pointer-events-none absolute inset-0">
+                  <Image src="/images/video-card/accent.svg" alt="" fill className="object-cover" />
+                </div>
+
+                <div className="absolute inset-0 overflow-hidden">
+                  <Image
+                    src="/images/video-card/DSC08824%201.png"
+                    alt={member.name}
+                    fill
+                    unoptimized
+                    className="object-cover object-top"
+                  />
+                </div>
+
+                <div className="absolute inset-0 bg-[#080817] opacity-25 mix-blend-multiply" />
+
+                <div
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-[123px]"
+                  style={{ background: "linear-gradient(to top, #161616 0%, rgba(22,22,22,0) 100%)" }}
+                />
+
+                <div className="absolute inset-x-[13px] bottom-[15px] z-10 flex flex-col gap-0.5">
+                  <p className="text-[16px] font-bold leading-[1.4] tracking-[-0.32px] text-white">
+                    {member.name}
+                  </p>
+                  <p className="text-[12px] font-normal uppercase leading-[1.4] tracking-[-0.24px] text-artic-teal-light">
+                    {member.role}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="hidden md:block">
         <LayoutGroup>
         <div
           className="absolute top-0 flex"
@@ -241,11 +296,12 @@ export function VideoCardSection() {
           })}
         </div>
         </LayoutGroup>
+        </div>
       </div>
 
-      <div className="relative z-20 flex flex-col gap-8 px-5 mt-10 md:mt-40 md:flex-row md:items-start md:gap-16 md:px-40">
+      <div className="relative z-20 mt-10 flex flex-col gap-8 px-5 md:mt-40 md:flex-row md:items-start md:gap-16 md:px-40">
         <div className="flex w-full flex-col md:w-110 md:shrink-0">
-          <div className="relative" style={{ height: 130 }}>
+          <div className="relative hidden md:block" style={{ height: 130 }}>
             {/* Accent — kanan atas card */}
             <Image src="/images/video-card/accent.svg" alt="" width={280} height={220} className="pointer-events-none absolute" style={{ top: -100, right: -70 }} />
             {/* Accent — kiri bawah card */}
@@ -287,31 +343,94 @@ export function VideoCardSection() {
             </AnimatePresence>
           </div>
 
-          <div className="mt-16">
+          <div className="relative md:hidden" style={{ height: 104 }}>
+            <Image
+              src="/images/video-card/accent.svg"
+              alt=""
+              width={220}
+              height={180}
+              className="pointer-events-none absolute -bottom-14 right-[-44px] opacity-80"
+            />
+            <div
+              className="absolute inset-x-[-24px] -top-24 h-[280px] opacity-70"
+              style={{
+                backgroundImage: "url('/images/video-card/rectangle.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                mixBlendMode: "overlay",
+              }}
+            />
+            <div
+              className="absolute rounded-[8px] bg-white/80 p-[10px] shadow-[2px_4px_15px_0px_rgba(0,0,0,0.2)]"
+              style={{ top: 22, left: 12, right: 0, zIndex: 1, filter: "blur(2px)" }}
+            >
+              <div className="flex items-center gap-3">
+                <div className="relative size-[60px] shrink-0 overflow-hidden rounded-full border-4 border-[#f3f3ff]">
+                  <Image src={MEMBERS[(profileIndex + 1) % N].cardPhoto} alt="" fill className="object-cover" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="text-[16px] font-bold leading-[1.4] tracking-[-0.32px] text-artic-ebony">
+                    {MEMBERS[(profileIndex + 1) % N].name}
+                  </p>
+                  <p className="text-[12px] font-extrabold uppercase leading-[1.3] tracking-[0.72px] text-artic-teal-dark">
+                    {MEMBERS[(profileIndex + 1) % N].role}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <AnimatePresence initial={false}>
+              <motion.div
+                key={`mobile-profile-${profileIndex}`}
+                initial={{ y: 22, x: 12, opacity: 0 }}
+                animate={{ y: 0, x: 0, opacity: 1 }}
+                exit={{ y: -24, opacity: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="absolute rounded-[8px] bg-white p-[10px] shadow-[2px_4px_15px_0px_rgba(0,0,0,0.2)] backdrop-blur-[22.5px]"
+                style={{ top: 0, left: 0, right: 0, zIndex: 2 }}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="relative size-[60px] shrink-0 overflow-hidden rounded-full border-4 border-[#f3f3ff]">
+                    <Image src={MEMBERS[profileIndex].cardPhoto} alt="" fill className="object-cover" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[16px] font-bold leading-[1.4] tracking-[-0.32px] text-artic-ebony">
+                      {MEMBERS[profileIndex].name}
+                    </p>
+                    <p className="text-[12px] font-extrabold uppercase leading-[1.3] tracking-[0.72px] text-artic-teal-dark">
+                      {MEMBERS[profileIndex].role}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          <div className="mt-4 md:mt-16">
             <SectionLabel variant="white" size="lg">TEAM PROFILE</SectionLabel>
           </div>
 
-          <div className="relative mt-[22px] w-full overflow-hidden" style={{ minHeight: 120 }}>
+          <div className="relative mt-[22px] w-full overflow-hidden md:min-h-[120px]">
             {MEMBERS.map((member, i) => (
               <p
                 key={i}
                 className={cn(
-                  "absolute top-0 w-full text-[18px] font-normal leading-[1.3] tracking-[-0.84px] text-white transition-opacity duration-500",
+                  "absolute top-0 w-full text-[24px] font-medium leading-[1.2] tracking-[-0.48px] text-white transition-opacity duration-500 md:text-[18px] md:font-normal md:leading-[1.3] md:tracking-[-0.84px]",
                   i === profileIndex ? "opacity-100" : "pointer-events-none opacity-0",
                 )}
               >
                 {member.quote}
               </p>
             ))}
-            <p className="invisible w-full text-[18px] font-normal leading-[1.3] text-white">{MEMBERS[profileIndex].quote}</p>
+            <p className="invisible w-full text-[24px] font-medium leading-[1.2] text-white md:text-[18px] md:font-normal md:leading-[1.3]">{MEMBERS[profileIndex].quote}</p>
           </div>
 
-          <PrimaryButton href="/who-we-are" className=" w-fit px-10 py-4 text-[18px]">
+          <PrimaryButton href="/who-we-are" className="hidden w-fit px-10 py-4 text-[18px] md:inline-flex">
             Who We Are →
           </PrimaryButton>
         </div>
 
-        <div className="group relative h-55 w-full overflow-hidden rounded-[15px] md:h-100 md:w-130 md:shrink-0">
+        <div className="group relative h-[339px] w-full overflow-hidden rounded-xl md:h-100 md:w-130 md:shrink-0 md:rounded-[15px]">
           <Image src="/images/video-card/image-25.png" alt="Video thumbnail" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
           <div className="absolute inset-0 bg-black/30 transition-colors duration-300 group-hover:bg-black/50" />
           <div
@@ -319,7 +438,7 @@ export function VideoCardSection() {
             style={{ bottom: -80, right: -100, width: 600, height: 300, background: "#53F2AA", borderRadius: 9999, filter: "blur(80px)", opacity: 0.12 }}
           />
           {/* Watch Profile text — appears from top-left on hover */}
-          <div className="absolute left-5 top-5 -translate-x-3 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+          <div className="absolute left-5 top-5 transition-all duration-300 md:-translate-x-3 md:opacity-0 md:group-hover:translate-x-0 md:group-hover:opacity-100">
             <SectionLabel variant="white">Watch Profile</SectionLabel>
           </div>
           {/* Play button with pulse animation */}
@@ -331,6 +450,12 @@ export function VideoCardSection() {
             </span>
           </button>
         </div>
+      </div>
+
+      <div className="relative z-20 mt-6 px-5 md:hidden">
+        <PrimaryButton href="/who-we-are" className="flex w-full justify-center px-10 py-[18px] text-[16px]">
+          Who We Are →
+        </PrimaryButton>
       </div>
 
       {/* Bottom gradient — transisi ke section berikutnya */}

@@ -6,7 +6,7 @@ import { VideoCard } from "@/components/common/video-section";
 export function AboutSection() {
   return (
     <section
-      className="relative pt-16 pb-16 md:pt-16 md:pb-24"
+      className="relative overflow-x-clip pt-16 pb-16 md:pt-16 md:pb-24"
       style={{ background: "#13137F" }}
     >
       {/* Background holographic image */}
@@ -107,7 +107,7 @@ export function AboutSection() {
       </div>
 
       {/* Video section */}
-      <div className="relative z-10 mt-20 px-6 md:mt-28 md:px-16 lg:px-40">
+      <div className="relative z-10 mt-20 overflow-x-clip px-6 md:mt-28 md:px-16 lg:px-40">
         <div className="mb-4">
           <SectionLabel variant="white">WATCH COMPANY PROFILE</SectionLabel>
         </div>

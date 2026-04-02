@@ -20,7 +20,7 @@ export function PortfolioCard({
   className,
 }: PortfolioCardProps) {
   return (
-    <div className={cn("group relative h-[370px] overflow-hidden rounded-[15px]", className)}>
+    <div className={cn("group relative h-92.5 overflow-hidden rounded-[15px]", className)}>
       <Image
         src={image}
         alt={title}
@@ -49,15 +49,16 @@ export function PortfolioCard({
       />
 
       {/* Content */}
-      <div className="absolute inset-x-0 bottom-0 p-8">
-        <div className="translate-y-15 transition-transform duration-300 ease-out group-hover:translate-y-0">
-          <h3 className="text-[22px] font-normal leading-[1.3] tracking-[-0.03em] text-white">
+      <div className="absolute inset-x-0 bottom-0 p-4 md:p-8">
+        {/* Mobile: static layout */}
+        <div className="md:hidden">
+          <h3 className="text-[20px] font-medium leading-[1.1] tracking-[-0.03em] text-white">
             {title}
           </h3>
-          <div className="mt-4 flex items-center gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <div className="mt-3 flex items-center gap-2">
             <Link
               href={studyHref}
-              className="flex h-11 w-40 items-center justify-center rounded-[10px] bg-gradient-secondary text-[14px] font-bold text-artic-ebony transition-opacity duration-300 hover:opacity-80"
+              className="flex h-10.25 flex-1 items-center justify-center rounded-[5px] bg-gradient-secondary text-[14px] font-semibold text-artic-ebony transition-opacity hover:opacity-80"
             >
               See Study Case →
             </Link>
@@ -65,10 +66,35 @@ export function PortfolioCard({
               href={pdfHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-11 w-35 items-center justify-center rounded-[10px] border border-artic-grey-100 text-[14px] font-semibold text-artic-grey-100 transition-all duration-300 hover:bg-white/20"
+              className="flex h-10.25 flex-1 items-center justify-center rounded-[5px] border border-white text-[14px] font-semibold text-white transition-all hover:bg-white/20"
             >
               Download PDF
             </Link>
+          </div>
+        </div>
+
+        {/* Desktop: hover-animated layout */}
+        <div className="hidden md:block">
+          <div className="translate-y-15 transition-transform duration-300 ease-out group-hover:translate-y-0">
+            <h3 className="text-[22px] font-normal leading-[1.3] tracking-[-0.03em] text-white">
+              {title}
+            </h3>
+            <div className="mt-4 flex items-center gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <Link
+                href={studyHref}
+                className="flex h-11 w-40 items-center justify-center rounded-[10px] bg-gradient-secondary text-[14px] font-bold text-artic-ebony transition-opacity duration-300 hover:opacity-80"
+              >
+                See Study Case →
+              </Link>
+              <Link
+                href={pdfHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-11 w-35 items-center justify-center rounded-[10px] border border-artic-grey-100 text-[14px] font-semibold text-artic-grey-100 transition-all duration-300 hover:bg-white/20"
+              >
+                Download PDF
+              </Link>
+            </div>
           </div>
         </div>
       </div>

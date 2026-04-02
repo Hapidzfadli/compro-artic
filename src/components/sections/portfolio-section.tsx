@@ -66,6 +66,22 @@ export function PortfolioSection() {
 
         {/* Row 2: filters + see all button */}
         <div className="mt-8 flex items-center justify-between gap-4">
+          {/* Mobile: All Work dropdown-style + See All Works side by side */}
+          <div className="flex w-full gap-2 md:hidden">
+            <button
+              className="flex h-13 flex-1 items-center justify-center gap-1.5 rounded-[6px] bg-gradient-secondary text-[14px] font-semibold text-artic-ebony"
+            >
+              All Work
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <PrimaryButton href="/works" className="h-13 flex-1 rounded-[6px] text-[14px]">
+              See All Works →
+            </PrimaryButton>
+          </div>
+
+          {/* Desktop: filter chips */}
           <div className="hidden flex-wrap items-center gap-1 md:flex">
             {FILTERS.map((filter) => (
               <button
@@ -83,7 +99,7 @@ export function PortfolioSection() {
             ))}
           </div>
 
-          <PrimaryButton href="/works" className="h-10 w-40 rounded-xl text-[13px]">
+          <PrimaryButton href="/works" className="hidden h-10 w-40 rounded-xl text-[13px] md:inline-flex">
             See All Work →
           </PrimaryButton>
         </div>

@@ -21,7 +21,7 @@ export function Navbar() {
   return (
     <>
       <nav
-        className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between px-10 py-5 xl:px-20 transition-all duration-300"
+        className="fixed left-0 right-0 top-0 z-50 box-border flex w-full max-w-full items-center justify-between overflow-x-clip px-5 py-6 transition-all duration-300 md:px-10 md:py-5 xl:px-20"
         style={
           showBg
             ? { background: "rgba(0,0,0,0.25)", backdropFilter: "blur(17.5px)", WebkitBackdropFilter: "blur(17.5px)" }
@@ -30,16 +30,16 @@ export function Navbar() {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <Link href="/" className="flex items-center w-28 h-9 shrink-0">
-          <Image src="/assets/Logo White.svg" alt="Artic Analytica" width={112} height={38} priority className="w-28 h-auto" />
+        <Link href="/" className="flex h-[30px] w-[90px] shrink-0 items-center md:h-9 md:w-28">
+          <Image src="/assets/Logo White.svg" alt="Artic Analytica" width={112} height={38} priority className="h-auto w-[90px] md:w-28" />
         </Link>
 
         <button
           onClick={() => setIsMenuOpen(true)}
           aria-label="Open menu"
-          className="flex items-center justify-center p-2.5 bg-transparent border-none cursor-pointer"
+          className="flex h-8 w-9 shrink-0 items-center justify-center overflow-visible bg-transparent border-none cursor-pointer md:p-2.5"
         >
-          <Image src="/images/hamburger.svg" alt="Menu" width={18} height={23} />
+          <Image src="/images/hamburger.svg" alt="Menu" width={28} height={23} className="h-[23px] w-7 shrink-0 object-contain" />
         </button>
       </nav>
 

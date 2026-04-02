@@ -69,8 +69,194 @@ export function Footer({ hideCta = false }: { hideCta?: boolean }) {
           : "linear-gradient(180deg, #171717 0%, #171717 15%, #131360 40%, #13137F 55%, #161694 75%, #13137F 100%)",
       }}
     >
+      <div className="relative overflow-hidden md:hidden">
+        {!hideCta && (
+          <div className="relative overflow-hidden px-5 pb-14 pt-[121px]">
+            <div
+              className="pointer-events-none absolute inset-x-0 top-0 h-[499px] mix-blend-screen opacity-20"
+              style={{
+                backgroundImage: "url('/images/footer/rectangle.png')",
+                backgroundSize: "1266px auto",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center top",
+              }}
+            />
+            <h2 className="relative z-10 mx-auto max-w-[344px] text-center text-[54px] font-medium leading-[1.1] tracking-[-1.62px] text-white">
+              Let&apos;s Make Smart Moves Together
+            </h2>
+            <div className="relative z-10 mt-[72px] flex flex-col gap-2">
+              <PrimaryButton
+                href="https://api.whatsapp.com/send/?phone=081128892244&text&type=phone_number&app_absent=0"
+                className="h-[52px] w-full justify-center rounded-[6px] px-10 text-[14px]"
+              >
+                Free Consultation
+              </PrimaryButton>
+              <Link
+                href="https://drive.google.com/file/d/13AHf3GiV71cDoLZ3vK2M0fzngQfwKgl4/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-[52px] items-center justify-center rounded-[6px] border border-white px-10 text-[14px] font-semibold text-white transition-opacity hover:opacity-80"
+              >
+                Compro PDF →
+              </Link>
+            </div>
+          </div>
+        )}
+
+        <div className="relative px-5 pb-0 pt-10">
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-[120px] top-[260px] mix-blend-plus-lighter"
+            style={{
+              background: "radial-gradient(circle at 50% 80%, rgba(83,242,170,0.08), transparent 35%), linear-gradient(180deg, rgba(19,19,127,0) 0%, rgba(19,19,127,0.65) 55%, rgba(22,22,148,0.95) 100%)",
+            }}
+          />
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 top-[520px] mix-blend-plus-lighter opacity-80"
+            style={{
+              background:
+                "linear-gradient(165deg, rgba(19,19,127,0) 0%, rgba(32,32,211,0.5) 45%, rgba(22,22,148,0.9) 100%)",
+            }}
+          />
+
+          <div className="relative z-10 flex flex-col gap-6">
+            <div className="flex flex-col gap-6">
+              <SectionLabel variant="white">ARTIC ANALYTICA</SectionLabel>
+              <p className="max-w-[355px] text-[42px] font-medium leading-[1.1] tracking-[-1.26px] text-artic-teal-light">
+                Turning Change Into Insightful Direction
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-x-5 gap-y-12 pt-8">
+              <div className="flex flex-col gap-[18px]">
+                <p className="text-[14px] font-bold leading-[1.4] tracking-[-0.28px] text-artic-teal-light">
+                  OUR SERVICE
+                </p>
+                <ul className="flex flex-col gap-2">
+                  {SERVICE_LINKS.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} className="text-[14px] font-normal leading-[1.4] tracking-[-0.28px] text-[#DCDCDC] transition-colors hover:text-artic-teal-light">
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="flex flex-col gap-[18px]">
+                <p className="text-[14px] font-bold leading-[1.4] tracking-[-0.28px] text-artic-teal-light">
+                  RESOURCES
+                </p>
+                <ul className="flex flex-col gap-2">
+                  {RESOURCE_LINKS.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[14px] font-normal leading-[1.4] tracking-[-0.28px] text-[#DCDCDC] transition-colors hover:text-artic-teal-light"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="flex flex-col gap-[18px]">
+                <p className="text-[14px] font-bold leading-[1.4] tracking-[-0.28px] text-artic-teal-light">
+                  ADDRESS
+                </p>
+                <div className="flex flex-col gap-[18px]">
+                  <Link
+                    href="https://www.google.com/maps/place/MG+Setos"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[14px] font-normal leading-[1.4] tracking-[-0.28px] text-[#DCDCDC] transition-colors hover:text-artic-teal-light"
+                  >
+                    MG Setos, Jl. Inspeksi Lt 3, Kembangsari, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah 50133
+                  </Link>
+                  <Link
+                    href="https://www.google.com/maps/place/MG+Setos"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[12px] font-extrabold uppercase leading-[1.3] tracking-[0.72px] text-artic-teal-light transition-opacity hover:opacity-80"
+                  >
+                    Lihat Di Maps →
+                  </Link>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-[18px]">
+                <p className="text-[14px] font-bold leading-[1.4] tracking-[-0.28px] text-artic-teal-light">
+                  COMPANY
+                </p>
+                <ul className="flex flex-col gap-2">
+                  {COMPANY_LINKS.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} className="text-[14px] font-normal leading-[1.4] tracking-[-0.28px] text-[#DCDCDC] transition-colors hover:text-artic-teal-light">
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-[18px] pt-4">
+              <p className="text-[14px] font-bold leading-[1.4] tracking-[-0.28px] text-artic-teal-light">
+                CONTACT
+              </p>
+              <div className="flex flex-col gap-2">
+                <Link
+                  href="https://api.whatsapp.com/send/?phone=081128892244&text&type=phone_number&app_absent=0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-[14px] font-normal leading-[1.4] tracking-[-0.28px] text-[#DCDCDC] transition-colors hover:text-artic-teal-light"
+                >
+                  <Phone className="size-[21px] shrink-0" />
+                  +62 895-5913-459
+                </Link>
+                <Link
+                  href="mailto:arsaanalytic@gmail.com"
+                  className="flex items-center gap-2 text-[14px] font-normal leading-[1.4] tracking-[-0.28px] text-[#DCDCDC] transition-colors hover:text-artic-teal-light"
+                >
+                  <Mail className="size-[21px] shrink-0" />
+                  arsaanalytic@gmail.com
+                </Link>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-6 pt-8">
+              <p className="text-[14px] font-bold uppercase leading-[1.4] tracking-[-0.28px] text-artic-teal-light">
+                FOLLOW ARTIC
+              </p>
+              <div className="grid grid-cols-6 gap-2">
+                {SOCIALS.map(({ label, href, Icon }) => (
+                  <Link
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="flex h-[53px] w-full items-center justify-center rounded-[6px] bg-white text-artic-ebony transition-transform hover:scale-[1.03]"
+                  >
+                    <Icon className="size-[18px]" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative z-10 mt-9 border-t border-[#7070E5] px-5 py-4 text-center">
+          <p className="text-[12px] font-normal uppercase leading-[1.3] tracking-[0.72px] text-white">
+            © 2025 PT ARTIC DATA ANALITIKA
+          </p>
+        </div>
+      </div>
+
       {/* === CTA SECTION === */}
-      {!hideCta && (<div className="relative overflow-hidden py-28 md:py-36 lg:py-48">
+      {!hideCta && (<div className="relative hidden overflow-hidden py-28 md:block md:py-36 lg:py-48">
         {/* Rectangle wave texture */}
         <div
           className="pointer-events-none absolute inset-0 mix-blend-screen transition-all duration-700 ease-out"
@@ -183,7 +369,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean }) {
       )}
 
       {/* === FOOTER LINKS === */}
-      <div className="relative z-10 px-6 pb-10 pt-16 md:px-16 lg:px-[110px]">
+      <div className="relative z-10 hidden px-6 pb-10 pt-16 md:block md:px-16 lg:px-[110px]">
         {/* Background vector logo watermark */}
         <div
           className="pointer-events-none absolute bottom--10 left-0 right-0 z-11 h-full opacity-100"

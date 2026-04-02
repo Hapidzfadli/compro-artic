@@ -108,29 +108,29 @@ export default function UpdatesPage() {
         {/* ARTICLE LIST */}
         <div className="px-6 pb-20 pt-10 md:px-16 lg:px-24" style={{ backgroundColor: "#F7F7FF" }}>
           {/* Search + Sort bar */}
-          <div className="mb-8 flex flex-col gap-4 border-artic-grey-100 pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mb-8 flex flex-col gap-3 border-artic-grey-100 pt-8 md:flex-row md:items-center md:justify-between md:gap-4">
             {/* Search */}
-            <div className="flex items-center gap-4">
-              <span className="text-[14px] font-semibold text-artic-ebony">Search</span>
-              <div className="relative">
-                <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 size-4 text-artic-grey-200" />
+            <div className="flex w-full flex-col gap-2 md:w-auto md:flex-row md:items-center md:gap-4">
+              <span className="hidden text-[14px] font-semibold text-artic-ebony md:block">Search</span>
+              <div className="relative w-full md:w-auto">
+                <Search className="pointer-events-none absolute left-4 top-1/2 size-6 -translate-y-1/2 text-artic-grey-300 md:left-3 md:size-4 md:text-artic-grey-200" strokeWidth={1.75} />
                 <input
                   type="text"
                   value={search}
                   onChange={(e) => handleSearch(e.target.value)}
                   placeholder="Search keywords.."
-                  className="h-11 w-[200px] rounded-[10px] border border-artic-grey-100 pl-9 pr-4 text-[13px] text-artic-grey-400 placeholder:text-artic-grey-200 outline-none focus:border-artic-grey-300 md:w-[320px]" style={{ backgroundColor: "#F7F7FF" }}
+                  className="h-12 w-full rounded-[6px] border border-artic-grey-200 bg-white pl-[50px] pr-4 text-[14px] font-normal text-artic-grey-300 outline-none transition-colors placeholder:text-artic-grey-300 focus:border-artic-grey-300 md:h-11 md:w-[320px] md:rounded-[10px] md:border-artic-grey-100 md:bg-[#F7F7FF] md:pl-9 md:text-[13px] md:text-artic-grey-400 md:placeholder:text-artic-grey-200"
                 />
               </div>
             </div>
             {/* Sort */}
-            <div className="flex items-center gap-4">
-              <span className="text-[14px] font-semibold text-artic-ebony">Sort by</span>
-              <div className="relative">
+            <div className="flex w-full flex-col gap-2 md:w-auto md:flex-row md:items-center md:gap-4">
+              <span className="hidden text-[14px] font-semibold text-artic-ebony md:block">Sort by</span>
+              <div className="relative w-full md:w-auto">
                 <select
                   value={sort}
                   onChange={(e) => handleSort(e.target.value)}
-                  className="h-11 cursor-pointer appearance-none rounded-[10px] border border-artic-grey-100 py-2 pl-4 pr-10 text-[13px] font-semibold text-artic-grey-400 outline-none" style={{ backgroundColor: "#F7F7FF" }}
+                  className="h-12 w-full cursor-pointer appearance-none rounded-[6px] border border-artic-grey-200 bg-white py-2 pl-4 pr-12 text-[14px] font-normal text-artic-grey-300 outline-none transition-colors focus:border-artic-grey-300 md:h-11 md:w-auto md:rounded-[10px] md:border-artic-grey-100 md:bg-[#F7F7FF] md:pr-10 md:text-[13px] md:font-semibold md:text-artic-grey-400"
                 >
                   {SORT_OPTIONS.map((opt) => (
                     <option key={opt} value={opt}>
@@ -138,7 +138,7 @@ export default function UpdatesPage() {
                     </option>
                   ))}
                 </select>
-                <ChevronDown className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 size-4 text-artic-grey-400" />
+                <ChevronDown className="pointer-events-none absolute right-4 top-1/2 size-5 -translate-y-1/2 text-artic-grey-300 md:right-3 md:size-4 md:text-artic-grey-400" />
               </div>
             </div>
           </div>

@@ -15,12 +15,12 @@ export function ArticleCard({ href, date, title, thumbnail, className }: Article
     <Link
       href={href}
       className={cn(
-        "hover-shadow-card group flex flex-col gap-6 overflow-hidden rounded-2xl p-5 transition-shadow duration-300",
+        "hover-shadow-card group flex flex-col gap-4 overflow-hidden rounded-[9px] p-[14px] transition-shadow duration-300 md:gap-6 md:rounded-2xl md:p-5",
         className
       )}
       style={{ backgroundColor: "#F7F7FF" }}
     >
-      <div className="relative aspect-video w-full overflow-hidden rounded-[10px]">
+      <div className="relative h-[140px] w-full overflow-hidden rounded-[5px] md:aspect-video md:h-auto md:rounded-[10px]">
         <Image
           src={thumbnail}
           alt={title}
@@ -28,11 +28,11 @@ export function ArticleCard({ href, date, title, thumbnail, className }: Article
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
-      <div className="flex flex-col gap-3">
-        <span className="text-[13px] font-extrabold uppercase tracking-[0.84px] text-artic-teal-dark">
+      <div className="flex flex-col gap-2 md:gap-3">
+        <span className="text-[12px] font-extrabold uppercase leading-[1.3] tracking-[0.72px] text-artic-teal-dark md:text-[13px] md:tracking-[0.84px]">
           {date}
         </span>
-        <p className="text-[15px] font-normal leading-[1.3] tracking-[-0.45px] text-artic-grey-400 lg:text-[17px] lg:tracking-[-0.51px]">
+        <p className="text-[16px] font-normal leading-[1.4] tracking-[-0.32px] text-artic-ebony md:text-[15px] md:leading-[1.3] md:tracking-[-0.45px] md:text-artic-grey-400 lg:text-[17px] lg:tracking-[-0.51px]">
           {title}
         </p>
       </div>

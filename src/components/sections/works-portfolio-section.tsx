@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import { Container } from "@/components/layout/container";
 import { cn } from "@/lib/utils";
-import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronDown, ChevronRight } from "lucide-react";
 import { PortfolioCard } from "@/components/common/portfolio-card";
 
 const FILTERS = [
@@ -60,6 +60,7 @@ export function WorksPortfolioSection() {
   const [activeFilter, setActiveFilter] = useState("All Work");
   const [sortBy, setSortBy] = useState("newest");
   const [sortOpen, setSortOpen] = useState(false);
+  const [filterOpen, setFilterOpen] = useState(false);
   const [page, setPage] = useState(1);
 
   const filtered = useMemo(() => {
@@ -96,9 +97,64 @@ export function WorksPortfolioSection() {
   return (
     <section className="bg-white py-14 md:py-20">
       <Container>
-        {/* Filters + Sort By row */}
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          {/* Filter tabs */}
+        {/* Mobile: filter + sort buttons */}
+        <div className="relative z-20 flex items-center gap-2 md:hidden">
+          {/* Filter dropdown */}
+          <div className="relative flex-1">
+            <button
+              onClick={() => { setFilterOpen((o) => !o); setSortOpen(false); }}
+              className="flex h-13 w-full items-center justify-center gap-1 rounded-[6px] bg-gradient-secondary px-4 text-[14px] font-semibold text-artic-ebony"
+            >
+              {activeFilter}
+              <ChevronDown size={20} className={cn("transition-transform duration-200", filterOpen && "rotate-180")} />
+            </button>
+            {filterOpen && (
+              <div className="absolute left-0 top-full z-30 mt-1 w-full overflow-hidden rounded-[10px] border border-artic-grey-100 bg-white shadow-lg">
+                {FILTERS.map((filter) => (
+                  <button
+                    key={filter}
+                    onClick={() => { handleFilter(filter); setFilterOpen(false); }}
+                    className={cn(
+                      "w-full px-4 py-2.5 text-left text-[13px] font-semibold transition-colors hover:bg-artic-surface",
+                      activeFilter === filter ? "text-artic-persian" : "text-artic-grey-400"
+                    )}
+                  >
+                    {filter}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+          {/* Sort dropdown */}
+          <div className="relative flex-1">
+            <button
+              onClick={() => { setSortOpen((o) => !o); setFilterOpen(false); }}
+              className="flex h-13 w-full items-center justify-center gap-1 rounded-[6px] border border-artic-grey-100 px-4 text-[14px] font-semibold text-artic-grey-400"
+            >
+              {activeSortLabel}
+              <ChevronDown size={20} className={cn("transition-transform duration-200", sortOpen && "rotate-180")} />
+            </button>
+            {sortOpen && (
+              <div className="absolute right-0 top-full z-30 mt-1 w-full overflow-hidden rounded-[10px] border border-artic-grey-100 bg-white shadow-lg">
+                {SORT_OPTIONS.map((opt) => (
+                  <button
+                    key={opt.value}
+                    onClick={() => handleSort(opt.value)}
+                    className={cn(
+                      "w-full px-4 py-2.5 text-left text-[13px] font-semibold transition-colors hover:bg-artic-surface",
+                      sortBy === opt.value ? "text-artic-persian" : "text-artic-grey-400"
+                    )}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Desktop: filter chips + sort */}
+        <div className="hidden items-center justify-between gap-4 md:flex">
           <div className="flex flex-wrap items-center gap-1">
             {FILTERS.map((filter) => (
               <button
@@ -115,40 +171,32 @@ export function WorksPortfolioSection() {
               </button>
             ))}
           </div>
-
-          {/* Sort By dropdown */}
           <div className="flex items-center gap-3">
             <span className="text-[14px] font-semibold text-artic-ebony">Sort by</span>
             <div className="relative">
-            <button
-              onClick={() => setSortOpen((o) => !o)}
-              className="flex items-center gap-2 rounded-[10px] border border-artic-grey-100 px-4 py-2.5 text-[13px] font-semibold text-artic-grey-400 transition-colors hover:border-artic-persian hover:text-artic-persian"
-            >
-              {activeSortLabel}
-              <ChevronDown
-                size={14}
-                className={cn("transition-transform duration-200", sortOpen && "rotate-180")}
-              />
-            </button>
-
-            {sortOpen && (
-              <div className="absolute right-0 top-full z-20 mt-1 w-40 overflow-hidden rounded-[10px] border border-artic-grey-100 bg-white shadow-lg">
-                {SORT_OPTIONS.map((opt) => (
-                  <button
-                    key={opt.value}
-                    onClick={() => handleSort(opt.value)}
-                    className={cn(
-                      "w-full px-4 py-2.5 text-left text-[13px] font-semibold transition-colors hover:bg-artic-surface",
-                      sortBy === opt.value
-                        ? "text-artic-persian"
-                        : "text-artic-grey-400"
-                    )}
-                  >
-                    {opt.label}
-                  </button>
-                ))}
-              </div>
-            )}
+              <button
+                onClick={() => setSortOpen((o) => !o)}
+                className="flex items-center gap-2 rounded-[10px] border border-artic-grey-100 px-4 py-2.5 text-[13px] font-semibold text-artic-grey-400 transition-colors hover:border-artic-persian hover:text-artic-persian"
+              >
+                {activeSortLabel}
+                <ChevronDown size={14} className={cn("transition-transform duration-200", sortOpen && "rotate-180")} />
+              </button>
+              {sortOpen && (
+                <div className="absolute right-0 top-full z-20 mt-1 w-40 overflow-hidden rounded-[10px] border border-artic-grey-100 bg-white shadow-lg">
+                  {SORT_OPTIONS.map((opt) => (
+                    <button
+                      key={opt.value}
+                      onClick={() => handleSort(opt.value)}
+                      className={cn(
+                        "w-full px-4 py-2.5 text-left text-[13px] font-semibold transition-colors hover:bg-artic-surface",
+                        sortBy === opt.value ? "text-artic-persian" : "text-artic-grey-400"
+                      )}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -174,38 +222,44 @@ export function WorksPortfolioSection() {
         </div>
 
         {/* Pagination */}
-        <div className="mt-12 flex items-center justify-center gap-2">
-            <button
-              onClick={() => setPage((p) => Math.max(1, p - 1))}
-              disabled={page === 1}
-              className="flex h-9 w-9 items-center justify-center rounded-[8px] border border-artic-grey-100 text-artic-grey-400 transition-colors hover:border-artic-persian hover:text-artic-persian disabled:opacity-30"
-            >
-              <ChevronLeft size={16} />
-            </button>
+        <div className="mt-12 flex items-center justify-between">
+          <span className="text-[14px] font-normal leading-[1.4] tracking-[-0.28px] text-artic-ebony">
+            Page
+          </span>
 
+          <div className="flex items-center">
             {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
               <button
                 key={p}
                 onClick={() => setPage(p)}
                 className={cn(
-                  "flex h-9 w-9 items-center justify-center rounded-[8px] text-[13px] font-semibold transition-colors",
+                  "flex size-9.5 items-center justify-center rounded-[6px] text-[12px] font-extrabold uppercase tracking-[0.72px] transition-colors",
                   p === page
-                    ? "bg-artic-persian text-white"
-                    : "border border-artic-grey-100 text-artic-grey-400 hover:border-artic-persian hover:text-artic-persian"
+                    ? "bg-artic-grey-100 text-artic-ebony"
+                    : "text-artic-grey-300 hover:text-artic-ebony"
                 )}
               >
                 {p}
               </button>
             ))}
-
             <button
               onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
               disabled={page === totalPages}
-              className="flex h-9 w-9 items-center justify-center rounded-[8px] border border-artic-grey-100 text-artic-grey-400 transition-colors hover:border-artic-persian hover:text-artic-persian disabled:opacity-30"
+              className="flex size-9.5 items-center justify-center rounded-[6px] text-[12px] font-extrabold text-artic-grey-300 transition-colors hover:text-artic-ebony disabled:opacity-30"
             >
-              <ChevronRight size={16} />
+              &gt;
             </button>
           </div>
+
+          <button
+            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+            disabled={page === totalPages}
+            className="flex size-12 items-center justify-center rounded-[6px] bg-artic-teal-100 text-artic-ebony transition-opacity disabled:opacity-30"
+            aria-label="Next page"
+          >
+            <ChevronRight size={22} />
+          </button>
+        </div>
       </Container>
     </section>
   );

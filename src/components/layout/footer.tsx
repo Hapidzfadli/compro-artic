@@ -5,11 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { PrimaryButton } from "@/components/common/primary-button";
 import {
-  Instagram,
-  Youtube,
-  Linkedin,
-  Twitter,
-  Facebook,
   Phone,
   Mail,
 } from "lucide-react";
@@ -48,11 +43,12 @@ const RESOURCE_LINKS = [
 ];
 
 const SOCIALS = [
-  { label: "Instagram", href: "https://instagram.com/articanalytica", Icon: Instagram },
-  { label: "YouTube", href: "https://youtube.com", Icon: Youtube },
-  { label: "LinkedIn", href: "https://linkedin.com/company/articanalytica", Icon: Linkedin },
-  { label: "Twitter/X", href: "https://twitter.com/articanalytica", Icon: Twitter },
-  { label: "Facebook", href: "https://facebook.com/articanalytica", Icon: Facebook },
+  { label: "Instagram", href: "https://instagram.com/articanalytica", iconSrc: "/images/footer/social-instagram.svg" },
+  { label: "YouTube", href: "https://youtube.com", iconSrc: "/images/footer/social-youtube.svg" },
+  { label: "LinkedIn", href: "https://linkedin.com/company/articanalytica", iconSrc: "/images/footer/social-linkedin.svg" },
+  { label: "Twitter/X", href: "https://twitter.com/articanalytica", iconText: "X" },
+  { label: "Facebook", href: "https://facebook.com/articanalytica", iconSrc: "/images/footer/social-facebook.svg" },
+  { label: "TikTok", href: "https://tiktok.com", iconSrc: "/images/footer/social-tiktok.svg" },
 ];
 
 export function Footer({ hideCta = false }: { hideCta?: boolean }) {
@@ -103,18 +99,43 @@ export function Footer({ hideCta = false }: { hideCta?: boolean }) {
           </div>
         )}
 
-        <div className="relative px-5 pb-0 pt-10">
+        <div
+          className="relative px-5 pb-0 pt-10"
+          style={{
+            background:
+              "radial-gradient(circle at 18% 96%, rgba(83,242,170,0.16) 0%, rgba(83,242,170,0.05) 14%, rgba(83,242,170,0) 30%), linear-gradient(180deg, #171717 0%, #1A1A25 8%, #131360 26%, #161694 56%, #2020D3 82%, #1D1DBE 100%)",
+          }}
+        >
           <div
-            className="pointer-events-none absolute inset-x-0 bottom-[120px] top-[260px] mix-blend-plus-lighter"
+            className="pointer-events-none absolute inset-0 opacity-18 mix-blend-screen"
             style={{
-              background: "radial-gradient(circle at 50% 80%, rgba(83,242,170,0.08), transparent 35%), linear-gradient(180deg, rgba(19,19,127,0) 0%, rgba(19,19,127,0.65) 55%, rgba(22,22,148,0.95) 100%)",
+              backgroundImage: "url('/images/footer/rectangle.png')",
+              backgroundSize: "1050px auto",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center -20px",
             }}
           />
           <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 top-[520px] mix-blend-plus-lighter opacity-80"
+            className="pointer-events-none absolute inset-x-0 bottom-0 top-[36%] z-[1] opacity-55 mix-blend-screen"
+            style={{
+              backgroundImage: "url('/images/footer/vector-logo.png')",
+              backgroundSize: "145% auto",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center bottom",
+            }}
+          />
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 top-[48%] opacity-42 mix-blend-soft-light"
             style={{
               background:
-                "linear-gradient(165deg, rgba(19,19,127,0) 0%, rgba(32,32,211,0.5) 45%, rgba(22,22,148,0.9) 100%)",
+                "linear-gradient(157deg, rgba(255,255,255,0) 8%, rgba(112,112,229,0.14) 37%, rgba(255,255,255,0) 39%, rgba(255,255,255,0) 57%, rgba(112,112,229,0.11) 72%, rgba(255,255,255,0) 74%)",
+            }}
+          />
+          <div
+            className="pointer-events-none absolute inset-x-0 bottom-0 top-[64%]"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(29,29,190,0) 0%, rgba(29,29,190,0.36) 34%, rgba(19,19,127,0.82) 100%)",
             }}
           />
 
@@ -231,7 +252,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean }) {
                 FOLLOW ARTIC
               </p>
               <div className="grid grid-cols-6 gap-2">
-                {SOCIALS.map(({ label, href, Icon }) => (
+                {SOCIALS.map(({ label, href, iconSrc, iconText }) => (
                   <Link
                     key={label}
                     href={href}
@@ -240,7 +261,17 @@ export function Footer({ hideCta = false }: { hideCta?: boolean }) {
                     aria-label={label}
                     className="flex h-[53px] w-full items-center justify-center rounded-[6px] bg-white text-artic-ebony transition-transform hover:scale-[1.03]"
                   >
-                    <Icon className="size-[18px]" />
+                    {iconSrc ? (
+                      <Image
+                        src={iconSrc}
+                        alt=""
+                        width={18}
+                        height={18}
+                        className="size-[18px] object-contain"
+                      />
+                    ) : (
+                      <span className="text-[21px] font-medium leading-none text-artic-ebony">{iconText}</span>
+                    )}
                   </Link>
                 ))}
               </div>
@@ -248,7 +279,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean }) {
           </div>
         </div>
 
-        <div className="relative z-10 mt-9 border-t border-[#7070E5] px-5 py-4 text-center">
+        <div className="relative z-10 mt-9 border-t border-[#7070E5] bg-[linear-gradient(180deg,#2020D3_0%,#1D1DBE_28%,#161694_100%)] px-5 py-4 text-center">
           <p className="text-[12px] font-normal uppercase leading-[1.3] tracking-[0.72px] text-white">
             © 2025 PT ARTIC DATA ANALITIKA
           </p>
@@ -522,7 +553,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean }) {
               Follow Artic
             </span>
             <div className="flex items-center">
-              {SOCIALS.map(({ label, href, Icon }) => (
+              {SOCIALS.map(({ label, href, iconSrc, iconText }) => (
                 <Link
                   key={label}
                   href={href}
@@ -531,7 +562,17 @@ export function Footer({ hideCta = false }: { hideCta?: boolean }) {
                   aria-label={label}
                   className="flex items-center justify-center rounded-[10px] p-3 text-[#DCDCDC] transition-colors hover:text-artic-teal-light"
                 >
-                  <Icon className="size-4" />
+                  {iconSrc ? (
+                    <Image
+                      src={iconSrc}
+                      alt=""
+                      width={16}
+                      height={16}
+                      className="size-4 object-contain invert brightness-0 contrast-200"
+                    />
+                  ) : (
+                    <span className="text-[18px] font-medium leading-none text-white">{iconText}</span>
+                  )}
                 </Link>
               ))}
             </div>

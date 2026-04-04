@@ -13,29 +13,29 @@ const SLIDING_WORDS = [
   "Actionable Insights",
 ];
 
-function getSlideHeight(vw: number) {
-  // proportional to clamp(48px, 4.5vw, 96px)
-  const fontSize = Math.min(Math.max(vw * 0.045, 48), 96);
-  return Math.ceil(fontSize * 1.15);
-}
+function getHeroWordMetrics(vw: number) {
+  const isMobile = vw < 768;
+  const fontSize = isMobile
+    ? Math.min(Math.max(vw * 0.115, 34), 52)
+    : Math.min(Math.max(vw * 0.045, 48), 96);
+  const lineHeight = isMobile ? 1.08 : 1;
+  const maxLines = isMobile ? 2 : 1;
+  const slideHeight = Math.ceil(fontSize * lineHeight * maxLines + (isMobile ? 10 : 0));
 
-const gradientStyle: React.CSSProperties = {
-  fontSize: "clamp(48px, 4.5vw, 96px)",
-  fontWeight: 400,
-  lineHeight: 1,
-  letterSpacing: "-0.03em",
-  background: "linear-gradient(90deg, #53F2AA 0%, #43FFF9 100%)",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent",
-  backgroundClip: "text",
-};
+  return { fontSize, lineHeight, slideHeight };
+}
 
 export function HeroSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideHeight, setSlideHeight] = useState(96);
+  const [wordMetrics, setWordMetrics] = useState({ fontSize: 48, lineHeight: 1, slideHeight: 96 });
 
   useEffect(() => {
-    const update = () => setSlideHeight(getSlideHeight(window.innerWidth));
+    const update = () => {
+      const metrics = getHeroWordMetrics(window.innerWidth);
+      setWordMetrics(metrics);
+      setSlideHeight(metrics.slideHeight);
+    };
     update();
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
@@ -77,7 +77,21 @@ export function HeroSection() {
           >
             {SLIDING_WORDS.map((word, i) => (
               <div key={i} className="flex items-center justify-center" style={{ height: slideHeight }}>
-                <span style={gradientStyle}>{word}</span>
+                <span
+                  style={{
+                    fontSize: wordMetrics.fontSize,
+                    fontWeight: 400,
+                    lineHeight: wordMetrics.lineHeight,
+                    letterSpacing: "-0.03em",
+                    background: "linear-gradient(90deg, #53F2AA 0%, #43FFF9 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                  className="mx-auto block max-w-[320px] text-center md:max-w-none"
+                >
+                  {word}
+                </span>
               </div>
             ))}
           </div>

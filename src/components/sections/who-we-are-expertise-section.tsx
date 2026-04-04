@@ -4,12 +4,12 @@ import { useState } from "react";
 import { SectionLabel } from "@/components/common/section-label";
 
 const EXPERTISES = [
-  { icon: "/images/who-we-are/icons/policy-5.svg", title: "Public Policy Expert", desc: "Translating complex regulations and policies into clear, actionable frameworks for institutions and communities." },
-  { icon: "/images/who-we-are/icons/policy-4.svg", title: "Management & Strategy Expert", desc: "Crafting evidence-based strategies and organizational blueprints that drive measurable, long-term results." },
-  { icon: "/images/who-we-are/icons/policy-3.svg", title: "Data Science Expert", desc: "Turning raw data into powerful insights using advanced analytics, modeling, and visualization techniques." },
-  { icon: "/images/who-we-are/icons/policy-2.svg", title: "Behavioral & Social Research Expert", desc: "Understanding human behavior and social dynamics through rigorous qualitative and quantitative research methods." },
-  { icon: "/images/who-we-are/icons/policy-1.svg", title: "Communication & Publishing Expert", desc: "Shaping narratives and producing research publications that resonate with diverse audiences." },
-  { icon: "/images/who-we-are/icons/policy-0.svg", title: "Technology & Innovation Expert", desc: "Leveraging emerging technologies to design innovative solutions that address complex societal challenges." },
+  { icon: "/images/who-we-are/icons/policy-5.svg", image: "/images/who-we-are/story-public-policy.jpg", title: "Public Policy Expert", desc: "Translating complex regulations and policies into clear, actionable frameworks for institutions and communities." },
+  { icon: "/images/who-we-are/icons/policy-4.svg", image: "/images/who-we-are/story-management-strategy.jpg", title: "Management & Strategy Expert", desc: "Crafting evidence-based strategies and organizational blueprints that drive measurable, long-term results." },
+  { icon: "/images/who-we-are/icons/policy-3.svg", image: "/images/who-we-are/story-data-science.jpg", title: "Data Science Expert", desc: "Turning raw data into powerful insights using advanced analytics, modeling, and visualization techniques." },
+  { icon: "/images/who-we-are/icons/policy-2.svg", image: "/images/who-we-are/story-behavioral-social.jpg", title: "Behavioral & Social Research Expert", desc: "Understanding human behavior and social dynamics through rigorous qualitative and quantitative research methods." },
+  { icon: "/images/who-we-are/icons/policy-1.svg", image: "/images/who-we-are/story-communication-publishing.jpg", title: "Communication & Publishing Expert", desc: "Shaping narratives and producing research publications that resonate with diverse audiences." },
+  { icon: "/images/who-we-are/icons/policy-0.svg", image: "/images/who-we-are/story-technology-innovation.jpg", title: "Technology & Innovation Expert", desc: "Leveraging emerging technologies to design innovative solutions that address complex societal challenges." },
 ];
 
 const VISIBLE = 4;    // nav logic: max offset = total - VISIBLE
@@ -80,7 +80,7 @@ export function WhoWeAreExpertiseSection() {
                 <img
                   src="/images/who-we-are/wave-card.png"
                   alt=""
-                  className="pointer-events-none absolute transition-opacity duration-300 group-hover:opacity-0"
+                  className="pointer-events-none absolute opacity-0"
                   style={{ top: "15%", right: "-72%", bottom: "-85%", left: "-78%" }}
                 />
 
@@ -89,18 +89,18 @@ export function WhoWeAreExpertiseSection() {
                 <img
                   src="/images/who-we-are/vektor.svg"
                   alt=""
-                  className="pointer-events-none absolute bottom-0 right-0 h-[85%] w-auto transition-opacity duration-300 group-hover:opacity-0"
+                  className="pointer-events-none absolute bottom-0 right-0 h-[85%] w-auto opacity-0"
                 />
 
                 {/* Hover photo overlay */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/who-we-are/ceo-bg.jpg"
+                  src={item.image}
                   alt=""
-                  className="pointer-events-none absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  className="pointer-events-none absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 {/* Dark tint over photo */}
-                <div className="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-black/70" />
 
                 {/* Icon — top-left */}
                 <div className="absolute left-5 top-10 size-8">
@@ -142,7 +142,7 @@ export function WhoWeAreExpertiseSection() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/who-we-are/ceo-bg.jpg"
+                src={item.image}
                 alt=""
                 className="absolute inset-0 size-full object-cover"
               />

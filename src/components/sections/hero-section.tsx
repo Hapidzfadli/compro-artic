@@ -8,10 +8,9 @@ import { PrimaryButton } from "@/components/common/primary-button";
 const SLIDING_WORDS = [
   "Actionable Insights",
   "Trusted Data",
-  "Riset Bermakna",
-  "Visualisasi Nyata",
-  "Data Terpercaya",
-  "Survey Terencana",
+  "Meaningful Research",
+  "Smarter Decisions",
+  "Actionable Insights",
 ];
 
 function getSlideHeight(vw: number) {

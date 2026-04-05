@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { PrimaryButton } from "@/components/common/primary-button";
@@ -311,46 +312,67 @@ export function Footer({ hideCta = false }: { hideCta?: boolean }) {
           />
         </div>
 
-        {/* Floating photo — kiri atas tulisan */}
-        <div
-          className="pointer-events-none absolute z-[5] hidden overflow-hidden rounded-2xl shadow-2xl md:block"
-          style={{
-            width: 200,
-            height: 160,
-            left: "25%",
-            top: "22%",
-            transform: ctaHovered ? "scale(1)" : "scale(0)",
-            opacity: ctaHovered ? 1 : 0,
-            transition: "transform 800ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 500ms ease-out",
+        {/* Floating photo kiri — OUTER: slide dari bawah ke atas */}
+        <motion.div
+          className="pointer-events-none absolute z-[5] hidden md:block"
+          style={{ width: 200, height: 160, left: "25%", top: "22%" }}
+          initial={false}
+          animate={ctaHovered ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+          transition={ctaHovered ? {
+            y:       { duration: 0.6, ease: [0.25, 1, 0.5, 1] },
+            opacity: { duration: 0.1 },
+          } : {
+            y:       { duration: 0.3, ease: "easeIn" },
+            opacity: { duration: 0.2, delay: 0.1 },
           }}
         >
-          <Image
-            src="/images/insight/thumbnail-1.png"
-            alt=""
-            fill
-            className="object-cover"
-          />
-        </div>
-        {/* Floating photo — kanan bawah tulisan */}
-        <div
-          className="pointer-events-none absolute z-[5] hidden overflow-hidden rounded-2xl shadow-2xl md:block"
-          style={{
-            width: 160,
-            height: 120,
-            right: "25%",
-            top: "44%",
-            transform: ctaHovered ? "scale(1)" : "scale(0)",
-            opacity: ctaHovered ? 1 : 0,
-            transition: "transform 800ms cubic-bezier(0.34, 1.56, 0.64, 1) 100ms, opacity 500ms ease-out 100ms",
+          {/* INNER: clipPath buka atas-bawah */}
+          <motion.div
+            className="relative size-full overflow-hidden rounded-2xl shadow-2xl"
+            initial={false}
+            animate={ctaHovered
+              ? { clipPath: "inset(0% 0% 0% 0% round 16px)" }
+              : { clipPath: "inset(50% 0% 50% 0% round 16px)" }
+            }
+            transition={ctaHovered
+              ? { duration: 0.6, ease: [0.25, 1, 0.5, 1] }
+              : { duration: 0.3, ease: "easeIn" }
+            }
+          >
+            <Image src="/images/footer/cta-photo-left.jpg" alt="" fill className="object-cover" />
+          </motion.div>
+        </motion.div>
+
+        {/* Floating photo kanan — OUTER: slide dari atas ke bawah */}
+        <motion.div
+          className="pointer-events-none absolute z-[5] hidden md:block"
+          style={{ width: 160, height: 120, right: "25%", top: "44%" }}
+          initial={false}
+          animate={ctaHovered ? { y: 0, opacity: 1 } : { y: -50, opacity: 0 }}
+          transition={ctaHovered ? {
+            y:       { duration: 0.6, ease: [0.25, 1, 0.5, 1], delay: 0.1 },
+            opacity: { duration: 0.1, delay: 0.1 },
+          } : {
+            y:       { duration: 0.3, ease: "easeIn" },
+            opacity: { duration: 0.2, delay: 0.1 },
           }}
         >
-          <Image
-            src="/images/insight/thumbnail-2.png"
-            alt=""
-            fill
-            className="object-cover"
-          />
-        </div>
+          {/* INNER: clipPath buka atas-bawah */}
+          <motion.div
+            className="relative size-full overflow-hidden rounded-2xl shadow-2xl"
+            initial={false}
+            animate={ctaHovered
+              ? { clipPath: "inset(0% 0% 0% 0% round 16px)" }
+              : { clipPath: "inset(50% 0% 50% 0% round 16px)" }
+            }
+            transition={ctaHovered
+              ? { duration: 0.6, ease: [0.25, 1, 0.5, 1], delay: 0.1 }
+              : { duration: 0.3, ease: "easeIn" }
+            }
+          >
+            <Image src="/images/footer/cta-photo-right.jpg" alt="" fill className="object-cover" />
+          </motion.div>
+        </motion.div>
 
         {/* Content */}
         <div

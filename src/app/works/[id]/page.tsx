@@ -119,6 +119,7 @@ const WORKS = [
     },
     results: {
       headline: "Measurable Impact on Policy and Public Service",
+      description: "The 2024 satisfaction survey made one thing clear: the city already performs well on speed and staff attitude — but the biggest leap in satisfaction will come from strengthening the quality of final outputs. When expectations and results align, trust increases dramatically.",
       stats: [
         { value: "8 of 10", label: "Citizens rated services satisfactory or above" },
         { value: "85%", label: "Survey completion rate across all districts" },
@@ -220,6 +221,7 @@ const WORKS = [
     },
     results: {
       headline: "Youth Insights That Shaped City Programs",
+      description: "By listening directly to young voices across all districts, we uncovered patterns that traditional data sources missed. These findings gave city planners a clear, actionable picture of where youth programs were falling short — and where they were already making a difference.",
       stats: [
         { value: "1,500+", label: "Young respondents surveyed citywide" },
         { value: "92%", label: "Completion rate among target demographic" },
@@ -320,6 +322,7 @@ const WORKS = [
     },
     results: {
       headline: "Faster, Smarter, More Profitable Operations",
+      description: "The operational overhaul delivered immediate, measurable results across every key metric. By redesigning workflows around real data rather than assumptions, the team unlocked efficiency gains that compounded across the entire supply chain.",
       stats: [
         { value: "60%", label: "Reduction in order processing time" },
         { value: "98%", label: "Order accuracy after system adoption" },
@@ -399,6 +402,7 @@ export default async function WorksDetailPage({ params }: { params: Promise<{ id
         />
         <WorksDetailResultsSection
           headline={work.results.headline}
+          description={work.results.description}
           stats={work.results.stats}
         />
         <WorksDetailVideoSection

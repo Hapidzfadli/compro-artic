@@ -116,16 +116,22 @@ export function HowWeWorkSection() {
           {/* Black overlay rgba(0,0,0,0.4) */}
           <div className="absolute inset-0 bg-black/40" />
 
-          {/* Animated shimmer sweep — cool light effect */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                "linear-gradient(115deg, transparent 30%, rgba(83,242,170,0.06) 50%, transparent 70%)",
-              backgroundSize: "200% 200%",
-              animation: `shimmerSweep ${4 + i * 0.8}s ease-in-out infinite`,
-            }}
-          />
+          {/* Animated shimmer sweep — transform-based (GPU compositor, not CPU paint) */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden">
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                bottom: 0,
+                width: "55%",
+                background:
+                  "linear-gradient(115deg, transparent 20%, rgba(83,242,170,0.07) 50%, transparent 80%)",
+                animation: `shimmerSweep ${4 + i * 0.8}s ease-in-out infinite`,
+                willChange: "transform",
+              }}
+            />
+          </div>
 
           {/* Bottom fade shader — step 2 & 4 */}
           {step.shader && (
@@ -134,20 +140,36 @@ export function HowWeWorkSection() {
             />
           )}
 
-          {/* Teal glow ellipse — step 3 */}
+          {/* Teal glow ellipse — step 3, blur dikurangi di mobile */}
           {step.glow && (
-            <div
-              className="pointer-events-none absolute -bottom-24 left-1/2 -translate-x-1/2"
-              style={{
-                width: 3896,
-                height: 600,
-                background: "#53F2AA",
-                borderRadius: 9999,
-                filter: "blur(150px)",
-                mixBlendMode: "plus-lighter",
-                opacity: 0.35,
-              }}
-            />
+            <>
+              {/* Mobile: blur kecil */}
+              <div
+                className="pointer-events-none absolute -bottom-24 left-1/2 -translate-x-1/2 md:hidden"
+                style={{
+                  width: 1200,
+                  height: 400,
+                  background: "#53F2AA",
+                  borderRadius: 9999,
+                  filter: "blur(60px)",
+                  mixBlendMode: "plus-lighter",
+                  opacity: 0.3,
+                }}
+              />
+              {/* Desktop: blur penuh */}
+              <div
+                className="pointer-events-none absolute -bottom-24 left-1/2 -translate-x-1/2 hidden md:block"
+                style={{
+                  width: 3896,
+                  height: 600,
+                  background: "#53F2AA",
+                  borderRadius: 9999,
+                  filter: "blur(150px)",
+                  mixBlendMode: "plus-lighter",
+                  opacity: 0.35,
+                }}
+              />
+            </>
           )}
 
           {/* Radial vignette edges */}
@@ -197,9 +219,9 @@ export function HowWeWorkSection() {
 
       <style>{`
         @keyframes shimmerSweep {
-          0%   { background-position: 200% 0; }
-          50%  { background-position: -200% 0; }
-          100% { background-position: 200% 0; }
+          0%   { transform: translateX(-200%); }
+          50%  { transform: translateX(300%); }
+          100% { transform: translateX(-200%); }
         }
       `}</style>
     </section>

@@ -82,10 +82,28 @@ export function VideoCardSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [profileIndex, setProfileIndex] = useState(0);
   const jumping = useRef(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  // Pause interval saat section tidak terlihat (hemat CPU saat scroll melewati)
   useEffect(() => {
-    const timer = setInterval(() => setProfileIndex((i) => (i + 1) % N), 4000);
-    return () => clearInterval(timer);
+    const el = sectionRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          intervalRef.current = setInterval(() => setProfileIndex((i) => (i + 1) % N), 4000);
+        } else {
+          if (intervalRef.current) clearInterval(intervalRef.current);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    obs.observe(el);
+    return () => {
+      obs.disconnect();
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
   }, []);
 
   // After slide reaches clone edge, silently jump back to middle copy
@@ -125,7 +143,7 @@ export function VideoCardSection() {
   const translateX = SLIDER_OFFSET - activeIndex * (INACTIVE_W + GAP);
 
   return (
-    <section className="relative overflow-x-clip bg-artic-ebony pb-[120px] pt-[100px]">
+    <section ref={sectionRef} className="relative overflow-x-clip bg-artic-ebony pb-[120px] pt-[100px]">
 
 {/* Rectangle wave layers — z:8, di atas accent (z:5), di bawah content (z:10+) */}
       <div
@@ -170,6 +188,7 @@ export function VideoCardSection() {
               gap: MOBILE_GAP,
               transform: `translateX(calc(${activeIndex} * -1 * (var(--mobile-card-width) + ${MOBILE_GAP}px)))`,
               transition: animated ? "transform 500ms ease-in-out" : "none",
+              willChange: "transform",
             }}
           >
             {EXTENDED.map((member, i) => (
@@ -194,7 +213,7 @@ export function VideoCardSection() {
                   />
                 </div>
 
-                <div className="absolute inset-0 bg-[#080817] opacity-25 mix-blend-multiply" />
+                <div className="absolute inset-0 bg-[#080817] opacity-25 mix-blend-multiply hidden md:block" />
 
                 <div
                   className="pointer-events-none absolute inset-x-0 bottom-0 h-[123px]"
@@ -362,7 +381,7 @@ export function VideoCardSection() {
             />
             <div
               className="absolute rounded-[8px] bg-white/80 p-[10px] shadow-[2px_4px_15px_0px_rgba(0,0,0,0.2)]"
-              style={{ top: 22, left: 12, right: 0, zIndex: 1, filter: "blur(2px)" }}
+              style={{ top: 22, left: 12, right: 0, zIndex: 1 }}
             >
               <div className="flex items-center gap-3">
                 <div className="relative size-[60px] shrink-0 overflow-hidden rounded-full border-4 border-[#f3f3ff]">
@@ -433,8 +452,13 @@ export function VideoCardSection() {
         <div className="group relative h-[339px] w-full overflow-hidden rounded-xl md:h-100 md:w-130 md:shrink-0 md:rounded-[15px]">
           <Image src="/images/video-card/image-25.png" alt="Video thumbnail" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
           <div className="absolute inset-0 bg-black/30 transition-colors duration-300 group-hover:bg-black/50" />
+          {/* Glow video — blur dikurangi di mobile */}
           <div
-            className="pointer-events-none absolute mix-blend-plus-lighter"
+            className="pointer-events-none absolute mix-blend-plus-lighter md:hidden"
+            style={{ bottom: -80, right: -100, width: 400, height: 200, background: "#53F2AA", borderRadius: 9999, filter: "blur(30px)", opacity: 0.10 }}
+          />
+          <div
+            className="pointer-events-none absolute mix-blend-plus-lighter hidden md:block"
             style={{ bottom: -80, right: -100, width: 600, height: 300, background: "#53F2AA", borderRadius: 9999, filter: "blur(80px)", opacity: 0.12 }}
           />
           {/* Watch Profile text — appears from top-left on hover */}
@@ -458,18 +482,14 @@ export function VideoCardSection() {
         </PrimaryButton>
       </div>
 
-      {/* Bottom gradient — transisi ke section berikutnya */}
+      {/* Bottom gradient — blur dikurangi di mobile */}
       <div
-        className="pointer-events-none absolute"
-        style={{
-          bottom: -281,
-          left: -150,
-          right: -150,
-          height: 562,
-          background: "#13137F",
-          filter: "blur(150px)",
-          zIndex: 6,
-        }}
+        className="pointer-events-none absolute md:hidden"
+        style={{ bottom: -120, left: -50, right: -50, height: 300, background: "#13137F", filter: "blur(50px)", zIndex: 6 }}
+      />
+      <div
+        className="pointer-events-none absolute hidden md:block"
+        style={{ bottom: -281, left: -150, right: -150, height: 562, background: "#13137F", filter: "blur(150px)", zIndex: 6 }}
       />
     </section>
   );

@@ -27,16 +27,16 @@ const SORT_OPTIONS = [
 const PORTFOLIO = [
   {
     id: 1,
-    title: "Sinau Print Digital System (2024)",
-    category: "Artic Data",
-    year: 2024,
-    image: "/images/slider-img/slide-3-color.png",
+    title: "Public Satisfaction Analysis toward District-Level Public Services in Semarang City",
+    category: "Artic Research",
+    year: 2025,
+    image: "/images/slider-img/slide-1-color.png",
     studyHref: "/works/1",
-    pdfHref: "#",
+    pdfHref: "https://drive.google.com/file/d/13AHf3GiV71cDoLZ3vK2M0fzngQfwKgl4/view?usp=sharing",
   },
   {
     id: 2,
-    title: "Youth Development Insight – Dispora Kota Semarang (2024)",
+    title: "Comparative Advantage Analysis of Indonesia's Clove (Syzygium aromaticum) Export in International Market",
     category: "Artic Research",
     year: 2024,
     image: "/images/slider-img/slide-2-color.png",
@@ -45,12 +45,12 @@ const PORTFOLIO = [
   },
   {
     id: 3,
-    title: "Citizen Satisfaction Survey – BRIDA Kota Semarang (2025)",
-    category: "Artic Research",
-    year: 2025,
-    image: "/images/slider-img/slide-1-color.png",
+    title: "Business Plan",
+    category: "Artic Consulting",
+    year: 2024,
+    image: "/images/slider-img/slide-3-color.png",
     studyHref: "/works/3",
-    pdfHref: "https://drive.google.com/file/d/13AHf3GiV71cDoLZ3vK2M0fzngQfwKgl4/view?usp=sharing",
+    pdfHref: "#",
   },
 ];
 

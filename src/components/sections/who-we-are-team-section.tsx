@@ -2,15 +2,27 @@ import Image from "next/image";
 import Link from "next/link";
 
 const MEMBERS = [
-  { name: "Rian Destianto", role: "Founder & CEO", desc: "Leads Artic Analytica with a focus on insight-driven strategy, turning complex data into clear direction for clients." },
-  { name: "Ahmad Fauzi", role: "Head of Research", desc: "Specializes in survey methodology and qualitative research, ensuring every study meets the highest standards of rigor." },
-  { name: "Siti Rahmawati", role: "Data Scientist", desc: "Builds data pipelines and analytical models that transform raw datasets into actionable intelligence for stakeholders." },
-  { name: "Budi Santoso", role: "Policy Analyst", desc: "Bridges research findings with policy recommendations, helping government and institutions implement evidence-based decisions." },
-  { name: "Dewi Lestari", role: "Communications Lead", desc: "Translates complex research outputs into clear narratives, reports, and presentations for diverse audiences." },
-  { name: "Hendra Wijaya", role: "Technology Expert", desc: "Drives digital innovation across Artic's platforms, from real-time dashboards to automated data collection tools." },
-  { name: "Nurul Hidayah", role: "Social Research Expert", desc: "Conducts behavioral and social research that uncovers the human dimensions behind data trends and policy issues." },
-  { name: "Rizky Pratama", role: "Community Engagement", desc: "Manages stakeholder mapping and community insight programs, ensuring local voices are heard in every project." },
-  { name: "Mega Puspita", role: "Marketing Team", desc: "Coordinates outreach and communications strategy to connect Artic's research capabilities with new partners and clients." },
+  { name: "Drs. Yuwanto, M.Si, P.hD.", role: "Political Science & Government Expert", desc: "" },
+  { name: "HUNTAL HUTAPEA, S.A.P., M.SI., M.ED", role: "Public Policy Expert", desc: "" },
+  { name: "Enar Ratriany Assa, SIP., MH", role: "Political & Government Expert", desc: "" },
+  { name: "Ayunina Zenti, S.P., M.Sc.", role: "Management Expert", desc: "" },
+  { name: "Arof Fuddin", role: "Data Analyst", desc: "" },
+  { name: "M. Noorman Perdana", role: "Data Analyst", desc: "" },
+  { name: "Jonathan Benjamin S", role: "Data Analyst", desc: "" },
+  { name: "Ponco Adi Nugroho", role: "Lead of Enumerator", desc: "" },
+  { name: "Sofyan Setiawan", role: "Data Analyst", desc: "" },
+  { name: "Arifka Sitepu", role: "Data Analyst", desc: "" },
+  { name: "Fahmi Kurniawan", role: "Data Analyst", desc: "" },
+  { name: "Intan Nur Fadilah", role: "Data Analyst", desc: "" },
+  { name: "Chrisfilia Evelyn Br Damanik", role: "Data Analyst", desc: "" },
+  { name: "Arya Permana Salaka", role: "Enumerator", desc: "" },
+  { name: "Daniel Sandi Nugroho", role: "Enumerator", desc: "" },
+  { name: "Milah Hidayati", role: "Enumerator", desc: "" },
+  { name: "Swastika Ayuna Rahma", role: "Enumerator", desc: "" },
+  { name: "Izzul Muna", role: "Enumerator", desc: "" },
+  { name: "Muhammad Yazid Duniam", role: "Enumerator", desc: "" },
+  { name: "Ahmad Rifan", role: "Enumerator", desc: "" },
+  { name: "Elysa Agustina Hardiyanti", role: "Enumerator", desc: "" },
 ];
 
 function SocialIcon({ icon }: { icon: "instagram" | "linkedin" }) {

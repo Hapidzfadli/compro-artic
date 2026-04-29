@@ -95,7 +95,7 @@ export function AboutSection() {
               About Artic →
             </PrimaryButton>
             <Link
-              href="https://drive.google.com/file/d/13AHf3GiV71cDoLZ3vK2M0fzngQfwKgl4/view?usp=sharing"
+              href="https://drive.google.com/file/d/1Yef8xa2BZx2eZr2RsG_aP-1elIsmWlY0/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-[52px] w-full items-center justify-center rounded-[10px] border border-[#DCDCDC] bg-white px-5 text-[16px] font-semibold text-artic-ebony transition-opacity hover:opacity-80 md:h-11 md:w-auto md:rounded-[8px] md:bg-transparent md:text-[14px] md:text-[#DCDCDC]"

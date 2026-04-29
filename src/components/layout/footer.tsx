@@ -31,7 +31,7 @@ const COMPANY_LINKS = [
 const RESOURCE_LINKS = [
   {
     label: "Company Profile",
-    href: "https://drive.google.com/file/d/13AHf3GiV71cDoLZ3vK2M0fzngQfwKgl4/view?usp=sharing",
+    href: "https://drive.google.com/file/d/1Yef8xa2BZx2eZr2RsG_aP-1elIsmWlY0/view?usp=drive_link",
   },
   {
     label: "Research Proposal",
@@ -89,7 +89,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean }) {
                 Free Consultation
               </PrimaryButton>
               <Link
-                href="https://drive.google.com/file/d/13AHf3GiV71cDoLZ3vK2M0fzngQfwKgl4/view?usp=sharing"
+                href="https://drive.google.com/file/d/1Yef8xa2BZx2eZr2RsG_aP-1elIsmWlY0/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-[52px] items-center justify-center rounded-[6px] border border-white px-10 text-[14px] font-semibold text-white transition-opacity hover:opacity-80"
@@ -409,7 +409,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean }) {
               Free Consultation
             </PrimaryButton>
             <Link
-              href="https://drive.google.com/file/d/13AHf3GiV71cDoLZ3vK2M0fzngQfwKgl4/view?usp=sharing"
+              href="https://drive.google.com/file/d/1Yef8xa2BZx2eZr2RsG_aP-1elIsmWlY0/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
               className="flex h-9 items-center justify-center rounded-[8px] border border-[#DCDCDC] px-6 text-[12px] font-semibold text-[#DCDCDC] transition-opacity hover:opacity-80 md:h-10 md:px-8 md:text-[13px]"

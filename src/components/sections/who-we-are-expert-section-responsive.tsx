@@ -7,39 +7,39 @@ import { SectionLabel } from "@/components/common/section-label";
 
 const EXPERTS = [
   {
-    slug: "khotibul-umam",
-    name: "Khotibul Umam., S.S., M.Hum.",
-    role: "Lecturer at Undip Semarang",
+    slug: "yuwanto",
+    name: "Drs. Yuwanto, M.Si, P.hD.",
+    role: "Political Science & Government Expert",
     quote:
-      '"Khotibul Umam is an Indonesian literature expert at Semarang, gaining experience from theater and research of coastal literature around the north beach of Java (Pantura)."',
+      '"Drs. Yuwanto contributes deep expertise in political science and government affairs to Artic Analytica\'s research initiatives."',
   },
   {
-    slug: "siti-aminah",
-    name: "Dr. Siti Aminah, M.Si.",
-    role: "Social Research Expert",
+    slug: "huntal-hutapea",
+    name: "HUNTAL HUTAPEA, S.A.P., M.SI., M.ED",
+    role: "Public Policy Expert",
     quote:
-      '"With over 15 years in behavioral and social research, Siti brings deep expertise in community-level qualitative studies and participatory action research across Central Java."',
+      '"Huntal Hutapea brings extensive experience in public policy analysis to drive evidence-based recommendations at Artic Analytica."',
   },
   {
-    slug: "hendra-gunawan",
-    name: "Prof. Hendra Gunawan, Ph.D.",
-    role: "Data Science & Analytics",
+    slug: "enar-ratriany-assa",
+    name: "Enar Ratriany Assa, SIP., MH",
+    role: "Political & Government Expert",
     quote:
-      '"Hendra leads quantitative research and data modeling at Artic, combining academic rigor from his time at ITB with practical policy analytics for government clients."',
+      '"Enar Ratriany Assa specializes in political and government research, supporting strategic public sector studies at Artic Analytica."',
   },
   {
-    slug: "rizki-amalia",
-    name: "Rizki Amalia, M.Pd.",
-    role: "Education Research Expert",
+    slug: "ayunina-zenti",
+    name: "Ayunina Zenti, S.P., M.Sc.",
+    role: "Management Expert",
     quote:
-      '"Rizki focuses on education policy and curriculum research, collaborating with national institutions to improve learning outcomes through evidence-based interventions."',
+      '"Ayunina Zenti applies management expertise to lead complex research operations at Artic Analytica."',
   },
   {
-    slug: "bayu-prasetyo",
-    name: "Dr. Bayu Prasetyo, S.T., M.T.",
-    role: "Technology & Innovation Expert",
+    slug: "fitria-barokah",
+    name: "Fitria Barokah, S.IP., M.IP.",
+    role: "Political Science Expert",
     quote:
-      '"Bayu bridges engineering and social research, designing digital platforms and data collection tools that bring field research into real-time analytical environments."',
+      '"Fitria Barokah strengthens Artic Analytica\'s political science research with academic rigor and field experience."',
   },
 ];
 

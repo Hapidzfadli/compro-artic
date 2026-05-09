@@ -17,39 +17,88 @@ interface Member {
 
 const MEMBERS: Member[] = [
   {
-    name: "Rian Destianto",
-    role: "CEO ARTIC ANALYTICA",
-    photo: "/images/video-card/dsc-088241.png",
-    cardPhoto: "/images/video-card/image-25.png",
-    quote: '"Rian Destianto memimpin Artic Analytica dengan visi transformasi data menjadi wawasan bermakna yang mendorong perubahan nyata bagi komunitas dan organisasi."',
+    name: "Drs. Yuwanto, M.Si, P.hD.",
+    role: "POLITICAL SCIENCE & GOVERNMENT EXPERT",
+    photo: "/images/users-profile/Yuwanto,%20M.%20Si.,%20P.hD.png",
+    cardPhoto: "/images/users-profile/Yuwanto,%20M.%20Si.,%20P.hD.png",
+    quote: '"Drs. Yuwanto contributes deep expertise in political science and government affairs to Artic Analytica\'s research initiatives."',
   },
   {
-    name: "Khotibul Umam",
-    role: "PAKAR SASTRA",
-    photo: "/images/video-card/dsc-088241.png",
-    cardPhoto: "/images/video-card/image-21.png",
-    quote: '"Khotibul Umam is a Indonesian literature expert at Semarang, gain his experience from theater, research of coastal literature around north beach Jawa (pantura)."',
+    name: "HUNTAL HUTAPEA, S.A.P., M.SI., M.ED",
+    role: "PUBLIC POLICY EXPERT",
+    photo: "/images/users-profile/Huntal%20Hetapea,%20S.A.P.,%20M.Si.,%20M.Ed.png",
+    cardPhoto: "/images/users-profile/Huntal%20Hetapea,%20S.A.P.,%20M.Si.,%20M.Ed.png",
+    quote: '"Huntal Hutapea brings extensive experience in public policy analysis to drive evidence-based recommendations at Artic Analytica."',
   },
   {
-    name: "Wakhidah Kurniawati",
-    role: "PENELITI TEKNIK",
-    photo: "/images/video-card/dsc-088241.png",
-    cardPhoto: "/images/video-card/image-24.png",
-    quote: '"Dr.-Ing. Wakhidah is an expert in urban planning and city management. She has conducted research and teaches at the Faculty of Engineering at Undip Semarang."',
+    name: "Enar Ratriany Assa, SIP., MH",
+    role: "POLITICAL & GOVERNMENT EXPERT",
+    photo: "/images/users-profile/Enar%20Ratriani%20Assa,%20S.IP.,%20MH.png",
+    cardPhoto: "/images/users-profile/Enar%20Ratriani%20Assa,%20S.IP.,%20MH.png",
+    quote: '"Enar Ratriany Assa specializes in political and government research, supporting strategic public sector studies at Artic Analytica."',
   },
   {
-    name: "Ahmad Fauzi",
+    name: "Ayunina Zenti, S.P., M.Sc.",
+    role: "MANAGEMENT EXPERT",
+    photo: "/images/users-profile/Ayunina%20Zenti.png",
+    cardPhoto: "/images/users-profile/Ayunina%20Zenti.png",
+    quote: '"Ayunina Zenti applies management expertise to lead complex research operations at Artic Analytica."',
+  },
+  {
+    name: "Fitria Barokah, S.IP., M.IP.",
+    role: "POLITICAL SCIENCE EXPERT",
+    photo: "/images/users-profile/Fitria%20Barokah,%20S.IP.,%20M.IP.png",
+    cardPhoto: "/images/users-profile/Fitria%20Barokah,%20S.IP.,%20M.IP.png",
+    quote: '"Fitria Barokah strengthens Artic Analytica\'s political science research with academic rigor and field experience."',
+  },
+  {
+    name: "Arof Fuddin, S.Pd.",
     role: "DATA ANALYST",
-    photo: "/images/video-card/dsc-088241.png",
-    cardPhoto: "/images/video-card/image-21.png",
-    quote: '"Ahmad brings precision and depth to every analysis, turning complex datasets into clear actionable intelligence for our clients."',
+    photo: "/images/users-profile/Ahmad%20Arof%20Fuddin,%20S.Pd.png",
+    cardPhoto: "/images/users-profile/Ahmad%20Arof%20Fuddin,%20S.Pd.png",
+    quote: '"Arof Fuddin transforms raw datasets into actionable insights as a data analyst at Artic Analytica."',
   },
   {
-    name: "Siti Rahayu",
-    role: "RESEARCH LEAD",
-    photo: "/images/video-card/dsc-088241.png",
-    cardPhoto: "/images/video-card/image-24.png",
-    quote: '"Siti ensures every research we conduct meets the highest standards of academic rigor and practical relevance for our clients."',
+    name: "M. Noorman Perdana, S.Si.",
+    role: "DATA ANALYST",
+    photo: "/images/users-profile/M.%20Noorman%20Perdana,%20S.S.png",
+    cardPhoto: "/images/users-profile/M.%20Noorman%20Perdana,%20S.S.png",
+    quote: '"M. Noorman Perdana drives quantitative analysis and data interpretation at Artic Analytica."',
+  },
+  {
+    name: "Jonathan Benjamin S, S.IP.",
+    role: "DATA ANALYST",
+    photo: "/images/users-profile/Jonathan%20Benjamin%20Silalahi,%20S.IP.png",
+    cardPhoto: "/images/users-profile/Jonathan%20Benjamin%20Silalahi,%20S.IP.png",
+    quote: '"Jonathan Benjamin contributes analytical depth and statistical rigor to Artic Analytica\'s research outputs."',
+  },
+  {
+    name: "Ponco Adi Nugroho, S.S.",
+    role: "LEAD OF ENUMERATOR",
+    photo: "/images/users-profile/Ponco%20Adi%20Nugroho,%20S.S.png",
+    cardPhoto: "/images/users-profile/Ponco%20Adi%20Nugroho,%20S.S.png",
+    quote: '"Ponco Adi Nugroho leads field data collection, ensuring quality and consistency across Artic Analytica\'s surveys."',
+  },
+  {
+    name: "Arifka Br. Sitepu, S.A.P.",
+    role: "DATA ANALYST",
+    photo: "/images/users-profile/Arifka%20Br%20Sitepu,%20S.A.P.png",
+    cardPhoto: "/images/users-profile/Arifka%20Br%20Sitepu,%20S.A.P.png",
+    quote: '"Arifka Br. Sitepu turns survey responses into clear analytical narratives at Artic Analytica."',
+  },
+  {
+    name: "Intan Nur Fadilah, S.A.P.",
+    role: "DATA ANALYST",
+    photo: "/images/users-profile/Intan%20Nur%20Fadilah,%20S.A.P.png",
+    cardPhoto: "/images/users-profile/Intan%20Nur%20Fadilah,%20S.A.P.png",
+    quote: '"Intan Nur Fadilah brings precision and methodology to Artic Analytica\'s data analysis workflows."',
+  },
+  {
+    name: "Chrisfilia Evelyn Br Damanik, S.A.P.",
+    role: "DATA ANALYST",
+    photo: "/images/users-profile/Chrisfilia%20Evelyn%20Br%20Damanik,%20S.KM.png",
+    cardPhoto: "/images/users-profile/Chrisfilia%20Evelyn%20Br%20Damanik,%20S.KM.png",
+    quote: '"Chrisfilia Evelyn Br Damanik supports Artic Analytica\'s research with detailed data processing and analysis."',
   },
 ];
 
@@ -205,7 +254,7 @@ export function VideoCardSection() {
 
                 <div className="absolute inset-0 overflow-hidden">
                   <Image
-                    src="/images/video-card/DSC08824%201.png"
+                    src={member.photo}
                     alt={member.name}
                     fill
                     unoptimized
@@ -275,7 +324,7 @@ export function VideoCardSection() {
 
                 <div style={{ position: "absolute", bottom: 0, left: isExpanded ? 0 : -55, width: 310, height: 380, overflow: "hidden", transition: "left 0.5s ease-in-out" }}>
                   <Image
-                    src="/images/video-card/DSC08824%201.png"
+                    src={member.photo}
                     alt={member.name}
                     fill
                     unoptimized

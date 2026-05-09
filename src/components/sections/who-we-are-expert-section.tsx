@@ -10,6 +10,7 @@ const EXPERTS = [
     slug: "yuwanto",
     name: "Drs. Yuwanto, M.Si, P.hD.",
     role: "Political Science & Government Expert",
+    photo: "/images/users-profile/Yuwanto,%20M.%20Si.,%20P.hD.png",
     quote:
       '"Drs. Yuwanto contributes deep expertise in political science and government affairs to Artic Analytica\'s research initiatives."',
   },
@@ -17,6 +18,7 @@ const EXPERTS = [
     slug: "huntal-hutapea",
     name: "HUNTAL HUTAPEA, S.A.P., M.SI., M.ED",
     role: "Public Policy Expert",
+    photo: "/images/users-profile/Huntal%20Hetapea,%20S.A.P.,%20M.Si.,%20M.Ed.png",
     quote:
       '"Huntal Hutapea brings extensive experience in public policy analysis to drive evidence-based recommendations at Artic Analytica."',
   },
@@ -24,6 +26,7 @@ const EXPERTS = [
     slug: "enar-ratriany-assa",
     name: "Enar Ratriany Assa, SIP., MH",
     role: "Political & Government Expert",
+    photo: "/images/users-profile/Enar%20Ratriani%20Assa,%20S.IP.,%20MH.png",
     quote:
       '"Enar Ratriany Assa specializes in political and government research, supporting strategic public sector studies at Artic Analytica."',
   },
@@ -31,6 +34,7 @@ const EXPERTS = [
     slug: "ayunina-zenti",
     name: "Ayunina Zenti, S.P., M.Sc.",
     role: "Management Expert",
+    photo: "/images/users-profile/Ayunina%20Zenti.png",
     quote:
       '"Ayunina Zenti applies management expertise to lead complex research operations at Artic Analytica."',
   },
@@ -38,6 +42,7 @@ const EXPERTS = [
     slug: "fitria-barokah",
     name: "Fitria Barokah, S.IP., M.IP.",
     role: "Political Science Expert",
+    photo: "/images/users-profile/Fitria%20Barokah,%20S.IP.,%20M.IP.png",
     quote:
       '"Fitria Barokah strengthens Artic Analytica\'s political science research with academic rigor and field experience."',
   },
@@ -120,11 +125,12 @@ export function WhoWeAreExpertSection() {
                 <div className="flex items-center gap-4">
                   <div className="size-14 shrink-0 overflow-hidden rounded-full bg-[#4e4d4d]">
                     <Image
-                      src="/images/who-we-are/profile-rian.jpg"
+                      src={expert.photo}
                       alt={expert.name}
                       width={60}
                       height={60}
-                      className="size-full object-cover opacity-60"
+                      unoptimized
+                      className="size-full object-cover"
                     />
                   </div>
                   <div className="flex flex-col gap-1">

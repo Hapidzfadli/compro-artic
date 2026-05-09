@@ -2,28 +2,28 @@ import Image from "next/image";
 import Link from "next/link";
 
 const MEMBERS = [
-  { name: "Drs. Yuwanto, M.Si, P.hD.", role: "Political Science & Government Expert", desc: "" },
-  { name: "HUNTAL HUTAPEA, S.A.P., M.SI., M.ED", role: "Public Policy Expert", desc: "" },
-  { name: "Enar Ratriany Assa, SIP., MH", role: "Political & Government Expert", desc: "" },
-  { name: "Ayunina Zenti, S.P., M.Sc.", role: "Management Expert", desc: "" },
-  { name: "Fitria Barokah, S.IP., M.IP.", role: "Political Science Expert", desc: "" },
-  { name: "Arof Fuddin, S.Pd.", role: "Data Analyst", desc: "" },
-  { name: "M. Noorman Perdana, S.Si.", role: "Data Analyst", desc: "" },
-  { name: "Jonathan Benjamin S, S.IP.", role: "Data Analyst", desc: "" },
-  { name: "Ponco Adi Nugroho, S.S.", role: "Lead of Enumerator", desc: "" },
-  { name: "Arifka Br. Sitepu, S.A.P.", role: "Data Analyst", desc: "" },
-  { name: "Intan Nur Fadilah, S.A.P.", role: "Data Analyst", desc: "" },
-  { name: "Chrisfilia Evelyn Br Damanik, S.A.P.", role: "Data Analyst", desc: "" },
-  { name: "Sofyan Setiawan", role: "Data Analyst", desc: "" },
-  { name: "Fahmi Kurniawan", role: "Data Analyst", desc: "" },
-  { name: "Arya Permana Salaka", role: "Enumerator", desc: "" },
-  { name: "Daniel Sandi Nugroho", role: "Enumerator", desc: "" },
-  { name: "Milah Hidayati", role: "Enumerator", desc: "" },
-  { name: "Swastika Ayuna Rahma", role: "Enumerator", desc: "" },
-  { name: "Izzul Muna", role: "Enumerator", desc: "" },
-  { name: "Muhammad Yazid Duniam", role: "Enumerator", desc: "" },
-  { name: "Ahmad Rifan", role: "Enumerator", desc: "" },
-  { name: "Elysa Agustina Hardiyanti", role: "Enumerator", desc: "" },
+  { name: "Drs. Yuwanto, M.Si, P.hD.", role: "Political Science & Government Expert", desc: "", photo: "/images/users-profile/Yuwanto,%20M.%20Si.,%20P.hD.png", slug: "yuwanto" },
+  { name: "HUNTAL HUTAPEA, S.A.P., M.SI., M.ED", role: "Public Policy Expert", desc: "", photo: "/images/users-profile/Huntal%20Hetapea,%20S.A.P.,%20M.Si.,%20M.Ed.png", slug: "huntal-hutapea" },
+  { name: "Enar Ratriany Assa, SIP., MH", role: "Political & Government Expert", desc: "", photo: "/images/users-profile/Enar%20Ratriani%20Assa,%20S.IP.,%20MH.png", slug: "enar-ratriany-assa" },
+  { name: "Ayunina Zenti, S.P., M.Sc.", role: "Management Expert", desc: "", photo: "/images/users-profile/Ayunina%20Zenti.png", slug: "ayunina-zenti" },
+  { name: "Fitria Barokah, S.IP., M.IP.", role: "Political Science Expert", desc: "", photo: "/images/users-profile/Fitria%20Barokah,%20S.IP.,%20M.IP.png", slug: "fitria-barokah" },
+  { name: "Arof Fuddin, S.Pd.", role: "Data Analyst", desc: "", photo: "/images/users-profile/Ahmad%20Arof%20Fuddin,%20S.Pd.png", slug: "" },
+  { name: "M. Noorman Perdana, S.Si.", role: "Data Analyst", desc: "", photo: "/images/users-profile/M.%20Noorman%20Perdana,%20S.S.png", slug: "" },
+  { name: "Jonathan Benjamin S, S.IP.", role: "Data Analyst", desc: "", photo: "/images/users-profile/Jonathan%20Benjamin%20Silalahi,%20S.IP.png", slug: "" },
+  { name: "Ponco Adi Nugroho, S.S.", role: "Lead of Enumerator", desc: "", photo: "/images/users-profile/Ponco%20Adi%20Nugroho,%20S.S.png", slug: "" },
+  { name: "Arifka Br. Sitepu, S.A.P.", role: "Data Analyst", desc: "", photo: "/images/users-profile/Arifka%20Br%20Sitepu,%20S.A.P.png", slug: "" },
+  { name: "Intan Nur Fadilah, S.A.P.", role: "Data Analyst", desc: "", photo: "/images/users-profile/Intan%20Nur%20Fadilah,%20S.A.P.png", slug: "" },
+  { name: "Chrisfilia Evelyn Br Damanik, S.A.P.", role: "Data Analyst", desc: "", photo: "/images/users-profile/Chrisfilia%20Evelyn%20Br%20Damanik,%20S.KM.png", slug: "" },
+  { name: "Sofyan Setiawan", role: "Data Analyst", desc: "", photo: "", slug: "" },
+  { name: "Fahmi Kurniawan", role: "Data Analyst", desc: "", photo: "", slug: "" },
+  { name: "Arya Permana Salaka", role: "Enumerator", desc: "", photo: "", slug: "" },
+  { name: "Daniel Sandi Nugroho", role: "Enumerator", desc: "", photo: "", slug: "" },
+  { name: "Milah Hidayati", role: "Enumerator", desc: "", photo: "", slug: "" },
+  { name: "Swastika Ayuna Rahma", role: "Enumerator", desc: "", photo: "", slug: "" },
+  { name: "Izzul Muna", role: "Enumerator", desc: "", photo: "", slug: "" },
+  { name: "Muhammad Yazid Duniam", role: "Enumerator", desc: "", photo: "", slug: "" },
+  { name: "Ahmad Rifan", role: "Enumerator", desc: "", photo: "", slug: "" },
+  { name: "Elysa Agustina Hardiyanti", role: "Enumerator", desc: "", photo: "", slug: "" },
 ];
 
 function SocialIcon({ icon }: { icon: "instagram" | "linkedin" }) {
@@ -64,14 +64,17 @@ export function WhoWeAreTeamSection() {
             >
               {/* Avatar + name */}
               <div className="flex items-center gap-4">
-                <div className="size-14  bg-[#4e4d4d] shrink-0 overflow-hidden rounded-full">
-                  <Image
-                    src="/images/who-we-are/profile-rian.jpg"
-                    alt={member.name}
-                    width={60}
-                    height={60}
-                    className="size-full object-cover opacity-60"
-                  />
+                <div className="size-14 bg-[#4e4d4d] shrink-0 overflow-hidden rounded-full">
+                  {member.photo && (
+                    <Image
+                      src={member.photo}
+                      alt={member.name}
+                      width={60}
+                      height={60}
+                      unoptimized
+                      className="size-full object-cover"
+                    />
+                  )}
                 </div>
                 <div className="flex flex-col gap-1">
                   <p className="text-[17px] font-normal leading-[1.2] tracking-[-0.02em] text-artic-grey-400">
@@ -91,7 +94,7 @@ export function WhoWeAreTeamSection() {
               {/* Actions */}
               <div className="flex items-center gap-2">
                 <Link
-                  href="#"
+                  href={member.slug ? `/who-we-are/expert/${member.slug}` : "#"}
                   className="flex flex-1 items-center justify-center rounded-[6px] bg-artic-persian py-2 text-[11px] font-bold text-artic-surface transition-opacity hover:opacity-80"
                 >
                   Learn More →

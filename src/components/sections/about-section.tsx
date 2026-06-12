@@ -92,7 +92,7 @@ export function AboutSection() {
               href="/about"
               className="h-[52px] w-full justify-center rounded-[10px] px-6 text-[16px] md:h-11 md:w-auto md:rounded-[8px] md:text-[14px]"
             >
-              About Artic →
+              Read more →
             </PrimaryButton>
             <Link
               href="https://drive.google.com/file/d/1Yef8xa2BZx2eZr2RsG_aP-1elIsmWlY0/view?usp=drive_link"
@@ -100,7 +100,7 @@ export function AboutSection() {
               rel="noopener noreferrer"
               className="flex h-[52px] w-full items-center justify-center rounded-[10px] border border-[#DCDCDC] bg-white px-5 text-[16px] font-semibold text-artic-ebony transition-opacity hover:opacity-80 md:h-11 md:w-auto md:rounded-[8px] md:bg-transparent md:text-[14px] md:text-[#DCDCDC]"
             >
-              Download Compro PDF
+              Company Profile
             </Link>
           </div>
         </div>

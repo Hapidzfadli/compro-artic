@@ -24,7 +24,7 @@ const MEMBERS: Member[] = [
     quote: '"Drs. Yuwanto contributes deep expertise in political science and government affairs to Artic Analytica\'s research initiatives."',
   },
   {
-    name: "HUNTAL HUTAPEA, S.A.P., M.SI., M.ED",
+    name: "Huntal Hutapea, S.A.P., M.Si., M.Ed.",
     role: "PUBLIC POLICY EXPERT",
     photo: "/images/users-profile/Huntal%20Hetapea,%20S.A.P.,%20M.Si.,%20M.Ed.png",
     cardPhoto: "/images/users-profile/Huntal%20Hetapea,%20S.A.P.,%20M.Si.,%20M.Ed.png",
@@ -211,7 +211,7 @@ export function VideoCardSection() {
         <div className="flex flex-col gap-4">
           <SectionLabel variant="white">ARTIC PEOPLE</SectionLabel>
           <h2 className="max-w-[224px] text-[34px] font-medium leading-[1.1] tracking-[-1px] text-white md:max-w-none md:text-[44px]">
-            Professional Behind
+            Professionals behind
             <span className="text-artic-teal-light md:block">Artic Analytica</span>
           </h2>
         </div>
@@ -269,11 +269,11 @@ export function VideoCardSection() {
                   style={{ background: "linear-gradient(to top, #161616 0%, rgba(22,22,22,0) 100%)" }}
                 />
 
-                <div className="absolute inset-x-[13px] bottom-[15px] z-10 flex flex-col gap-0.5">
-                  <p className="text-[16px] font-bold leading-[1.4] tracking-[-0.32px] text-white">
+                <div className="absolute inset-x-[10px] bottom-[13px] z-10 flex flex-col gap-0.5">
+                  <p className="text-[14px] font-bold leading-[1.4] tracking-[-0.28px] text-white">
                     {member.name}
                   </p>
-                  <p className="text-[12px] font-normal uppercase leading-[1.4] tracking-[-0.24px] text-artic-teal-light">
+                  <p className="text-[11px] font-normal uppercase leading-[1.4] tracking-[-0.22px] text-artic-teal-light">
                     {member.role}
                   </p>
                 </div>
@@ -349,15 +349,15 @@ export function VideoCardSection() {
                 />
 
                 <div
-                  className="pointer-events-none absolute bottom-8 left-1/2 flex w-50 flex-col items-center gap-1 text-center"
+                  className="pointer-events-none absolute bottom-8 left-1/2 flex w-48 flex-col items-center gap-1 text-center"
                   style={{
                     opacity: isExpanded ? 1 : 0,
                     transform: `translateX(-50%) translateY(${isExpanded ? 0 : 20}px)`,
                     transition: "opacity 0.4s ease, transform 0.4s ease",
                   }}
                 >
-                  <p className="w-full text-[28px] font-normal leading-[1.3] tracking-[-0.84px] text-white">{member.name}</p>
-                  <p className="w-full text-[16px] font-extrabold uppercase tracking-[0.96px] text-artic-teal-light">{member.role}</p>
+                  <p className="w-full text-[23px] font-normal leading-[1.3] tracking-[-0.69px] text-white">{member.name}</p>
+                  <p className="w-full text-[13px] font-extrabold uppercase tracking-[0.78px] text-artic-teal-light">{member.role}</p>
                 </div>
               </motion.div>
             );

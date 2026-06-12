@@ -572,7 +572,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean }) {
         <div className="mt-6 flex flex-col items-center justify-between gap-4 md:flex-row">
           <div className="flex items-center gap-4">
             <span className="text-[12px] font-medium text-white lg:text-[13px]">
-              Follow Artic
+              Connect with us
             </span>
             <div className="flex items-center">
               {SOCIALS.map(({ label, href, iconSrc, iconText }) => (

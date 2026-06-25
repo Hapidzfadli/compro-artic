@@ -153,7 +153,7 @@ export function WhoWeAreExpertSectionResponsive() {
                     Learn More →
                   </Link>
                   <div className="flex gap-2">
-                    <a href="#" className="flex items-center justify-center rounded-[6px] bg-artic-teal-100 p-2.5 transition-opacity hover:opacity-70" aria-label="Instagram">
+                    <a href="https://www.instagram.com/artic.analytica/" className="flex items-center justify-center rounded-[6px] bg-artic-teal-100 p-2.5 transition-opacity hover:opacity-70" aria-label="Instagram">
                       <span className="text-[11px] font-bold text-artic-ebony">IG</span>
                     </a>
                     <a href="#" className="flex items-center justify-center rounded-[6px] bg-artic-teal-100 p-2.5 transition-opacity hover:opacity-70" aria-label="LinkedIn">

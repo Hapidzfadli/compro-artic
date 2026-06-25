@@ -70,7 +70,7 @@ export function ExpertProfileBioSection({ expert }: { expert: Expert }) {
           {/* Left: IG + LinkedIn */}
           <div className="flex gap-2">
             <a
-              href="#"
+              href="https://www.instagram.com/artic.analytica/"
               className="flex h-[42px] w-[58px] items-center justify-center rounded-[8px] bg-artic-teal-light p-2 transition-opacity hover:opacity-70"
               aria-label="Instagram"
             >

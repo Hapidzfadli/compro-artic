@@ -44,7 +44,7 @@ const RESOURCE_LINKS = [
 ];
 
 const SOCIALS = [
-  { label: "Instagram", href: "https://instagram.com/articanalytica", iconSrc: "/images/footer/social-instagram.svg" },
+  { label: "Instagram", href: "https://www.instagram.com/artic.analytica/", iconSrc: "/images/footer/social-instagram.svg" },
   { label: "YouTube", href: "https://youtube.com", iconSrc: "/images/footer/social-youtube.svg" },
   { label: "LinkedIn", href: "https://linkedin.com/company/articanalytica", iconSrc: "/images/footer/social-linkedin.svg" },
   { label: "Twitter/X", href: "https://twitter.com/articanalytica", iconText: "X" },
@@ -190,7 +190,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean }) {
                 </p>
                 <div className="flex flex-col gap-[18px]">
                   <Link
-                    href="https://www.google.com/maps/place/MG+Setos"
+                    href="https://maps.app.goo.gl/PjSSLGwmr4G85w6w9"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[14px] font-normal leading-[1.4] tracking-[-0.28px] text-[#DCDCDC] transition-colors hover:text-artic-teal-light"
@@ -198,7 +198,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean }) {
                     MG Setos, Jl. Inspeksi Lt 3, Kembangsari, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah 50133
                   </Link>
                   <Link
-                    href="https://www.google.com/maps/place/MG+Setos"
+                    href="https://maps.app.goo.gl/PjSSLGwmr4G85w6w9"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[12px] font-extrabold uppercase leading-[1.3] tracking-[0.72px] text-artic-teal-light transition-opacity hover:opacity-80"
@@ -489,7 +489,7 @@ export function Footer({ hideCta = false }: { hideCta?: boolean }) {
               ADDRESS
             </p>
             <Link
-              href="https://www.google.com/maps/place/MG+Setos"
+              href="https://maps.app.goo.gl/PjSSLGwmr4G85w6w9"
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col gap-3"

@@ -34,7 +34,7 @@ export function WhoWeAreCeoSection() {
               <div className="flex gap-2">
                 {/* Instagram */}
                 <a
-                  href="#"
+                  href="https://www.instagram.com/artic.analytica/"
                   className="flex items-center justify-center rounded-[4px] bg-white p-4 text-artic-grey-400 transition-opacity hover:opacity-70 md:rounded-lg"
                   aria-label="Instagram"
                 >

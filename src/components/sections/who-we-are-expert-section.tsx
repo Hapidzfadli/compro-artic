@@ -162,7 +162,7 @@ export function WhoWeAreExpertSection() {
                   <div className="flex gap-2">
                     {/* Instagram */}
                     <a
-                      href="#"
+                      href="https://www.instagram.com/artic.analytica/"
                       className="flex items-center justify-center rounded-[6px] bg-artic-teal-100 p-2.5 transition-opacity hover:opacity-70"
                       aria-label="Instagram"
                     >

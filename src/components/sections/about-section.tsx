@@ -132,6 +132,7 @@ export function AboutSection() {
           src="/images/about-us/thumbnail.jpg"
           alt="Company profile video thumbnail"
           className="relative z-10 h-60 md:h-90 lg:h-120"
+          videoSrc="https://drive.google.com/file/d/1H-gCr9Oc_MqCBbomwItI0T-Hnpn-munF/preview"
         />
       </div>
     </section>

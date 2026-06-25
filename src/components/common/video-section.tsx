@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Container } from "@/components/layout/container";
@@ -91,31 +94,60 @@ interface VideoCardProps {
   src: string;
   alt?: string;
   className?: string;
+  videoSrc?: string;
 }
 
-export function VideoCard({ src, alt = "", className }: VideoCardProps) {
+export function VideoCard({ src, alt = "", className, videoSrc }: VideoCardProps) {
+  const [isPlaying, setIsPlaying] = useState(false);
+
   return (
-    <div className={cn("group relative h-64 cursor-pointer overflow-hidden rounded-[15px] md:h-110 lg:h-120", className)}>
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        className="object-cover transition-transform duration-700 group-hover:scale-105"
-      />
+    <div className={cn("group relative h-64 overflow-hidden rounded-[15px] md:h-110 lg:h-120", className)}>
+      {isPlaying && videoSrc ? (
+        <>
+          <iframe
+            src={videoSrc}
+            className="absolute inset-0 h-full w-full"
+            allow="autoplay"
+            allowFullScreen
+          />
+          <button
+            onClick={() => setIsPlaying(false)}
+            className="absolute right-3 top-3 z-10 flex size-8 cursor-pointer items-center justify-center rounded-full bg-black/60 text-white transition-opacity hover:opacity-80"
+            aria-label="Close video"
+          >
+            ✕
+          </button>
+        </>
+      ) : (
+        <button
+          onClick={() => videoSrc && setIsPlaying(true)}
+          className={cn("absolute inset-0 w-full", videoSrc ? "cursor-pointer" : "cursor-default")}
+          aria-label="Play video"
+        >
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/20" />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/20" />
 
-      {/* Indigo multiply overlay — muncul saat hover */}
-      <div className="absolute inset-0 bg-indigo-800 opacity-0 mix-blend-multiply transition-opacity duration-500 group-hover:opacity-75" />
+          {/* Indigo multiply overlay — muncul saat hover */}
+          {videoSrc && (
+            <div className="absolute inset-0 bg-indigo-800 opacity-0 mix-blend-multiply transition-opacity duration-500 group-hover:opacity-75" />
+          )}
 
-      {/* Dark ellipse — opacity rendah default, penuh saat hover */}
-      <div className="pointer-events-none absolute left-1/2 top-[75%] h-318.5 w-[280%] -translate-x-1/2 rounded-full bg-neutral-900 opacity-30 blur-[300px] transition-opacity duration-500 group-hover:opacity-100" />
+          {/* Dark ellipse */}
+          <div className="pointer-events-none absolute left-1/2 top-[75%] h-318.5 w-[280%] -translate-x-1/2 rounded-full bg-neutral-900 opacity-30 blur-[300px] transition-opacity duration-500 group-hover:opacity-100" />
 
-      {/* Play button */}
-      <div className="absolute inset-0 flex items-center justify-center overflow-visible">
-        <PlayButton />
-      </div>
+          {/* Play button */}
+          <div className="absolute inset-0 flex items-center justify-center overflow-visible">
+            <PlayButton />
+          </div>
+        </button>
+      )}
     </div>
   );
 }
@@ -124,6 +156,7 @@ interface VideoSectionProps {
   label: string;
   src: string;
   alt?: string;
+  videoSrc?: string;
   labelVariant?: SectionLabelVariant;
   className?: string;
 }
@@ -132,6 +165,7 @@ export function VideoSection({
   label,
   src,
   alt,
+  videoSrc,
   labelVariant = "dark",
   className,
 }: VideoSectionProps) {
@@ -141,7 +175,7 @@ export function VideoSection({
         <div className="mb-4">
           <SectionLabel variant={labelVariant}>{label}</SectionLabel>
         </div>
-        <VideoCard src={src} alt={alt} />
+        <VideoCard src={src} alt={alt} videoSrc={videoSrc} />
       </Container>
     </section>
   );

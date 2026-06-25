@@ -130,6 +130,7 @@ export function VideoCardSection() {
   const [animated, setAnimated] = useState(true);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [profileIndex, setProfileIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
   const jumping = useRef(false);
   const sectionRef = useRef<HTMLElement>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -499,29 +500,49 @@ export function VideoCardSection() {
         </div>
 
         <div className="group relative h-[339px] w-full overflow-hidden rounded-xl md:h-100 md:w-130 md:shrink-0 md:rounded-[15px]">
-          <Image src="/images/video-card/image-25.png" alt="Video thumbnail" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
-          <div className="absolute inset-0 bg-black/30 transition-colors duration-300 group-hover:bg-black/50" />
-          {/* Glow video — blur dikurangi di mobile */}
-          <div
-            className="pointer-events-none absolute mix-blend-plus-lighter md:hidden"
-            style={{ bottom: -80, right: -100, width: 400, height: 200, background: "#53F2AA", borderRadius: 9999, filter: "blur(30px)", opacity: 0.10 }}
-          />
-          <div
-            className="pointer-events-none absolute mix-blend-plus-lighter hidden md:block"
-            style={{ bottom: -80, right: -100, width: 600, height: 300, background: "#53F2AA", borderRadius: 9999, filter: "blur(80px)", opacity: 0.12 }}
-          />
-          {/* Watch Profile text — appears from top-left on hover */}
-          <div className="absolute left-5 top-5 transition-all duration-300 md:-translate-x-3 md:opacity-0 md:group-hover:translate-x-0 md:group-hover:opacity-100">
-            <SectionLabel variant="white">Watch Profile</SectionLabel>
-          </div>
-          {/* Play button with pulse animation */}
-          <button className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <span className="relative flex size-[98px] items-center justify-center">
-              {/* Pulse ring */}
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-white/20 duration-1000" />
-              <Image src="/images/video-card/play.svg" alt="Play video" width={80} height={80} className="relative transition-transform duration-300 group-hover:scale-110" />
-            </span>
-          </button>
+          {isPlaying ? (
+            <>
+              <iframe
+                src="https://drive.google.com/file/d/1H-gCr9Oc_MqCBbomwItI0T-Hnpn-munF/preview"
+                className="absolute inset-0 h-full w-full"
+                allow="autoplay"
+                allowFullScreen
+              />
+              <button
+                onClick={() => setIsPlaying(false)}
+                className="absolute right-3 top-3 z-10 flex size-8 items-center justify-center rounded-full bg-black/60 text-white transition-opacity hover:opacity-80"
+                aria-label="Close video"
+              >
+                ✕
+              </button>
+            </>
+          ) : (
+            <>
+              <Image src="/images/video-card/image-25.png" alt="Video thumbnail" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-black/30 transition-colors duration-300 group-hover:bg-black/50" />
+              {/* Glow video — blur dikurangi di mobile */}
+              <div
+                className="pointer-events-none absolute mix-blend-plus-lighter md:hidden"
+                style={{ bottom: -80, right: -100, width: 400, height: 200, background: "#53F2AA", borderRadius: 9999, filter: "blur(30px)", opacity: 0.10 }}
+              />
+              <div
+                className="pointer-events-none absolute mix-blend-plus-lighter hidden md:block"
+                style={{ bottom: -80, right: -100, width: 600, height: 300, background: "#53F2AA", borderRadius: 9999, filter: "blur(80px)", opacity: 0.12 }}
+              />
+              {/* Watch Profile text — appears from top-left on hover */}
+              <div className="absolute left-5 top-5 transition-all duration-300 md:-translate-x-3 md:opacity-0 md:group-hover:translate-x-0 md:group-hover:opacity-100">
+                <SectionLabel variant="white">Watch Profile</SectionLabel>
+              </div>
+              {/* Play button with pulse animation */}
+              <button onClick={() => setIsPlaying(true)} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                <span className="relative flex size-[98px] items-center justify-center">
+                  {/* Pulse ring */}
+                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-white/20 duration-1000" />
+                  <Image src="/images/video-card/play.svg" alt="Play video" width={80} height={80} className="relative transition-transform duration-300 group-hover:scale-110" />
+                </span>
+              </button>
+            </>
+          )}
         </div>
       </div>
 
